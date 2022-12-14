@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptOrigin3" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5451147a-3b59-4fbe-bb79-be8bea4770df">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[bGVhZCBBUyAsMTgsMjIsYzVhMDY4NGUtYzUwMS00M2E2LWE3YjYtZjljOTI2NWQyODczO29yaWdp
+biBBUyAsMjQwLDMxLGU3YTUwM2M3LTYzZTMtNDM1Ny04YmE5LWM3ZWRhNTEyZTA4ZDs=
+]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgressSQL"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT origin.id_origin,
+	origin.name,
+	lead.id_lead,
+	lead.lead_date
+FROM lead
+	INNER JOIN origin ON 
+	 lead.id_origin = origin.id_origin]]>
+	</queryString>
+	<field name="id_origin" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_origin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="origin"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="origin"/>
+	</field>
+	<field name="id_lead" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_lead"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lead"/>
+	</field>
+	<field name="lead_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="lead_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="lead"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="qQuotesCustomers_a" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="27b0a0fc-2876-421b-b685-ca3c7f5f7913">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgressConnect"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="date1" class="java.util.Date"/>
+	<parameter name="date2" class="java.util.Date"/>
+	<parameter name="idCus" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM v_quotes
+WHERE idCustomer = $P{idCus} AND created_date BETWEEN $P{date1} AND $P{date2}]]>
+	</queryString>
+	<field name="created_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="created_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="nro_rfq" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nro_rfq"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="stat_quote" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="stat_quote"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="tot_items" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="tot_items"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="new_customer" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="new_customer"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="id_customer" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id_customer"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="customer_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="estimator" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="estimator"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="seller" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="seller"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="tesla_sub_contrator" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tesla_sub_contrator"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="cell_phone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cell_phone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="contact_email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contact_email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="contact_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contact_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="contact_phone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contact_phone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="created_date1" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="created_date1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="quote_notes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="quote_notes"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="printfob" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="printfob"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="print_lead_time" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="print_lead_time"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="print_materials" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="print_materials"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="print_tolerance" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="print_tolerance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="print_fob" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="print_fob"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="lastupdate_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="lastupdate_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="date_order_received" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="date_order_received"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="order_received" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="order_received"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="idcustomer" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="idcustomer"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<field name="desc_new_customer" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="desc_new_customer"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="v_quotes"/>
+	</field>
+	<sortField name="created_date" order="Descending"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="2" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="194" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="570" height="100" uuid="18eb5db6-6563-4555-bd9d-43cb8f0c867d"/>
+				<imageExpression><![CDATA["file:/C:/Develop/smiwebapp/target/classes/static/images/logo-smi-new.png"]]></imageExpression>
+			</image>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="461" y="70" width="100" height="14" uuid="57b2f9e7-b9bf-417b-a3fe-b8af026cd325"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="405" y="98" width="170" height="6" uuid="177cb340-1bfd-49dd-b680-7af6e10757e7"/>
+				<imageExpression><![CDATA["file:/C:/Develop/smiwebapp/src/main/resources/static/images/line1.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="144" width="569" height="20" backcolor="#FFFFFF" uuid="47333958-d5f6-4328-ae79-f65b09b9584e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quotes per Customer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="122" width="90" height="18" uuid="e4022375-01df-4cc8-bcb8-b01fe34797e4"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="160" width="60" height="18" uuid="c8de7fcf-e3d4-4d8b-9025-b204c42e1a39"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Start Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="160" width="60" height="18" uuid="10c57c9f-0126-495a-98bd-3dcbc74e78bc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[End Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="122" width="100" height="18" uuid="212b95f9-c9d8-4a36-8c61-334fb885ecf1"/>
+				<textElement>
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMM d, yyyy">
+				<reportElement x="230" y="160" width="80" height="14" uuid="402f99c5-3bf3-45f9-aed7-793f6ce8bd5f"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMM d, yyyy">
+				<reportElement x="376" y="160" width="94" height="15" uuid="10e292fd-c179-4d04-826d-dea9820a0e7e"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="547" y="50" width="18" height="16" uuid="22c8f69e-d405-4713-b4c7-a665ab566170"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="518" y="50" width="30" height="16" uuid="f5e2c4b8-df1d-488b-89e3-35a05b4c9884"/>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="571" height="21" backcolor="rgba(182, 187, 212, 0.5803922)" uuid="d21f7606-4db9-4caf-9a62-368c833ae822"/>
+				<graphicElement>
+					<pen lineColor="rgba(0, 0, 0, 0.0)"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="4" width="60" height="21" uuid="b28c306e-1226-4138-84d0-cb8aec3c209c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c29a3e30-764e-44b7-91c5-d20f90284b2b"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro Rfq]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="4" width="87" height="21" uuid="988e023d-e3ab-4257-9b78-44d7d1f100e7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f63c199-f711-466d-bb17-4b9134261357"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="167" y="4" width="70" height="21" uuid="06a16492-075f-4a85-952d-4ad244303342">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d26579a-e03b-4cc5-b360-06dfadef07ca"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salesman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="265" y="4" width="55" height="21" uuid="284d00c2-ea0c-4914-8d04-c17a36cb779b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c0880499-789e-4a79-8dc7-0ecf7750ca9f"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estimator]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="4" width="66" height="21" uuid="262710c1-84e0-4eb5-bde2-379eea8daf12">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a11f995-1905-4393-b3d8-7b056c19778a"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Items]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="4" width="80" height="21" uuid="670b23d8-08f0-4130-bb01-19e2a4a21fb5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d3bc33b5-26ff-455e-9640-1cacb60cf395"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[New Customer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="4" width="49" height="21" uuid="8d1f3de7-70c4-40fd-a72c-ea756e6f7389">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="daeebad5-aba5-4677-b076-88cc58d1d467"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="4" y="-2" width="60" height="20" uuid="d00b8ca4-c7c9-4bce-975f-222da427ccea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c29a3e30-764e-44b7-91c5-d20f90284b2b"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nro_rfq}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="-2" width="90" height="22" uuid="3a5be36e-65f8-4b2b-b507-a14881718535">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f63c199-f711-466d-bb17-4b9134261357"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{created_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="-2" width="87" height="22" uuid="c24aa975-e397-410d-974b-292f09e4d4e1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d26579a-e03b-4cc5-b360-06dfadef07ca"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seller}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="-2" width="114" height="22" uuid="0e0159c3-5261-49d6-806b-8ec0e7b46c2e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c0880499-789e-4a79-8dc7-0ecf7750ca9f"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estimator}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="-2" width="32" height="22" uuid="c9de20ad-afcb-44a0-8710-3812222009d1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a11f995-1905-4393-b3d8-7b056c19778a"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tot_items}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="-2" width="35" height="22" uuid="aedbdf9e-0f54-4f3b-a6a4-7f759bbfa852">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d3bc33b5-26ff-455e-9640-1cacb60cf395"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desc_new_customer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="483" y="-2" width="92" height="21" uuid="2bab9d8a-6c2f-407f-9671-a49a35a769a9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="daeebad5-aba5-4677-b076-88cc58d1d467"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="380" y="0" width="150" height="18" uuid="3aa0f27a-a011-4f6b-9024-63ffb3a83cd4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total quotes in this Period :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="520" y="0" width="65" height="22" uuid="ec8a3d5f-5577-4596-8db4-8d7a7ae1f86a"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="67" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="3" width="170" height="6" uuid="6ed10480-58f5-4a07-b7fb-385f9202a2b4"/>
+				<imageExpression><![CDATA["file:/C:/Develop/smiwebapp/src/main/resources/static/images/line1.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="1" y="9" width="570" height="15" uuid="307cae62-cbc1-4f1f-980d-740efe977560"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Please, Visit our website, you'd be amazed at what can do for you!]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-3" y="22" width="570" height="15" uuid="95c7e038-5efd-4ce8-90b6-ced226ba4ecd"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[11915 Shoemaker Ave, Santa Fe Springs CA 90670   800-423-4777 562-944-0291  Fax 562-9469439 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="35" width="570" height="15" forecolor="#1D1DCC" uuid="916c9e08-02fd-43a2-8ef0-e670ab07ae06"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[www.sealmethodsinc.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="49" width="181" height="18" uuid="2370068a-b2c6-44f3-b37f-fd9213f28617"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[qQuotesCustomers_a.jrxml]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="16" splitType="Stretch"/>
+	</summary>
+</jasperReport>

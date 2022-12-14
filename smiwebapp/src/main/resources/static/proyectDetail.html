@@ -1,0 +1,841 @@
+	<div>
+<div class="">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Project Detail <small> design</small></h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Proyect : {{currProyect.companyId}}</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                      <ul class="stats-overview">
+                        <li>
+                          <span class="name"> Total Investment </span>
+                          <span class="value text-success" ng-bind="currProyect.todayInsvement | currency:USD$"></span>
+                        </li>
+                        <li class="hidden-phone">
+                          <span class="name"> Term </span>
+                          <span class="value text-success" ng-if="currProyect.termsOption==1"> 5 Years</span>
+                          <span class="value text-success" ng-if="currProyect.termsOption==2"> 10 Years</span>
+                          <span class="value text-success" ng-if="currProyect.termsOption==3"> 15 Years</span>
+                          <span class="value text-success" ng-if="currProyect.termsOption==4"> 20 Years</span>
+                          <span class="value text-success" ng-if="currProyect.termsOption==5"> 25 Years</span>
+                          <span class="value text-success" ng-if="currProyect.termsOption==6"> 30 Years</span>
+                        </li>
+                        <li>
+                          <span class="name"> Total Expensives  </span>
+                          <span class="value text-primary" ng-bind="totExpPr  | currency:USD$"></span>
+                        </li>
+
+                      </ul>
+                      <br />
+
+
+
+
+                       
+			              
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2><i class="fa fa-bars"></i> Management <small> & Expenses</small></h2>
+			                    <ul class="nav navbar-right panel_toolbox">
+			                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+			                      </li>
+			                      <li class="dropdown">
+			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+			                        <ul class="dropdown-menu" role="menu">
+			                          <li><a href="#">Settings 1</a>
+			                          </li>
+			                          <li><a href="#">Settings 2</a>
+			                          </li>
+			                        </ul>
+			                      </li>
+			                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+			                      </li>
+			                    </ul>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+			                  
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a data-target="#tab_content1" href="" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Basics</a>
+                        </li>
+                        <li role="presentation" class=""><a data-target="#tab_content2" href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Financial Data</a>
+                        </li>
+                        <li ng-if="role == 'ADMIN'" role="presentation" class=""><a data-target="#tab_content3" href="" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Funding</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                          <p>
+			                          <div class="panel-body">
+			                            <p><strong>Address</strong>
+			                            </p>
+			                            {{currProyect.address.name }} 
+			                          </div>
+			                          
+			                          <div class="panel-body">
+			                            <p><strong>Property Ownerss</strong>
+			                            </p> 
+			                            <div><span ng-repeat="le in currProyect.clients">- {{le.sureName + " " + le.lastName + "  "}} <strong>Phone : </strong> {{le.cellPhone}} </span><br /></div>
+			                            
+			                          </div>
+			                          
+			                          <div class="panel-body">
+			                          	
+			                          </div>									      
+								      
+								      
+								      <div class="clearfix"></div>
+								      <ul class="stats-overview">
+								      
+			                  <div>
+			                        
+			                  		<button  type="button" data-toggle="modal" data-target="#details" class="btn btn-success btn-xs">...More Details</button>
+			                  		<a ng-if="role == 'ADMIN'" href="#" class="btn btn-primary btn-xs" ng-click="addExpense(currProyect.idProyect)"><i class="fa fa-folder"></i> Add Expenses </a>
+			                  </div>                          
+                          </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                          <p>
+								      
+								                                
+                        <form id="wizard1"class="form-horizontal form-label-left" ng-submit="updateDetails()">
+                          
+                          <br />
+                          <br />
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Contrator <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currProyect.contrator.idContrator" ng-options="contrators.idContrator as contrators.descContrator for contrators in contrators">
+                              </select>
+                            </div>
+                          </div>
+                          
+                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Payment Method <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currProyect.paymentMethod" ng-options="tipoPago.idtipoPago as tipoPago.desctipoPago for tipoPago in tipoPago">
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="form-group" ng-if="currProyect.paymentMethod == 1 || currProyect.paymentMethod == 3">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Financial <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currProyect.financial.idFinancial" ng-options="financials.idFinancial as financials.descFinancial for financials in financials">
+                              </select>
+                            </div>
+                          </div>   
+                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Today's Investment $ <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="last-name" name="last-name" required="required" ng-model="currProyect.todayInsvement" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>   
+										           
+										           <div class="form-group" ng-if="currProyect.paymentMethod == 3">
+										                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cashPay">Financial Payment <span class="required">*</span>
+										                 </label>
+										                 <div class="col-md-6 col-sm-6 col-xs-12">
+										                      <input type="text" id="cashPay" name="cashPay" ng-model="currProyect.financialAmount" required="required"  class="form-control col-md-7 col-xs-12">
+										                 </div>
+										           </div>
+										                                          
+										           <div class="form-group" ng-if="currProyect.paymentMethod == 3" >
+										                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cashPay">Cash Payment <span class="required">*</span>
+										                 </label>
+										                 <div class="col-md-6 col-sm-6 col-xs-12">
+										                      <input type="text" id="cashPay" name="cashPay" ng-model="currProyect.cashAmount" required="required"  class="form-control col-md-7 col-xs-12">
+										                 </div>
+										           </div>	
+										           
+										             
+										                                 
+                                            
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Annual Payment $ <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="last-name" name="last-name" required="required" ng-model="currProyect.anualPayment" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>      
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Payment Terms Options <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currProyect.termsOption" ng-options="terminosPago.idTerminoPago as terminosPago.descTerminoPago for terminosPago in terminosPago">
+                              </select>
+                            </div>
+                          </div> 
+
+			               <div class="form-group">
+			               						                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="beds"><span class="required"></span>
+										                              </label>
+			                     <div class="col-md-6 col-sm-6 col-xs-12" ng-if="currProyect.paymentMethod == '1' || currProyect.paymentMethod == '3' ">   
+			                  		<button  type="button" ng-click="clickaddfin()" data-toggle="modal" data-target="#addFinancialId" class="btn btn-success btn-xs">Financials Id</button>
+			                  	 </div>	
+			               </div>
+			               
+			               		                          <div class="ln_solid"></div>
+									                      <div class="form-group">
+									                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+									                          
+									                          <button type="submit" class="btn btn-success" data-dismiss="modal">Update</button>
+									                        </div>
+									                      </div>  
+
+                        </form>  
+                      
+                        <br />
+                        <br />
+                        <br />
+                        
+                        <div class="clearfix"></div>
+								      <ul class="stats-overview">
+                                                
+                          </p>
+                        </div>
+                        
+                        <!------------------------------------------------------------------------------------->
+                        <!--------------------------***** TAB FUNDING ***** ----------------------------------->
+                        <!------------------------------------------------------------------------------------->
+                     
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                          <p> 
+
+		                        <form id="wizard1"class="form-horizontal form-label-left">
+		                          
+		                          <br />
+		                          <br />
+		                          
+		                          
+		                          <div class="form-group">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Funding Payment Method <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="actFund.fundingType" ng-options="tipoPagoF.idtipoPagoF as tipoPagoF.desctipoPagoF for tipoPagoF in tipoPagoF">
+		                              </select>
+		                            </div>
+		                          </div>
+		
+		                          <div class="form-group" ng-if="actFund.fundingType == 0">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Financial Proyect Id <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <select id="select2" data-width="100%" class="form-control" required="required" ng-change="getamountFund()" ng-model="actFund.prf.idProyectFinancial" ng-options="prfinancial.idProyectFinancial as prfinancial.financialId for prfinancial in prfinancialAct">
+		                              </select>
+		                            </div>
+		                          </div>   
+		                          
+			                      <div class="form-group">
+			                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Funding Date <span class="required">*</span>
+			                            </label>
+			                            <div class="col-md-6 col-sm-6 col-xs-12">
+			                              <input id="appdate" ng-model="actFund.fundingDate" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+			                            </div>
+			                      </div> 		
+			                      
+		                          <div class="form-group" ng-if="actFund.fundingType == 1">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Ref Number (Check, Deposit) <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <input type="text" id="last-name" name="last-name" required="required" ng-model="actFund.refNumber" class="form-control col-md-7 col-xs-12">
+		                          </div>
+		                          </div>
+		                          
+		                          <div class="form-group" ng-if="actFund.fundingType == 1">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Bank <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <input type="text" id="last-name" name="last-name" required="required" ng-model="actFund.bank" class="form-control col-md-7 col-xs-12">
+		                          </div>	
+		                          </div>	                          
+		                          
+		                          			                                                
+		                          
+		                          <div class="form-group" ng-if="actFund.fundingType == 0">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Funding Amount $ <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <input type="text" id="last-name" name="last-name" required="required" ng-model="actFund.amount" class="form-control col-md-7 col-xs-12" disabled>
+		                              
+
+		                             </div>
+		                            
+		                            <br />
+						            <br />
+
+                              		<a class="btn btn-success btn-xs" ng-click="addFunding()"><i class="fa fa-plus"></i></a>
+		                          </div>
+		                          
+		                          <div class="form-group" ng-if="actFund.fundingType == 1">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Funding Amount $ <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                             
+		                              <input  type="text" id="last-name" name="last-name" required="required" ng-model="actFund.amount" class="form-control col-md-7 col-xs-12" >
+
+		                             </div>
+		                            
+		                            <br />
+						            <br />
+
+                              		<a class="btn btn-success btn-xs" ng-click="addFunding()"><i class="fa fa-plus"></i></a>
+		                          </div>		                             
+		 
+					               
+					               		                          <div class="ln_solid"></div>
+											                      <div class="form-group">
+											                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+											                          
+											                          
+											                        </div>
+											                      </div>  
+		
+		                        </form> 
+		                        
+							  <div ng-if="totFund > 0">
+							  <table class="table table-striped">
+							                      <thead>
+							                        <tr>
+							                          <th>Funding Date</th>
+							                          <th>Funding Type</th>
+							                          <th>Description</th>
+							                          <th>Amount</t>
+													  <th></th>
+							  
+							                        </tr>
+							                      </thead>
+							                      <tbody>
+							                        <tr ng-repeat="iv in listfundings track by $index" class="ng-scope">
+							                             		<td>{{iv.fundingDate | date:'MM/dd/yyyy'}}</td>
+							                             		<td ng-if="iv.fundingType == 0">Financial</td>
+							                             		<td ng-if="iv.fundingType == 1">Cash</td>
+							                             		<td ng-if="iv.fundingType == 0" ng-bind="'Proyect ID : ' + iv.prf.financialId + '  ' + iv.prf.financial.descFinancial"></td>
+							                             		<td ng-if="iv.fundingType == 1" ng-bind="'Ref Number (Check, Deposit) :  ' + iv.refNumber + '    ' + iv.bank" ></td>
+							                             		<td>{{iv.amount}}</td>
+																<td>
+							                           					<a class="btn btn-danger btn-xs" ng-click="deleteprFunding($index)"><i class="fa fa-trash-o"></i></a>
+																</td>
+																
+									
+														   
+							                        </tr>
+							
+							                      </tbody>
+							
+							      </table>
+							 </div>
+                          
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+			
+			                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+								      
+								      </ul>
+								      
+								      <ul class="nav navbar-right panel_toolbox">
+			                    </div>
+			
+			                  </div>
+			                  
+						<div id="details" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Proyect Details</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+												<form class="form-horizontal form-label-left" ng-submit="">
+												
+												
+												
+						                                <div ng-if="currProyect.typeConstruction == 1">
+						                                
+						                                          <div class="form-group">
+						                                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="beds"><span class="required"></span>
+										                              </label>
+						                                              <div class="col-md-6 col-sm-6 col-xs-12">
+								                                        <input  type="checkbox" checked="checked" ng-model="currProyect.statLivingroom" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="currProyect.statLivingroom == 1" name="hobbies[]" id="hobby1" class="flat" /> Living Room
+												                                    
+												
+												                        <input  type="checkbox" ng-model="currProyect.statKitchen" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="currProyect.statKitchen == 1" name="hobbies[]" id="hobby2"  class="flat" /> Kitchen 
+												                        <br />    
+												                      </div>           
+						                                          </div>
+						                                	
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="beds">Bedrooms <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="beds" name="beds" ng-model="currProyect.bedNum" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Closets">Closets <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="Closets" name="Closets" ng-model="currProyect.closetNum" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bath">BathRooms <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="bath" name="bath" ng-model="currProyect.bathNum" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Sqft">Sqft <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="Sqft" name="Sqft" ng-model="currProyect.sqft" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>						                                	
+						                                	
+						                                	         <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="proyect.scopeOfwork">Scope of Works <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <textarea class="form-control" rows="3" ng-model="currProyect.scopeOfwork"></textarea>	
+											                            </div>
+											                          </div>		                          
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Notes <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <textarea class="form-control" rows="2" ng-model="currProyect.notes"></textarea>	
+			                                                               <div class="radio">
+													                            <label>
+													                              <input type="radio" ng-model="currProyect.subConstruccion" value="0" class="flat" checked name="iCheck" ng-change='newValue(value)'> Garage Conversion
+													                              
+													                            </label>
+													                            <label>
+													                              <input type="radio" ng-model="currProyect.subConstruccion" value="1" class="flat" name="iCheck" ng-change='newValue(value)'> Adition
+													                            </label>
+													                            <label>
+													                              <input type="radio" ng-model="currProyect.subConstruccion" value="2" class="flat" name="iCheck" ng-change='newValue(value)'> Adition & Garage Conversion
+													                            </label>
+													                       </div>
+											                            </div>
+											                            
+											                            <br />
+											                            
+								                            
+											                          </div>
+						                                
+						                                </div>
+						                                 
+							                                
+							                      		<div ng-if="currProyect.typeRoof == 1">                         
+														 			<div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="existingRoof">Existing Roof <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <input type="text" id="eRoof" name="eRoof" ng-model="currProyect.existingRoof" required="required"  class="form-control col-md-7 col-xs-12">
+											                            </div>
+											                          </div> 
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roofType">Type Roof <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+												                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currProyect.roof" ng-options="roofs as roofs.descRoof for roofs in roofs">
+												                              </select>
+									                                     </div>
+											                          </div> 
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sqftRoof">Sq. Ft. <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <input type="text" id="sRoof" name="sRoof" ng-model="currProyect.sqftRoof" required="required"  class="form-control col-md-7 col-xs-12">
+											                            </div>
+											                          </div>		                          		                          		                          
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="colorRoof">Color <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <input type="text" id="cRoof" name="cRoof" ng-model="currProyect.roofColor" required="required"  class="form-control col-md-7 col-xs-12">
+											                            </div>
+											                          </div>	
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="currProyect.rootscopeOfwork">Scope of Works <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <textarea class="form-control" rows="3" ng-model="currProyect.roofScopeOfWork"></textarea>	
+											                            </div>
+											                          </div>		                          
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Notes <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <textarea class="form-control" rows="2" ng-model="currProyect.roofNotes"></textarea>	
+											                            </div>
+											                          </div>
+											               </div>          
+							                     
+														  <div class="ln_solid"></div>
+									                      <div class="form-group">
+									                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+									                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Return</button>
+									                          <a ng-if="currProyect.statProyect == 0"><button  ng-click="updateDetails()" type="submit" class="btn btn-success" data-dismiss="modal">Update</button></a>
+									                        </div>
+									                      </div>
+						                      
+							                        
+											    </form>
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->
+			            
+                      
+                        <h4>Recent Activitys</h4>
+
+                        <!-- end of user messages -->          
+                        <ul class="messages" ng-repeat="act in activitysPr track by $index" class="ng-scope">
+                          <li>
+                            <img ng-src="images/{{act.user.imageUrl}}" class="avatar" alt="Avatar">
+                            <div class="message_date">
+                              <h3 class="date text-info">{{act.fecRecord | date:'dd'}}</h3>
+                              <p class="month">{{act.fecRecord | date:'MMM'}}</p>
+                            </div>
+                            <div class="message_wrapper">
+                              <h4 class="heading">{{act.user.name + " " + act.user.lastName}}</h4>
+                              <blockquote class="message" ng-bind="act.descActividad"> </blockquote> 
+               
+                              <br />
+                              <p class="url" ng-if="act.fileName != null">
+                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                <a href="#"><i class="fa fa-paperclip"></i> {{act.fileName}} </a>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                        <!-- end of user messages -->
+
+
+                      </div>
+
+
+                    </div>
+
+                    <!-- start project-detail sidebar -->
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+
+                      <section class="panel">
+
+                        <div class="x_title">
+                          <h2>Project Description</h2>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body">
+                          <h3 class="green"><i class="fa fa-paint-brush"></i> Scope of Work</h3>
+
+                          
+                          <div ng-if="currProyect.typeConstruction==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeWinDoors==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeAc==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeConcrete==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeRoof==1"><p class="message" ng-bind="currProyect.roofScopeOfWork"></p></div>
+                          
+                          
+                          
+                          
+                          <br />
+
+                          <div class="project_detail">
+
+                            <p class="title">Proyect Date</p>
+                            <p>{{ currProyect.proyectDate | date:'dd/MMM/yyyy' }}</p>
+                            <p class="title">Project Leader</p>
+                            <p>{{ currProyect.leader.name + " " + currProyect.leader.lastName }}</p>
+                            <p ng-if="currProyect.leader2 != null">{{ currProyect.leader2.name + " " + currProyect.leader2.lastName }}</p>
+                            <p><button  type="button" ng-click="buttMember()" data-toggle="modal" data-target="#addMember" class="btn btn-success btn-xs">Add Member</button></p>
+                          </div>
+
+                          <br />
+                          <h5>Project files</h5>
+                          <ul class="list-unstyled project_files" ng-repeat="pr in prFiles track by $index" class="ng-scope" >
+                            <li ng-if="pr.fileType == 'image/jpeg' || pr.fileType == 'image/png' || pr.fileType == 'image/gif'"><a href=""><i class="fa fa-picture-o"></i>{{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == doc"><a href=""><i class="fa fa-file-word-o"></i>{{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == 'application/pdf'"><a href=""><i  class="fa fa-file-pdf-o"></i> {{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == mail"><a href=""><i  class="fa fa-mail-forward"></i> {{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == JPG"><a href=""><i class="fa fa-picture-o"></i> {{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == xlxs"><a href=""><i class="fa fa-file-word-o"></i> {{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == xlx"><a href=""><i class="fa fa-file-word-o"></i> {{ pr.fileName }}</a>
+                            </li>                            
+                            
+                          </ul>
+                          <br />
+
+                          <div class="text-center mtop20">
+                            <button type="file" class="btn btn-sm btn-primary" ngf-select="uploadFiles($file, $invalidFiles)" >Add files</button>
+                            <a ng-if="currProyect.statProyect == 0" href="" class="btn btn-sm btn-warning" ng-click="requestSign()">Sign</a>
+                            <a ng-if="currProyect.statProyect == 2" href="" class="btn btn-sm btn-warning" ng-click="requestSignPree()">Preeliminare</a>
+                            <a ng-if="currProyect.statProyect == 3" href="" class="btn btn-sm btn-warning">Funding</a>
+                          </div>
+                                                  <div ng-if="f.progress < 100">
+													  File:
+													  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+													      <span class="progress" ng-show="f.progress >= 0">
+													          <div style="width:{{f.progress}}%"  
+													               ng-bind="f.progress + '%'"></div>
+													      </span>
+													  </div> 
+													  {{errorMsg}} 
+												  </div> 	                          
+                        </div>
+                        
+						<!-- ***** FINACIAL ID *** -->           
+						<div id="addFinancialId" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Add Financial Id</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+											<form class="form-horizontal form-label-left" ng-submit="">
+											
+										          <div class="form-group">
+						                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Contrator <span class="required">*</span>
+						                            </label>
+						                            <div class="col-md-6 col-sm-6 col-xs-12">
+						                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="financialpr.contrator" ng-options="contrators as contrators.descContrator for contrators in contrators">
+						                              </select>
+						                            </div>
+						                          </div>
+						
+						                          <div class="form-group" ng-if="currProyect.paymentMethod == 1 || currProyect.paymentMethod == 3">
+						                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Financial <span class="required">*</span>
+						                            </label>
+						                            <div class="col-md-6 col-sm-6 col-xs-12">
+						                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="financialpr.financial" ng-options="financials as financials.descFinancial for financials in financials">
+						                              </select>
+						                            </div>
+						                          </div>  
+						                          
+										           <div class="form-group">
+										                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cashPay">Financial Id <span class="required">*</span>
+										                 </label>
+										                 <div class="col-md-6 col-sm-6 col-xs-12">
+										                      <input type="text" id="cashPay" name="cashPay" ng-model="financialpr.financialId" required="required"  class="form-control col-md-7 col-xs-12">
+										                 </div>
+										           </div>						                           
+						                          
+						                          <div class="form-group">
+						                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Total Amount $ <span class="required">*</span>
+						                            </label>
+						                            <div class="col-md-6 col-sm-6 col-xs-12">
+						                              <input type="text" id="last-name" name="last-name" required="required" ng-model="financialpr.amount" class="form-control col-md-7 col-xs-12">
+						                            		<br />
+						                            		<br />
+
+                              								<a class="btn btn-success btn-xs" ng-click="addprfinancial()"><i class="fa fa-plus"></i></a>
+						                            </div>
+						                          </div>   
+						                          
+						                       </form>   
+						                          
+						    <!-- Se Activa esta seccion si hay mas de un Invoice -->	
+							  <div ng-if="totfinancial > 0">
+							  <table class="table table-striped">
+							                      <thead>
+							                        <tr>
+							                          <th>Financial Id</th>
+							                          <th>Financial Name</th>
+							                          <th>Contrator</th>
+							                          <th>Amount</th>
+													  <th></th>
+							  
+							                        </tr>
+							                      </thead>
+							                      <tbody>
+							                        <tr ng-repeat="iv in prfinancial track by $index" class="ng-scope">
+							                             		<td>{{iv.financialId}}</td>
+							                             		<td>{{iv.financial.descFinancial}}</td>
+							                             		<td>{{iv.contrator.descContrator}}</td>
+							                             		<td>{{iv.amount}}</td>
+																<td>
+							                           					<a ng-if="iv.statFunding==0" class="btn btn-danger btn-xs" ng-click="deleteprFinancial($index)"><i class="fa fa-trash-o"></i></a>
+							                           					<span ng-if="iv.statFunding==1" class="label label-success">Funded</span>
+																</td>
+																
+									
+														   
+							                        </tr>
+							
+							                      </tbody>
+							
+							      </table>
+							 </div>
+							  <!-- Fin Se Activa esta seccion si hay mas de un Owner -->              
+										         						                      		                         
+						                       <div class="ln_solid"></div>
+						                       <div class="form-group">
+						                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						                          
+
+						                        </div>
+						                      </div>
+						                      
+					                      
+						                        
+										    
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->                        
+
+
+						<!-- /Ventana Modal *** Cambio de Status *** -->           
+						<div id="addMember" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Add Member</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+											<form class="form-horizontal form-label-left" ng-submit="">
+											
+											
+							                      <div class="form-group">
+							                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Seller(s)</label>
+							                        <div class="col-md-9 col-sm-9 col-xs-12">
+							                          <select id="select2" data-max-options="2" data-width="100%" class="select2_single form-control" required="required" ng-model="newMember" ng-options="sellers.idSeller as sellers.sureName + ' ' + sellers.lastName for sellers in sellers">
+							                          </select>
+							                        </div>
+							                      </div> 
+					                    
+						
+						                      		                         
+						                       <div class="ln_solid"></div>
+						                       <div class="form-group">
+						                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						                          <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="saveMember()">Save</button>
+
+						                        </div>
+						                      </div>
+						                      
+					                      
+						                        
+										    </form>
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->
+
+
+                      </section>
+
+                    </div>
+                    <!-- end project-detail sidebar -->
+
+  	<script type="text/ng-template" id="borrarprFin.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Delete</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="deleteprFinancial(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+    </script>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+   </div>     

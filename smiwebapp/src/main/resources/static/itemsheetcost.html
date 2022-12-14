@@ -1,0 +1,759 @@
+
+
+        <!-- page content -->
+
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Sheet Cost <small>(Quote : {{itemActual.quote.nroRfq}}   /   Customer : {{itemActual.quote.customer.customerName}} )</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content" ng-controller="itemController">
+		      
+		      <!-- ------------------------------------------------------------- -->	
+		      <!----------------------- CAVITIES o TABSS -------------------------->	
+              <!-- ------------------------------------------------------------- -->
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div id="title1" class="x_content">
+
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <h6><strong>Item # :</strong> {{itemActual.itemNumber}}</h6>
+						            <h6><strong>Quote Per :</strong> {{itemActual.qitemType.descitemType}} </h6>
+						            <span><strong>{{itemActual.itemStatus.itemStatusDesc}}</strong></span>
+                            </div>
+                            
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <h6 ng-if="itemActual.itemType.id=='4'"><strong>Part # :</strong> {{itemActual.part.partNumber + " - " +  itemActual.part.partDesc}}</h6>
+                                    <h6 ng-if="(itemActual.itemType.id=='1') || (itemActual.itemType.id=='3') || (itemActual.itemType.id=='2') "><strong>Part # :</strong> {{itemActual.newPartName}}</h6>
+
+						            <h6><strong>Margin % :</strong> {{itemActual.targetPrice}} </h6>
+                                    
+                                    <span ng-if = "itemActual.drawingAva == '1'"><i class="fa fa-check text-success"></i> Drawing <strong> available</strong></spam>
+									<span ng-if = "itemActual.drawingAva == '0'"><i class="fa fa-check text-success"></i> Drawing <strong> available</strong></spam>
+                                    
+													                                    	
+                            </div>
+                            
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+									<span ng-if = "itemActual.cadfileAva == '0'"><i class="fa fa-times text-danger"></i> CAD File <strong> available</strong></span>						            
+ 							        <span ng-if = "itemActual.cadfileAva == '1'"><i class="fa fa-check text-success"></i> CAD File <strong> available</strong></span> 
+ 							        <h6><strong>Qty to Quote :</strong> {{itemActual.quantity}}</h6>  
+ 							        <h6><strong>Suggested Materials :</strong> {{itemActual.suggestMat}}</h6>    
+
+ 					        </div>
+ 					        
+
+
+                    <div class="clearfix"></div>
+
+                  </div>
+                  </div>
+                </div>  
+                
+
+								                         
+								                         
+              </div> 
+              
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Material Information <small>and Process Details</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a data-toggle="collapse" data-target="#Tab1"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a  class="dropdown-toggle" data-toggle="dropdown" data-target="#drop_menu" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul id="drop_menu"  class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div id="Tab1" class="x_content">
+                                               
+                                                <!--  FORM 1 ------------------------------------------------------------ 
+                 
+                 					        		     <div ng-if="(totMat == 0 && totLab == 0)" class="col-md-3 col-sm-3 col-xs-3 input-group input-group-sm">
+								                          <label class="input-group-addon" for="dataY" >Cavities</label>
+								                          <input type="text" class="form-control" id="dataY" ng-model="itemActual.cavities" ng-change="getPrice()">
+							                          
+								                          
+								                         </div>
+								                         								                         
+                 					        		     <div ng-if="(totMat > 0 || totLab > 0)" class="col-md-3 col-sm-3 col-xs-3 input-group input-group-sm">
+								                          <label class="input-group-addon" for="dataY" >Cavities</label>
+								                          <input type="text" class="form-control" id="dataY" ng-model="itemActual.cavities" ng-change="getPrice()" readonly>
+								                          
+								                         </div>	
+								                         
+								              -->           
+								              
+                 					        		     <div  class="col-md-3 col-sm-3 col-xs-3 input-group input-group-sm">
+								                          <label class="input-group-addon" for="dataY" >Cavities</label>
+								                          <input type="text" class="form-control" id="dataY" ng-model="itemActual.cavities" ng-change="getPrice()">
+							                          
+								                          
+								                         </div>								              
+								                         
+								                         <div>
+ 											        	  <a ng-if="(role == '1') || (role == '3') " class="btn btn-info btn-xs" ng-click="pasteClick()" title="Paste Sheet Cost"><i class="fa fa-paste"></i></a>
+							                         	
+								                         </div>			
+									                         					                         
+             
+
+            
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left input_mask">
+                    
+                      <div class="form-group">          
+     
+	                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Mat Width</label>
+	                        
+	    
+	                        
+	                        <div class="col-md-3 col-sm-3 col-xs-12">
+	                          <input type="text" class="form-control" placeholder="" ng-model="matdetail.matWidht" ng-change="getPrice()">
+	                        </div>
+                            
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Um <span class="required">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">                                                             
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="matdetail.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+                              </select>
+                            </div> 
+                            
+                             
+                              
+		                      
+		                      
+		                      <div class="col-md-12 col-sm-12 col-xs-12">
+                  		      
+		                        <div>
+		                        <label class="control-label col-md-3 col-sm-3 col-xs-3">New Material</label>
+		                         <br />
+		                         <div class="col-md-3 col-sm-3 col-xs-3">
+		                        	Y: <input i-Check type="radio" class="flat" name="cust" id="newYes" value="1" ng-model="newC" checked="" required /> 
+		                        	N: <input i-Check type="radio" class="flat" name="cust" id="newNo" value="0" ng-model="newC" />
+		                        </div>
+		                            <div class="col-md-6 col-sm-6 col-xs-6">
+			                          <input type="text" class="form-control" ng-model="matdetail.notesMat"  placeholder="Notes">
+			                        </div>
+		                        
+		                      	</div>	
+		                      	
+		                                                
+
+
+		                      </div>                                                    
+
+                        
+                      </div>
+                      
+                      <div ng-if="newC == '0'" class="form-group">
+                      
+                      <div ng-if="partsAutocomplete==0" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2"  ng-model="matdetail.material.partNumber" placeholder="SMI PART NUMBER">
+                        <code>{{matdetail.material.descMaterial}}</code>
+                        <span class="" aria-hidden="true"></span>
+                        <a href="" class="btn btn-success btn-xs" ng-click="findPartExpandable()" title="Page Table"><i class="fa fa-refresh"></i></a>
+                      </div>  
+                         <!-- ------------------------------------------------------------- 
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="material">Material <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="matdetail.material" ng-change="changeMat()" ng-options="materials as materials.descMaterial for materials in materials track by materials.idMaterial">
+                              </select>
+                            </div>  
+                            
+                         -->                     
+                                                 <div ng-if="partsAutocomplete==1" class="form-group">
+														     <div  class="col-md-9 col-sm-9 col-xs-12" ng-cloak>
+																		  <md-content ng-controller="matExpController as p" >
+																		    <form ng-submit="$event.preventDefault()">
+																		      <p ng-if="button==1">Actual Material <code>&lt;{{matdetail.material.descMaterial}}&gt;</code></p>
+																		      <md-autocomplete
+																		          ng-disabled="p.isDisabled"
+																		          md-no-cache="p.noCache"
+																		          md-selected-item="p.selectedItem"
+																		          md-search-text-change="p.searchTextChange(p.searchText)"
+																		          md-search-text="p.searchText"
+																		          md-selected-item-change="p.selectedItemChange(item)"
+																		          md-items="item in p.querySearch(p.searchText)"
+																		          md-item-text="item.display"
+																		          md-min-length="0"
+																		          placeholder="Pick an existing part from Expandable"
+																		          md-menu-class="autocomplete-custom-template">
+																		        <md-item-template>
+																		          <span class="item-title">
+																		            <md-icon md-svg-icon="images/person.svg"></md-icon>
+																		            <span> {{item.display}} </span>
+																		          </span>
+																		          <span class="item-metadata">
+																		            <span class="item-metastat">
+																		              <strong> Part Id :</strong> {{item.sid}}
+																		            </span>
+																		            <span class="item-metastat">
+																		              <strong>Cost :</strong> {{item.cost}}
+																		            </span>
+																		          </span>
+																		        </md-item-template>
+																		      </md-autocomplete>
+																		    </form>
+																		  </md-content>
+																		  
+														 </div>  
+												 </div>		                              
+                            
+                                                
+                      
+                      </div>
+                      
+                      
+       				  <div class="form-group"> 
+                                                               
+					  
+						  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cost/Um</label>	
+	                      <div ng-if="newC == '1'" class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="number" class="form-control has-feedback-left" id="inputSuccess2"  ng-model="matdetail.costUm" ng-change="getPrice()" placeholder="Cost/Um">
+	                        <span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+	                      
+	                      <div ng-if="newC == '0'" class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="number" class="form-control has-feedback-left" id="inputSuccess2"  ng-model="matExp.unitCost" ng-change="getPrice()" step="0.0001" min="0000000.0000" max="9999999.9999"  placeholder="Cost/Um">
+	                        <span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
+	                      </div>                      
+							
+						  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Total Inches</label>	
+	                      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess3" ng-model="matdetail.lf" ng-change="getPrice()" placeholder="Total Inches">
+	                        <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+                      
+                      </div>
+					  
+					    	
+
+                      <div class="form-group"> 
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" >Progression</label>	
+	                      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess4" ng-model="matdetail.progression" ng-change="getPrice()" placeholder="Progression">
+	                        <span class="fa fa-rotate-left form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+						  
+						  
+						  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Slit Width</label>	
+	                      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess5" ng-model="matdetail.slitWidth" ng-change="getPrice()" placeholder="Slit Width">
+	                        <span class="fa fa-arrows-h form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+                      </div>
+                      
+                      <div class="form-group"> 
+                      	  
+                      	  <label class="control-label col-md-3 col-sm-3 col-xs-12" ># Rolls</label>	
+	                      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left"" id="inputSuccess5" readonly="readonly"  ng-model="matdetail.nroRolls" placeholder="# of Rolls">
+	                        <span class="fa fa-list-ol form-control-feedback left" aria-hidden="true"></span>
+	                      </div>                       
+	                      
+	                      <label class="control-label col-md-3 col-sm-3 col-xs-12" >Yield</label>	
+	                      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess5" readonly="readonly" ng-model="matdetail.yield" placeholder="Yield">
+	                        <span class="fa fa-exclamation-triangle form-control-feedback right" aria-hidden="true"></span>
+	                      </div>   
+                      
+                      </div>          
+                      
+                              
+
+                      <div class="form-group">
+	                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Price each</label>
+	                        <div class="col-md-3 col-sm-3 col-xs-12">
+	                          <input type="text" class="form-control" readonly="readonly" ng-model="matdetail.priceEach" placeholder="">
+	                        </div>
+	                        
+	                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Freight</label>
+	                        <div class="col-md-3 col-sm-3 col-xs-12">
+	                          <input type="text" class="form-control" ng-model="matdetail.freight" ng-change="getPrice()" placeholder="">
+	                        </div>
+                            
+                                            
+                       </div>
+                       
+                       
+                      <div class="form-group">
+	                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Total Cost</label>
+	                        <div class="col-md-3 col-sm-3 col-xs-12">
+	                          <input type="text" class="form-control" readonly="readonly" ng-model="matdetail.totalCost" placeholder="">
+	                        </div>
+       
+                      </div> 
+                     
+                     <br>
+                      
+
+                      
+                                         
+                      
+
+                      
+                      <div class="form-group">
+                        
+                        
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                          <br />
+                          <button ng-if="clearMat == 1" type="submit" ng-click="clickClearDetails()" class="btn btn-primary">Clear</button>
+                          <button ng-if="button == 0" type="submit" ng-click="addMatDetail()" class="btn btn-success">Add Mat</button>
+                          <button ng-if="button == 1" type="submit" ng-click="udpateMatDetails()" class="btn btn-success">Update</button>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+             <!-----------------------------------------------------------------------  --> 
+
+           
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left input_mask">
+                      
+                      <div class="form-group">
+                  
+	                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Tooling <span class="required">*</span>
+	                      </label>
+	                      <div class="col-md-9 col-sm-9 col-xs-12">
+	                         <select id="select2" data-width="100%" class="form-control" required="required" ng-model="matdetail.tool" ng-options="tools as tools.descTool for tools in tools track by tools.id ">
+	                         </select>
+	                      </div>     
+                      
+                      </div>    
+                      
+                      <div class="form-group">
+                  
+	                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Machine <span class="required">*</span>
+	                      </label>
+	                      <div class="col-md-9 col-sm-9 col-xs-12">
+	                         <select id="select2" data-width="100%" class="form-control" required="required" ng-model="matdetail.machine" ng-options="machines as machines.descMachine for machines in machines track by machines.id">
+	                         </select>
+	                      </div>     
+                      
+                      </div>   
+                      
+                      <div class="form-group">                                                                                                                      
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Step Description <span class="required" >*</span>
+                          </label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                            	<textarea class="form-control" rows="5" placeholder="" ng-model="matdetail.stepDescription"></textarea>
+                          </div>
+                      </div>                                                       
+                      
+                      
+                      <div class="form-group">
+                      
+                      	  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Qty/Hour</label>
+	                      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess3" ng-model="matdetail.qtyHour" ng-change="getLaborCost()" placeholder="qty/hour">
+	                        <span class="fa fa-clock-o form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+						  
+						  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Labor Rate</label>
+	                      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess4" ng-model="matdetail.laborRate" ng-change="getLaborCost()" placeholder="Labor Rate">
+	                        <span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+							
+						  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Labor Cost</label>	
+	                      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess5" readonly="readonly" ng-model="matdetail.laborCost" placeholder="Labor Cost">
+	                        <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+                      
+                      </div>
+
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                          <button  ng-if="clearLab == 1" type="submit" ng-click="clickClearDetails()" class="btn btn-primary">Clear</button>
+                          <button ng-if="buttonLab == 0" type="submit" ng-click="addLabDetail()" class="btn btn-success">Add Labor</button>
+                          <button ng-if="buttonLab == 1" type="submit" ng-click="udpateLabDetails()" class="btn btn-success">Update</button>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+               </div> 
+           
+             <!-----------------------------------------------------------------------  --> 
+
+
+
+                    <div class="clearfix"></div>
+
+                  </div>
+                </div>
+              </div> 
+                           
+
+		      <!-- ------------------------------------------------------------- -->	
+		      <!----------------------- END CAVITIES O TABS -------------------------->	
+              <!-- ------------------------------------------------------------- -->
+
+              <!-- ------------------------- COST BREAKDOWN--------------------------->
+              
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Cost <small> Breakdown</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a data-toggle="collapse" data-target="#Tab1"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a  class="dropdown-toggle" data-toggle="dropdown" data-target="#drop_menu" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul id="drop_menu"  class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div id="Tab1" class="x_content">
+                  
+                           <!-- /Materials-->
+		  					<table  ng-if="totMat > 0" id="tbMaterials2" class="table table-striped projects">
+		                      <thead>
+		                        <tr>
+		                          <th>Mat Description</th>
+		                          <th>Unit of Measure</th>
+		                          <th>Prog</th>
+		                          <th>Slit W</th>
+		                          <th>Price Each</th>
+		                          <th>Yield</th>
+								  <th>Freight</th>
+								  <th>Freight Cost</th>
+								  <th>Total Cost</th>
+		                          
+                      
+								  <th style="width: 15%">Action</th>
+		  
+		                        </tr>
+		                      </thead>
+		                      <tbody>
+		                        <tr ng-repeat="mat in matdetails track by $index" class="ng-scope">
+									<td><a ng-href="">{{mat.material.descMaterial}}</a></td>
+									        <td>{{mat.measureUnit.descmeasureUnit}}</td>
+									        <td>{{mat.progression}}</td> 
+									        <td>{{mat.slitWidth}}</td>
+									        <td>{{mat.priceEach | currency:"$":4}}</td>
+									        <td>{{mat.yield}}</td>
+											<td>{{mat.freight}}</td>
+											<td>{{mat.freightCost | currency:"$":6 }}</td>
+		                                    <td>{{mat.totalCost | currency:"$":4}}</td>  
+
+		
+											<td>
+											        <a class="btn btn-info btn-xs" ng-click="clickeditDetails($index)" data-toggle="modal" data-target="#editCustomer"><i class="fa fa-pencil"></i></a>
+		                           					<a class="btn btn-danger btn-xs" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
+											</td>
+											
+				
+									   
+		                        </tr>
+		
+		                      </tbody>
+		
+		                  </table>
+		                  
+                           <!-- /Labor-->
+		  					<table ng-if="totLab > 0" id="tbMaterials3" class="table table-striped">
+		                      <thead>
+		                        <tr>
+		                          <th>Type of Tooling</th>
+		                          <th>Machine Type</th>
+								  <th>Step Description</th>
+								  <th>Qty / Hour</th>
+								  <th>Labor Rate</th>
+								  <th>Labor Cost</th>             
+								  <th style="width: 15%">Action</th>
+		  
+		                        </tr>
+		                      </thead>
+		                      <tbody>
+		                        <tr ng-repeat="lab in labdetails track by $index " class="ng-scope">
+									<td><a ng-href="">{{lab.tool.descTool}}</a></td>
+									        <td>{{lab.machine.descMachine}}</td>
+											<td>{{lab.stepDescription}}</td>
+											<td>{{lab.qtyHour}}</td>
+											<td>{{lab.laborRate | currency:"$":2}}</td>
+		                                    <td>{{lab.laborCost | currency:"$":4}}</td>
+		
+											<td>
+											        <a class="btn btn-info btn-xs" ng-click="clickeditLabDetails($index)" data-toggle="modal" data-target="#editCustomer"><i class="fa fa-pencil"></i></a>
+		                           					<a class="btn btn-danger btn-xs" ng-click="removeLab($index)"><i class="fa fa-trash-o"></i></a>
+											</td>
+											
+				
+									   
+		                        </tr>
+		
+		                      </tbody>
+		
+		                  </table>		                  
+		                           <!-- /total costs-->
+		                    
+					              <div class="col-md-12 col-sm-12 col-xs-12">
+					                <div class="x_panel">
+					
+					                  <div class="x_content">
+					                    <br />
+					                    <form class="form-horizontal form-label-left input_mask">
+                                                
+                                                <!--3 Fields /total costs-->
+                                                
+                                                      
+                                                     
+                                                      
+									                  <div class="col-md-8 col-sm-8 col-xs-8">
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="eaU">Grand Total Material Cost :</label>
+									                        <input type="text" id="eaU" readonly="readonly" class="form-control" name="eaU" ng-model="itemActual.materialCost" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="qtq">Packaging Cost (decimal) * :</label>
+									                        <input type="number" id="qtq" class="form-control" name="qtq" ng-change="updatePack()" ng-model="itemActual.packagingCost" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="targetp">Margin % :</label> <code href="" ng-click="updateCostsug()" data-toggle="modal" data-target="#costsuggest">(Cost Suggested)</code>
+									                        <input type="number" id="targetp" class="form-control" name="targetp" ng-change="updateMargin()" step="0.0001" min="0000000.0000" max="9999999.9999"  ng-model="itemActual.margin" required />
+									                      </div>	
+									                      
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="targetp">Total Labor Cost :</label>
+									                        <input type="text" id="targetp" readonly="readonly" class="form-control" name="targetp" ng-model="itemActual.laborCost" required />
+									                      </div>									                      								                      
+
+
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="targetp">Scrap Rate (decimal) :</label>
+									                        <input type="number" id="targetp" class="form-control" name="targetp" ng-change="updateScrap()" ng-model="itemActual.scrapRate" required />
+									                      </div>									                      
+									                  </div>                                                 
+                                                
+										              <div class="col-md-4 col-sm-4 col-xs-4">
+										                <div class="x_panel">
+										
+										                  <div class="x_content">
+										                    <br />
+										                    <form class="form-horizontal form-label-left input_mask">
+					
+										
+											                      <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+											                        <label for="eaU">NRSU :</label>
+											                        <input type="number" id="eaU" class="form-control" name="eaU" ng-change="updateItem()" ng-model="itemActual.toolingCost" required />
+											                      </div>
+											                      
+											                      <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+											                        <label for="qtq">SMI Total Cost:</label>
+											                        <input type="text" id="qtq" readonly="readonly" class="form-control" name="qtq" ng-model="itemActual.smiTotalCost" required />
+											                      </div>
+											                      
+											                      <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+											                        <label for="targetp">SMI Sale Cost:</label>
+											                        <input type="text" id="targetp" readonly="readonly" class="form-control" name="targetp" ng-model="itemActual.smiSaleCost" required />
+											                      </div>
+									                      																				
+										                    </form>
+										                  </div>
+										                </div>
+										               </div>					
+					
+					                           <!--3 Fields /total costs-->
+					                           
+					                           
+					                      <div class="ln_solid"></div>
+					                      <div class="form-group">
+					                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+					                     <!--3     <a href="#" class="btn btn-primary btn-xs" ng-click="backtoQuote()"><i class="fa fa-folder"></i> View </a> -->
+					                          <button type="submit" ng-click="backtoQuote()" class="btn btn-primary">Go Back</button>
+					                          <button ng-if="(btVisible == true) && (itemActual.itemStatus.id != 2) && (itemActual.itemStatus.id != 5) && (itemActual.itemStatus.id != 4) && (itemActual.itemStatus.id != 7) " type="submit" ng-click="completeEstimate()" class="btn btn-success">Complete Estimate</button>
+					                        
+					                        </div>
+					                      </div>
+					
+					                    </form>
+					                  </div>
+					                </div>
+					               </div>		                    
+		                    
+                                   <!-- /end total costs-->
+                  
+                  </div>
+                   <!-- /end content breakdown -->
+                </div>                
+              </div>
+
+              </div>
+            </div>
+            </div>
+          </div>
+          
+            	 <script type="text/ng-template" id="removeDetail.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Delete</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="removeMatDetail(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+                  </script>
+                  
+            	 <script type="text/ng-template" id="removeDetailLab.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Delete</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="removeLabDetail(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+                  </script>                  
+                  
+                   
+
+                  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                                                                           <div class="input-group input-group-sm">
+								                          <label class="input-group-addon" for="dataY" >Cavities</label>
+								                          <input type="text" class="form-control" id="dataY" ng-model="itemActual.cavities" ng-change="getPrice()">
+								                          
+								                         </div>
+                                           </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" ng-click="updateCavities()" class="btn btn-primary">Save changes</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>                 
+                  
+       
+        </div>
+        
+						<!-- CHANGE ITEM STATUS QUOTE QUOTE ************************************* *** -->           
+						<div id="costsuggest" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">(Cost Suggested)</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+											<form class="form-horizontal form-label-left" ng-submit="">
+											
+											
+							                      <div class="form-group">
+								                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Suggested Sale Cost</label>
+								                        
+								    
+								                        
+								                        <div class="col-md-3 col-sm-3 col-xs-12">
+								                          <input type="number" class="form-control" placeholder="" ng-model="sugCost" step="0.0001" min="0000000.0000" max="9999999.9999" ng-change="">
+								                        </div>
+							                      </div> 
+							                      
+							                      <div ng-if ="errorM == '1'">
+							                      	<code> {{ erroMessage }}</code>
+							                      </div>
+					                    
+						
+						                      		                         
+						                       <div class="ln_solid"></div>
+						                       <div class="form-group">
+						                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						                          <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="getsuggestMargin()" >Update</button>
+                                                  <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+						                        </div>
+						                      </div>
+						                      
+					                      
+						                        
+										    </form>
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->						
+        
+        
+        <!-- /page content -->	
+        

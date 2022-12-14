@@ -1,0 +1,384 @@
+
+
+        <!-- page content -->
+        <div >
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix">
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Shipments by Customer</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+		                        
+                  		      <div class="autocompletedemoCustom" ng-cloak="">
+								  <md-content  ng-controller="customerController as new" layout-padding="" layout="column">
+								    <form ng-submit="$event.preventDefault()">
+								      <p>Use <code>&lt;autocomplete&gt;</code> to type the new customer</p>
+								      <md-autocomplete id="custom-template"
+								          ng-disabled="new.isDisabled"
+								          md-no-cache="new.noCache"
+								          md-selected-item="new.selectedItem"
+								          md-search-text-change="new.searchTextChange(new.searchText)"
+								          md-search-text="new.searchText"
+								          md-selected-item-change="new.selectedItemChange(item)"
+								          md-items="item in new.querySearch(new.searchText)"
+								          md-item-text="item.display"
+								          md-min-length="0"
+								          md-escape-options="clear"
+								          placeholder="Type Customer Name"
+								          input-aria-label="Current Repository"
+								          md-menu-class="autocomplete-custom-template"
+								          md-menu-container-class="custom-container">
+								        <md-item-template>
+								          <span class="item-title">
+								            <md-icon md-svg-icon="images/person.svg" aria-hidden="true"></md-icon>
+								            <span> {{item.display}} </span>
+								          </span>
+								          <span class="item-metadata">
+								            <span>
+								             Customer Id : <strong>{{item.sid}}</strong> 
+								            </span>
+								            <span>
+								             Contact : <strong>{{item.contact}}</strong> 
+								            </span>
+								          </span>
+								        </md-item-template>
+								      </md-autocomplete>
+								    </form>
+								  </md-content>
+								</div>
+								
+		<div ng-if="foundCust=='1'">		
+		            
+		    <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Shipping Labels</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+		
+		                
+                 <div class="clearfix"></div>				  
+<!-- Ventana Modal -->
+				  
+<div id="addCustomer" class="modal fade bs-example-modal-lg"  tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Add Customer</h4>
+                        </div>
+                        <div class="modal-body">
+
+					<form class="form-horizontal form-label-left" ng-submit="addCustomer()">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Surename</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="sureName" required="required" ng-model="client.sureName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">Middlename <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="midName" required="required" ng-model="client.middleName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>					  
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="lastName" required="required" ng-model="client.lastName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="phone" required="required" ng-model="client.cellPhone"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+				  
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >User Created</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="txtEmail"  class="form-control col-md-7 col-xs-12" ng-model="client.email">
+                        </div>
+                      </div>						  
+						  
+ 
+
+					                         
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                      </div>
+                        
+				</form>
+				
+                      </div>
+                    </div>
+                  </div>
+                </div>
+				
+<!-- /Ventana Modal -->				
+				
+				
+ <table  id="tbLabels" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Packing Slip No</th>
+                          <th>Customer Name</th>
+                          <th>Date</th>
+
+						  <th>So Id</th>
+						  <th>Ship to</th>
+						  <th>Address</th>
+						  
+						  <th>Carrier</th>
+						  <th>Service Type</th>
+						  <th>Cost</th>
+						  <th>Tracking Number</th>
+						  <th>Action</th>
+  
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="label in labels track by $index" class="ng-scope">
+							<td><a ng-href="">{{label.packingSlipno}}</a></td>
+							        <td>{{label.customerName}}</td>
+									<td>{{label.createdDate | date:'MM/dd/yyyy'}}</td>
+
+									<td>{{label.soId}}</td>
+									<td>{{label.shipTo}}</td>
+									<td>{{label.address}}</td>
+									<td ng-if="label.carrier.expCode =='FED'"><img ng-src="images/fedexjpg.png" alt="Fedex"></td>
+									<td ng-if="label.carrier.expCode =='UPS'"><img ng-src="images/ups.png" alt="Fedex"></td>
+									<td ng-if="(label.carrier.expCode !='UPS') && (label.carrier.expCode !='FED')">{{pack.carrier}}</td>
+									<td>{{label.serviceDesc}}</td>
+									<td>{{label.shipmentCost | currency:USD$:2}}</td>
+									<td>{{label.trackingNumber}}</td>
+									
+									
+									
+
+									<td>
+
+											<img ng-src="images/pdficon.png" ng-click="printPdf($index)" alt="Fedex">
+											<img ng-src="images/labelprint.png" ng-click="printLabel($index)" alt="Fedex">
+
+									</td>
+									
+		
+							   
+                        </tr>
+
+                      </tbody>
+</table>
+
+
+ <table ng-if="typeC == '1'" id="tbCustExp" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th> Id</th>
+                          <th>Customer Name</th>
+                          <th>Customer Address</th>
+                          <th>SO Contact</th>
+						  <th>Phone</th>
+						  <th>Actions</th>
+  
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="customer in customersExp track by $index" class="ng-scope">
+							<td><a ng-href="">{{customer.customerId}}</a></td>
+							        <td>{{customer.customerName}}</td>
+									<td>{{customer.address1 + ' ' + customer.address2}}</td>
+
+									<td>{{customer.soContact}}</td>
+									<td>{{customer.sophoneNo}}</td>
+
+									<td>
+									        <a class="btn btn-primary btn-xs"><i class="fa fa-folder"></i></a>
+
+									</td>
+									
+		
+							   
+                        </tr>
+
+                      </tbody>
+</table>
+
+
+    <!-- Ventana Modal -->
+				  
+<div id="editCustomer" class="modal fade bs-example-modal-lg-edit"  tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Edit Customer</h4>
+                        </div>
+                        <div class="modal-body">
+
+					<form class="form-horizontal form-label-left" ng-submit="editCustomer()">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Name</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="sureName" required="required" ng-model="client.customerName" disabled  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">Contact Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="midName" required="required" ng-model="client.contactName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>					  
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Contact Phone</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="lastName" required="required" ng-model="client.contactPhone"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+				  
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Contact Email</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="txtEmail"  class="form-control col-md-7 col-xs-12" ng-model="client.contactEmail">
+                        </div>
+                      </div>						  
+  
+ 
+
+					                         
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                      </div>
+                        
+				</form>
+				
+                      </div>
+                    </div>
+                  </div>
+                </div>
+				
+<!-- /Ventana Modal -->	             
+  	<script type="text/ng-template" id="borrar.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Eliminar</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="removeCustomer(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+    </script>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>	 
+
+			                          
+		            </div> 												 
+												 
+
+
+
+
+
+								
+
+									  
+
+   			      </div> 
+										
+										
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          
+          
+        </div>
+        
+       
+
+   
+                

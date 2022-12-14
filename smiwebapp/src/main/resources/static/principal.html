@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appEco">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://sealmethodsinc.com/wp-content/themes/smi.2/images/favicon.ico"/>
+
+    <title>Seal Methods Inc. | Gaskets, Seals, Tapes & Precision die cuts</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href = "vendors/promise.css" rel = "stylesheet" >
+        <link rel = "stylesheet"
+         href = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+          
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="vendors/general.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="vendors/ngprogress/ngProgress.css" rel="stylesheet"> 
+    <!-- jVectorMap -->
+    <link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+    <!-- Datatables -->
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Ion.RangeSlider -->
+    <link href="vendors/normalize-css/normalize.css" rel="stylesheet">
+    <link href="vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <!-- Bootstrap Colorpicker -->
+    <link href="vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <!-- PNotify -->
+    <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="vendors/starrr/dist/starrr.css" rel="stylesheet">
+     <!-- Dropzone.js -->
+    <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">    
+    
+    <link href="vendors/cropper/dist/cropper.min.css" rel="stylesheet">	
+    
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    
+    
+    
+
+    <style>
+    .autocompletedemoCustomTemplate .autocomplete-custom-template li {
+  border-bottom: 1px solid #ccc;
+  height: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  white-space: normal; }
+.autocompletedemoCustomTemplate .autocomplete-custom-template li:last-child {
+  border-bottom-width: 0; }
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title,
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-metadata {
+  display: block;
+  line-height: 2; }
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title md-icon {
+  height: 18px;
+  width: 18px; }
+  
+  </style>
+  
+  
+    <style>
+		@-webkit-keyframes three-quarters {
+		  0% {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg); }
+		
+		  100% {
+		    -webkit-transform: rotate(360deg);
+		    -moz-transform: rotate(360deg);
+		    -ms-transform: rotate(360deg);
+		    -o-transform: rotate(360deg);
+		    transform: rotate(360deg); } }
+		
+		@-moz-keyframes three-quarters {
+		  0% {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg); }
+		
+		  100% {
+		    -webkit-transform: rotate(360deg);
+		    -moz-transform: rotate(360deg);
+		    -ms-transform: rotate(360deg);
+		    -o-transform: rotate(360deg);
+		    transform: rotate(360deg); } }
+		
+		@-o-keyframes three-quarters {
+		  0% {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg); }
+		
+		  100% {
+		    -webkit-transform: rotate(360deg);
+		    -moz-transform: rotate(360deg);
+		    -ms-transform: rotate(360deg);
+		    -o-transform: rotate(360deg);
+		    transform: rotate(360deg); } }
+		
+		@keyframes three-quarters {
+		  0% {
+		    -webkit-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -ms-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg); }
+		
+		  100% {
+		    -webkit-transform: rotate(360deg);
+		    -moz-transform: rotate(360deg);
+		    -ms-transform: rotate(360deg);
+		    -o-transform: rotate(360deg);
+		    transform: rotate(360deg); } }
+		
+		/* Styles for old versions of IE */
+		.btn-spinner {
+		  font-family: sans-serif;
+		  font-weight: 100; }
+		
+		/* :not(:required) hides this rule from IE9 and below */
+		.btn-spinner:not(:required) {
+		  -webkit-animation: three-quarters 1250ms infinite linear;
+		  -moz-animation: three-quarters 1250ms infinite linear;
+		  -ms-animation: three-quarters 1250ms infinite linear;
+		  -o-animation: three-quarters 1250ms infinite linear;
+		  animation: three-quarters 1250ms infinite linear;
+		  border: 3px solid #8c8c8c;
+		  border-right-color: transparent;
+		  border-radius: 100%;
+		  box-sizing: border-box;
+		  display: inline-block;
+		  position: relative;
+		  vertical-align: middle;
+		  overflow: hidden;
+		  text-indent: -9999px;
+		  width: 18px;
+		  height: 18px; }
+		
+		.btn-spinner:not(:required) {
+		  margin-left: -22px;
+		  opacity: 0;
+		  transition: 0.4s margin ease-out, 0.2s opacity ease-out; }
+		
+		.is-loading .btn-spinner {
+		  transition: 0.2s margin ease-in, 0.4s opacity ease-in;
+		  margin-left: 5px;
+		  opacity: 1; }
+		
+		.btn {
+		  text-align: left; }
+    </style>  
+    
+
+
+  </head>
+
+
+  <body class="nav-md">
+    <div class="container body" ng-controller="homeController" >
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;" align="center">
+            <a href="#/" ><img  ng-src="images/logo.jpg" class="img-responsive" alt="Cinque Terre" width="100"></a>
+              <!-- <a href="#/" class="site_title"><i class="fa fa-paw"></i> <span>Antares Plant Aplication</span></a>-->
+            </div>
+
+            <div class="clearfix"></div>
+            <br />
+            <!-- menu profile quick info -->
+            <div class="profile" ng-init="myVar = 'images/lui.jpg'">
+              <div class="profile_pic">
+                <img ng-src="{{dirimageUrl}}" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2 ng-bind="greeting.completeName"></h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+               <br />
+               <br />
+               <br />
+               <br />
+                 <!-- MENU ROLE ADMININISTRATOR --------------------------------------------------------------------->
+                 <!-- MENU ROLE ADMININISTRATOR --------------------------------------------------------------------->
+                 <!-- MENU ROLE ADMININISTRATOR --------------------------------------------------------------------->
+                <ul ng-show="role == '1'" class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                      <ul class="nav child_menu">
+                      <li><a href="#/dashboard">Dashboard</a></li>
+                      <li ng-if="greeting.role == 'SELLER'"><a href="#/dashboardSeller">Dashboard</a></li>
+                                          
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-edit"></i> Basics <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/customers">Customers</a></li>
+                      <li><a href="#/add-parts">Parts</a></li>
+                      <li><a href="#/add-materials">Materials</a></li>
+  
+                      
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-tasks"></i> Pipeline <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li ng-if="greeting.role == '1'"><a href="#/add-qlead">New Lead</a></li>
+                        <li ng-if="greeting.role == '1'"><a href="#/quote-leads">Leads</a></li>
+                        <li ng-if="greeting.role == '2'"><a href="#/seller-leads">Leads</a></li>
+                    </ul>
+                  </li>
+      
+                  <li><a><i class="fa fa-file-excel-o"></i> Quotes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '3'"><a href="#/quote-leads">List Quotes</a></li>
+                      <li><a href="#/findonequote">Find One Quote</a></li>
+                      <li ng-if="greeting.role == '3'"><a href="#/find-item">Find Item</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qfollowup">Follow Up</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/find-item">Find Part Number <span class="label label-warning pull-right">New</span> </a></li>
+                      
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-bar-chart-o"></i>Queries <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '1'"><a href="#/q-quotesEstimatorsYear">Quotes Estimator Year</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/q-sellerActivity">Salesman Activities</a></li>                      
+                      <li ng-if="greeting.role == '1'"><a href="#/qSummaryQuotes">Quotes Summary</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qMonthlyCount">Monthly Count <span class="label label-success pull-right">Building</span></a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qQuotesCustomers">Quotes / Customers</a></li>
+                      <li ng-if="greeting.role == '2'"><a href="#/qitemsstatus">Quotes per Status</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qQuotesAll">List All Quotes</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qSummarized">PartSummarized</a></li>
+
+
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-cog"></i>Settings <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/profile">Profile</a></li>
+                       <li ng-if="greeting.role == '1'"><a href="#/sellers">Sellers</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/estimators">Estimators</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/industry">Industry</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/machine">Machine</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/measure">Measure Units</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/terms">Terms</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/termsExp">Terms Exp</a></li>
+
+
+
+					  
+                    </ul>
+                  </li>				  
+                </ul>
+                
+                 <!-- MENU ROLE SELLER --------------------------------------------------------------------->
+                 <!-- MENU ROLE SELLER --------------------------------------------------------------------->
+                 <!-- MENU ROLE SELLER --------------------------------------------------------------------->
+                 
+                
+                <ul ng-show="role == '2'" class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                      <ul class="nav child_menu">
+                      <li><a href="#/dashboardSeller">Dashboard</a></li>
+                      
+                                          
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-edit"></i> Basics <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/customersSeller">Customers</a></li>
+
+                     
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-tasks"></i> RFQ Log in <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="#/add-qlead">New Lead</a></li>
+
+                    </ul>
+                  </li>                 
+      
+                  <li><a><i class="fa fa-file-excel-o"></i> Quotes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '2'"><a href="#/quote-leads">List Quotes</a></li>
+                      <li ng-if="greeting.role == '2'"><a href="#/sharedquote-leads">Shared Quotes</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/addquotes"> Add Quote </a></li>
+                      <li ng-if="greeting.role == '2'"><a href="#/find-itemSeller">Find Item / Part Number</a></li>
+                      
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-bar-chart-o"></i>Queries <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '1'"><a href="#/qestimators">Quotes per Estimator</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qsellers">Salesman Activities</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qfollowup">Follow Up</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qitemsstatus">Items per Status</a></li>
+                      <li ng-if="greeting.role == '2'"><a href="#/qQuotePendingItems">Quotes with Pending Items</a></li>
+                      <li ng-if="greeting.role == '2'"><a href="#/qQuotesAll">List All Quotes</a></li>
+                      
+
+                      <li><a>Lost Quotes<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li class="sub_menu"><a href="#/qSummaryLostQuotesSellerYear">Current Year</a>
+                            </li>
+                            <li class="sub_menu"><a href="#/qQuotesLostActualHistoric">Historic</a>
+                            </li>
+                              </li>
+                          </ul>
+                      </li>
+                      <li ng-if="greeting.role == '2'"><a href="#/qQuotesSummarySeller">Quotes Summary</a></li>
+                      
+
+
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-cog"></i>Setup <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/profile">Profile</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/estimators">Estimators</a></li>
+                     
+                      <li ng-if="greeting.role == '1'"><a href="#/industry">Industry</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/machine">Machine</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/measure">Measure Units</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/roles">Roles</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/terms">Terms</a></li>
+
+
+
+					  
+                    </ul>
+                  </li>				  
+                </ul>                
+
+                 <!-- MENU ROLE ESTIMATOR --------------------------------------------------------------------->
+                 <!-- MENU ROLE ESTIMATOR --------------------------------------------------------------------->
+                 <!-- MENU ROLE ESTIMATOR --------------------------------------------------------------------->
+                <ul ng-show="role == '3'" class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                      <ul class="nav child_menu">
+                      <li><a href="#/dashboardEstimator">Dashboard</a></li>
+                                          
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-edit"></i> Basics <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/customers">Customers</a></li>
+                      <li><a href="#/add-parts">Parts</a></li>
+                      <li><a href="#/add-materials">Materials</a></li>
+                     
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-tasks"></i> RFQ Log in <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="#/add-qlead">New Lead</a></li>
+                        <li ng-if="greeting.role == '1'"><a href="#/quote-leads">Leads</a></li>
+                        <li ng-if="greeting.role == '2'"><a href="#/seller-leads">Leads</a></li>
+                    </ul>
+                  </li>
+      
+                  <li><a><i class="fa fa-file-excel-o"></i> Quotes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '3'"><a href="#/quote-leads">List Quotes</a></li>
+                      <li><a href="#/findonequote">Find One Quote</a></li>
+                      <li ng-if="greeting.role == '3'"><a href="#/find-item-estimator">Find Item / Part Number</a></li>
+                      
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-bar-chart-o"></i>Queries <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '3'"><a href="#/qQuotePendingItemsEst">Quotes with Pending Items</a></li>
+                      <li ng-if="greeting.role == '3'"><a href="#/qQuotesAll">List All Quotes</a></li>
+                      <li ng-if="greeting.role == '3'"><a href="#/q-quotesEstimatorsYear">Quotes Estimator Year</a></li>
+                      
+                      <li ng-if="greeting.users.username == 'angelv'"><a href="#/qSummaryQuotes">Quotes Summary</a></li>
+                      <li ng-if="greeting.users.username == 'angelv'"><a href="#/qMonthlyCount">Monthly Count</a></li>
+                      
+                      <li ng-if="greeting.role == '3'"><a href="#/qQuotesSummaryEstimator">Quotes Summary</a></li>
+                      
+                      
+
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-cog"></i>Setup <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/profile">Profile</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/estimators">Estimators</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/roles">Sellers</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/industry">Industry</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/machine">Machine</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/measure">Measure Units</a></li>
+                      
+                      <li ng-if="greeting.role == '1'"><a href="#/terms">Terms</a></li>
+
+
+
+					  
+                    </ul>
+                  </li>				  
+                </ul>
+                
+                
+                 <!-- MENU ROLE SHIPPING --------------------------------------------------------------------->
+                 <!-- MENU ROLE SHIPPING --------------------------------------------------------------------->
+                 <!-- MENU ROLE SHIPPING --------------------------------------------------------------------->
+                 
+                
+                <ul ng-show="role == '4'" class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                      <ul class="nav child_menu">
+                      <li><a href="#/dashboard">Dashboard</a></li>
+                      
+                                          
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-edit"></i> Basics <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/customersSeller">Customers</a></li>
+					  <li><a href="#/carriers">Carriers</a></li>
+                     
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-list-alt"></i> Labels <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="#/create-shipment">Create Shipping Label</a></li>
+
+                    </ul>
+                  </li>                 
+      
+                  <li><a><i class="fa fa-truck"></i> Shipments <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '4'"><a href="#/packings-pendings">Pending Packing List</a></li>
+                       <li ng-if="greeting.role == '4'"><a href="#/packings-pendings">Labels Created List</a></li>
+
+                      
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-bar-chart-o"></i>Inquiries <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '4'"><a href="#/shipmentsByToday">Today Shipments</a></li>
+                      <li ng-if="greeting.role == '4'"><a href="#/shipmentsByCustomer">Labels Created By Customer</a></li>
+                      <li ng-if="greeting.role == '4'"><a href="#/qestimators">Labels Created By Part</a></li>
+                      <li ng-if="greeting.role == '4'"><a href="#/qestimators">Labels Created By Carrier</a></li>
+
+
+
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-cog"></i>Setup <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/profile">Profile</a></li>
+                      <li ng-if="greeting.role == '4'"><a href="#/estimators">Shippers</a></li>
+                     
+                      <li ng-if="greeting.role == '4'"><a href="#/industry">Customer Service</a></li>
+
+					  
+                    </ul>
+                  </li>				  
+                </ul>                  
+                
+                
+                
+              </div>
+              <div class="menu_section">
+
+                <ul class="nav side-menu">
+                                    
+                   </ul>
+              </div>
+
+            </div>
+
+
+
+
+ 
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings" href="./sealhome#/profile">
+                <span style="pointer-events: auto; cursor: pointer;" class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span style="pointer-events: auto; cursor: pointer;" class="glyphicon glyphicon-off" aria-hidden="true" ng-click="logout()"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav class="" role="navigation">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img ng-src="{{dirimageUrl}}" alt="">{{greeting.userName}}
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="./sealhome#/profile"> Profile</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">0%</span>
+                        <span>Options</span>
+                      </a>
+                    </li>
+                     <li><a ng-click="logout()"><i  class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span ng-if = "(role == '3') && (totNotEst < 10)" class="badge bg-green">{{totNotEst}}</span>
+                    <span ng-if = "(role == '3') && (totNotEst > 9)" class="badge bg-red">{{totNotEst}}</span>
+                    <span ng-if = "role == '1'" class="badge bg-green">0</span>
+                    <span ng-if = "role == '2'" class="badge bg-green">0</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list"  ng-repeat="act in totalTop4notesEstimator track by $index" class="ng-scope">
+
+                    <li>
+                      <a>
+                        <span class="image"><img ng-src="images/{{act.image}} alt="Profile Image" /></span>
+                        <span>
+                          <span>{{act.name_user_message}}</span>
+                          <span class="time">{{act.dateNot2 | date:'MM/dd/yyyy @ h:mma'}}</span>
+                        </span>
+                        <span class="message">
+                          {{act.comment}}
+                        </span>
+                      </a>
+                    </li>
+
+
+                    <li>
+                      <div class="text-center">
+                        <a href="./sealhome#/qNotifications">
+                          <strong>...</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content ----------------------------------------------------------------------------->
+        <div ng-view class="right_col" role="main"></div>
+        <!-- /page content ----------------------------------------------------------------------------->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            smiwebapp 1.0 <a href="www.dlsistemas.com.ve">Seal Methods Inc</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+
+     
+ 
+    
+    
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-file.js"></script> 
+    
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/select2/dist/js/select2.full.min.js"></script>
+	
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.3.0.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.3.0.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-resource.js"></script>
+ 	<script src="js/angular-pnotify.js"></script>
+
+ 	<script src="vendors/Chart.js/dist/Chart.min.js"></script>
+ 	<script src="js/angular-chart.min.js"></script>
+ 	<script src="vendors/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAOmgUL7x5obC2XNN5xw22q0Lo5S6oegaA"></script>
+
+    <!-- vsGoogleAutocomplete -->
+    <script src="js/vs-google-autocomplete.js"></script>
+    
+    <script src="js/ng-file-upload-shim.js"></script>
+    <script src="js/ng-file-upload.js"></script>
+    
+    
+    <script src="js/angular-promise-buttons.min.js"></script>
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-animate.min.js"></script> -->
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+   <script src="vendors/jquery/dist/jquery.min.js"></script>
+   <script src="vendors/select2/dist/js/select2.full.min.js"></script> 
+    <script src="js/angular.js"></script>
+
+    <!-- jQuery -->
+    	
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="vendors/ngprogress/ngprogress.js"></script>
+    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="vendors/iCheck/icheck.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.min.js"></script>    
+    <!-- Chart.js -->
+    
+    
+    <!-- gauge.js -->
+    <script src="vendors/bernii/gauge.js/dist/gauge.min.js"></script>
+     
+        <!-- morris.js -->
+    <script src="../vendors/raphael/raphael.min.js"></script>
+    <script src="../vendors/morris.js/morris.min.js"></script> 
+
+    <!-- Skycons -->
+    <script src="vendors/skycons/skycons.js"></script>
+
+	
+    <!-- Flot -->
+    <script src="vendors/Flot/jquery.flot.js"></script>
+    <script src="vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="vendors/Flot/jquery.flot.time.js"></script>
+    <script src="vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Datatables -->
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>  
+    <!-- Flot plugins -->
+    
+    <script src="js/flot/jquery.flot.orderBars.js"></script>
+    <script src="js/flot/date.js"></script>
+    <script src="js/flot/jquery.flot.spline.js"></script>
+    <script src="js/flot/curvedLines.js"></script>
+    <!-- jVectorMap -->
+    <script src="js/maps/jquery-jvectormap-2.0.3.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="vendors/google-code-prettify/src/prettify.js"></script>    
+    <!-- jQuery Sparklines -->
+    <script src="vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- PNotify -->
+    <script src="vendors/pnotify/dist/pnotify.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.confirm.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>
+    <script src="vendors/zebra/BrowserPrint-3.0.216.min.js"></script>
+    
+    
+
+
+    <!-- Flot -->
+
+    <!-- /Flot -->
+
+    <!-- jVectorMap -->
+    <script src="js/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="js/maps/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="js/maps/gdp-data.js"></script>
+    
+    <!-- Dropzone.js -->
+    <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+    <script src="js/ng-dropzone.min.js"></script>
+
+    <!-- jQuery Tags Input -->
+    <script src="vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <!-- Switchery -->
+    <script src="vendors/switchery/dist/switchery.min.js"></script>
+    <!-- Select2 -->
+    
+    <!-- Parsley -->
+    <script src="vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Autosize -->
+    <script src="vendors/autosize/dist/autosize.min.js"></script>
+    <!-- jQuery autocomplete -->
+    <script src="vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <!-- starrr -->
+    <script src="vendors/starrr/dist/starrr.js"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <!-- jquery.inputmask -->
+    <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+    <!-- vsGoogleAutocomplete -->
+    <!-- validator -->
+    <script src="vendors/validator/validator.min.js"></script>
+    <script src="js/angular-file-saver.bundle.js"></script>
+    
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+	<script src="js/directives.js"></script> 	
+ 	<script src="js/ecoapp.js"></script> 
+
+
+
+    <!-- /jVectorMap -->
+    
+    <!-- jQuery Sparklines -->
+
+    <!-- /jQuery Sparklines -->
+
+  
+
+    <!-- Skycons -->
+
+    <!-- /Skycons -->
+
+    <!-- Doughnut Chart -->
+
+    <!-- /Doughnut Chart -->
+
+    
+    <!-- bootstrap-daterangepicker -->
+
+    <!-- /bootstrap-daterangepicker -->
+
+
+    <!-- gauge.js -->
+
+
+    
+	<script> $(document).ready( function () {
+         $('#tbCust').dataTable();
+         
+		 });
+	 </script>	
+	 
+	 <script type="text/javascript">
+                    Dropzone.autoDiscover = false;
+     </script>
+	 
+
+	 
+
+	     
+    <!-- /gauge.js -->
+  </body>
+</html>

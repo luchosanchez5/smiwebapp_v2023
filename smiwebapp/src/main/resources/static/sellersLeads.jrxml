@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sellersLeads" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e47ca0c6-9277-4a99-a580-f385bf1dee78">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[bGVhZF9zZWxsZXIgLDE1LDIxMywzNmMzYTgzNC1iZWMzLTRkYTUtYjc1ZS0yZDJjMTAzMjkxYjE7
+YWRkcmVzcyAsMjcwLDE0NSxlYzRjOGEyMC05MDg4LTQwZjctOGVjZi1lMzE1ZGE1YjIyNjA7c2Vs
+bGVyICwzOTEsMjAwLGExMzZlNmZmLTAzOWMtNGViMi1hNzliLTNhNDUwY2EyMTAwOTtsZWFkICwx
+MjMsMTUsN2Y4OWQ4ZGQtMWNhOC00YWYzLTk4NTUtYzFkY2QzZTY3NTExOw==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgressSQL"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT lead.lead_date,
+	lead.contact_name,
+	lead.phone_number,
+	lead.stat_lead,
+	address.name,
+	seller.id_seller,
+	seller.sure_name,
+	seller.last_name
+FROM lead
+	Inner Join lead_seller ON 
+	 lead_seller.id_lead = lead.id_lead 
+	Inner Join address ON 
+	 lead.id_address = address.id_address 
+	Inner Join seller ON 
+	 lead_seller.id_seller = seller.id_seller 
+WHERE 
+	 lead.stat_record = '0']]>
+	</queryString>
+	<field name="lead_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="lead_date"/>
+	</field>
+	<field name="contact_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contact_name"/>
+	</field>
+	<field name="phone_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="phone_number"/>
+	</field>
+	<field name="stat_lead" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="stat_lead"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+	</field>
+	<field name="id_seller" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_seller"/>
+	</field>
+	<field name="sure_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sure_name"/>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="last_name"/>
+	</field>
+	<group name="id_seller">
+		<groupExpression><![CDATA[$F{id_seller}]]></groupExpression>
+	</group>
+	<group name="sure_name">
+		<groupExpression><![CDATA[$F{sure_name}]]></groupExpression>
+	</group>
+	<group name="last_name">
+		<groupExpression><![CDATA[$F{last_name}]]></groupExpression>
+	</group>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{id_seller}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<rectangle>
+					<reportElement x="0" y="0" width="800" height="30" uuid="e865a68c-b1b2-4519-af00-4cd1f826ad7e"/>
+				</rectangle>
+				<textField>
+					<reportElement x="0" y="0" width="100" height="30" uuid="39164be5-33b7-4f8e-8b37-0abcfdb499e9"/>
+					<textFieldExpression><![CDATA[$F{id_seller}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="0" width="160" height="30" uuid="9d8a7e97-800e-4082-ac7f-bf91f23cd9f0"/>
+					<textFieldExpression><![CDATA[$F{sure_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="260" y="0" width="160" height="30" uuid="aab33d95-61e7-4013-a4e8-d86a0e38319c"/>
+					<textFieldExpression><![CDATA[$F{last_name}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="800" height="22" backcolor="#999999" uuid="69b33b15-3909-4553-9009-4e47b3c44636"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="a23c7f3a-9bbc-49a3-badf-edf499a31d3e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9df476f9-6d73-43d4-b37c-f62edda27a26"/>
+				</reportElement>
+				<text><![CDATA[lead_date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="0" width="100" height="30" uuid="6ae2f9e8-8a7f-40dd-990d-b0a1956faca0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7e3aba8f-7605-45f2-9b75-54a384fcfc5a"/>
+				</reportElement>
+				<text><![CDATA[name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="722" y="0" width="100" height="30" uuid="680ba29e-0499-4a71-95f1-e006123f4f6b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="798b3948-8af9-4b67-9a2d-9c9d9efdd2c5"/>
+				</reportElement>
+				<text><![CDATA[stat_lead]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="10" width="100" height="30" uuid="7a4b8341-1ffc-484f-bbe8-f795cbb56816">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9df476f9-6d73-43d4-b37c-f62edda27a26"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{lead_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="281" y="10" width="399" height="30" uuid="0d3bfc9c-3469-47aa-b3e9-59a26f7f9374">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7e3aba8f-7605-45f2-9b75-54a384fcfc5a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="680" y="10" width="120" height="30" uuid="6728ef31-f011-4095-ab98-6b5b09418b32">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="798b3948-8af9-4b67-9a2d-9c9d9efdd2c5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{stat_lead}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="projetsTotal" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db1c1d19-fd36-4221-ac72-ea6522013c2c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgressSQL"/>
+	<queryString language="SQL">
+		<![CDATA[Select
+  proyect.company_id,
+  proyect.proyect_date,
+  address.name,
+  proyect.today_insvement,
+  Case proyect.type_construction When '1' Then 'Construccion' Else 'Otro' End,
+  userr.name || ' ' || userr.last_name,
+  Case proyect.payment_method When '1' Then 'Financial' When '2' Then 'Cash'
+    When '3' Then 'Boths' End As Payment_Method,
+  proyect.cash1,
+  proyect.cash2,
+  proyect.cash3,
+  proyect.cash4,
+  proyect.financial_amount,
+  proyect.cash_amount,
+  proyect.stat_cash,
+  proyect.stat_funding,
+  (Select
+    Coalesce(Sum(p2.mount_expensive), 0)
+  From
+    proyect_expensive p2
+  Where
+    p2.id_proyect = proyect.id_proyect And
+    p2.stat_record = '0') As Total_Expense,
+  (Select
+    p4.sure_name || ' ' || p4.last_name
+  From
+    client p4 Inner Join
+    proyect_client p3
+      On p3.id_client = p4.id_client And p3.id_proyect = proyect.id_proyect
+  Limit 1) As Customer,
+  (Select
+    Coalesce(count(*), 0)
+  From
+    proyect_financial p5
+  Where
+    p5.id_proyect = proyect.id_proyect And
+    p5.stat_record = '0') As Nro_id_Financials,
+  (Select
+    Coalesce(Sum(p6.amount), 0)
+  From
+    proyect_funding p6
+  Where
+    p6.id_proyect = proyect.id_proyect And
+    p6.stat_record = '0' And
+    p6.funding_type = '0') As Financial_Funding,
+  (Select
+    Coalesce(Sum(p6.amount), 0)
+  From
+    proyect_funding p6
+  Where
+    p6.id_proyect = proyect.id_proyect And
+    p6.stat_record = '0' And
+    p6.funding_type = '1') As Cash_Funding
+From
+  proyect Inner Join
+  userr
+    On proyect.user_id = userr.user_id Inner Join
+  address
+    On proyect.id_address = address.id_address
+Where
+  proyect.stat_record = '0']]>
+	</queryString>
+	<field name="company_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="company_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="proyect_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="proyect_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="address"/>
+	</field>
+	<field name="today_insvement" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="today_insvement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="case" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="case"/>
+	</field>
+	<field name="?column?" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="?column?"/>
+	</field>
+	<field name="payment_method" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="payment_method"/>
+	</field>
+	<field name="cash1" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="cash1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="cash2" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="cash2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="cash3" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="cash3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="cash4" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="cash4"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="financial_amount" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="financial_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="cash_amount" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="cash_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="stat_cash" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="stat_cash"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="stat_funding" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="stat_funding"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="proyect"/>
+	</field>
+	<field name="total_expense" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="total_expense"/>
+	</field>
+	<field name="customer" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="customer"/>
+	</field>
+	<field name="nro_id_financials" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="nro_id_financials"/>
+	</field>
+	<field name="financial_funding" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="financial_funding"/>
+	</field>
+	<field name="cash_funding" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="cash_funding"/>
+	</field>
+	<variable name="Variable_1" class="java.lang.String">
+		<variableExpression><![CDATA[$F{today_insvement} - $F{total_expense}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="118" splitType="Stretch">
+			<image>
+				<reportElement x="24" y="6" width="106" height="112" uuid="f8c36080-db51-4e5f-a60b-614c29b10a56"/>
+				<imageExpression><![CDATA["images/logopng..png"]]></imageExpression>
+			</image>
+			<textField pattern="MMM d, yyyy h:mm:ss a">
+				<reportElement x="620" y="75" width="130" height="30" uuid="b0351ea1-2a46-4e2b-ac27-a70689ecdb4b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="90" width="792" height="21" uuid="7d93bfca-85c9-473a-ad13-bbafb53f2925"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Projects]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="10" width="792" height="21" uuid="9865eb19-290c-438a-9695-4f03f038ad58"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Eco Home Improvement, LLC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="29" width="792" height="21" uuid="46c92e92-f52d-43ed-a64f-3074ff2d937b"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Procesing Departament]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="50" width="792" height="21" uuid="f1dc5d89-a20f-4682-8552-5e2fe14955c9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Montebello - California]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="750" height="30" backcolor="#F0F0F0" uuid="1e0d09a8-0858-4966-a7b3-c8c1b5fba193"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="0" width="50" height="30" uuid="18be3a00-a3fa-446d-8f4f-d4a58f9b1239">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="af822e99-8a9e-4f3a-8e70-d1274532235f"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="50" height="30" uuid="57bfafc4-a9e2-4ea6-bf4b-445a54adf6eb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dd55904b-b6d4-498a-a97a-f199837c05bf"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="100" height="30" uuid="f65372da-f4cd-4419-960f-87bc9ec1a26e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c12b387-112d-4553-ad2e-0c56c9e0397e"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="0" width="50" height="30" uuid="e55f5eed-22a1-4958-b1db-6fc09a781e06">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="10ec9ecc-73aa-45e6-bdc7-7bf86f236f2d"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="70" height="30" uuid="e0b5daa6-0d38-459c-a73a-9769ffb718a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f7ac2223-02e6-4f6a-b863-b7fa9d47619d"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="0" width="60" height="30" uuid="c698bb14-7013-4f0b-853b-37c707a7acc0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7ebaadef-3c37-4999-b6cc-5e2e76558557"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Method]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="50" height="30" uuid="6a842220-acb7-4e2e-ae96-eea6de1157f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9a7f2f8e-8949-495a-9158-76d565ec2a46"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Financial Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="0" width="62" height="30" uuid="48542335-b5c2-4e9a-be58-b98b23d3c8cd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8df0c8d3-b645-4072-b1ee-cf5cebbbe978"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cash Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="536" y="0" width="70" height="30" uuid="b0987f1a-b8ea-40ff-9d9c-52eab5ca5652">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f330d28-7078-49a4-85cc-a164c30b7368"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Expenses]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="638" y="0" width="100" height="30" uuid="9d9746b9-3d94-4fdc-9481-67b6ed31c754">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="398ab462-cfdd-4315-b41a-22e64e8205b1"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="60" height="30" uuid="3d1ff488-14a5-4358-a0e0-1eace4016007">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="af822e99-8a9e-4f3a-8e70-d1274532235f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{company_id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="M/d/yy">
+				<reportElement x="60" y="0" width="50" height="30" uuid="efc5b6f5-2507-4bf9-9afb-d5a06821fa14">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dd55904b-b6d4-498a-a97a-f199837c05bf"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{proyect_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="100" height="30" uuid="7a429d0d-68bc-48e0-8f50-8cbbd7125ba9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c12b387-112d-4553-ad2e-0c56c9e0397e"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$#,##0.##;$-#,##0.##">
+				<reportElement x="220" y="0" width="40" height="30" uuid="4de24a8e-5e76-4da0-8e37-22d7a9be7235">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="10ec9ecc-73aa-45e6-bdc7-7bf86f236f2d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{today_insvement}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="60" height="30" uuid="beab1716-74d7-471d-9bf5-98f360b71ae8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f7ac2223-02e6-4f6a-b863-b7fa9d47619d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{case}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="50" height="30" uuid="cdfbaa2f-4ccf-46ef-a9ec-f1623cde8969">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7ebaadef-3c37-4999-b6cc-5e2e76558557"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{payment_method}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$#,##0.##;$-#,##0.##" isBlankWhenNull="true">
+				<reportElement x="400" y="0" width="50" height="30" uuid="c4aab89a-4c08-4c7b-823a-52d5c3fc33b2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9a7f2f8e-8949-495a-9158-76d565ec2a46"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{financial_amount}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$#,##0.##;$-#,##0.##" isBlankWhenNull="true">
+				<reportElement x="460" y="0" width="62" height="30" uuid="c369fdbf-ac29-4a98-b146-8a2f2dd042fb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8df0c8d3-b645-4072-b1ee-cf5cebbbe978"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cash_amount}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$#,##0.##;$-#,##0.##" isBlankWhenNull="true">
+				<reportElement x="530" y="0" width="100" height="30" uuid="311e71c4-1812-46cb-ad73-838b93a858fa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f330d28-7078-49a4-85cc-a164c30b7368"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{total_expense}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="635" y="0" width="100" height="30" uuid="d8118093-607a-40e7-86ed-99b4b8fb5003">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="398ab462-cfdd-4315-b41a-22e64e8205b1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{customer}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="751" height="28" uuid="95cae47b-c588-40a1-be95-20b6960ac2ae"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[2465 Whittier Blvd Suite 201 Montebello CA 90640
+Office Phone: 323-521-3475
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="35" width="751" height="20" forecolor="#2E165E" uuid="14c5ea0d-944e-4aa8-aaf3-14eddcff4bfb"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[www.ecosolarhomeimprovement.com]]></text>
+			</staticText>
+			<line>
+				<reportElement stretchType="ElementGroupHeight" x="3" y="0" width="741" height="1" uuid="4c254c3c-446a-427f-8fa0-411a27e89d98"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double" lineColor="#7BA5AB"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="43" width="131" height="17" uuid="2f4a59ce-a615-4719-837d-7b499816e8d5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Lead Story 1.0]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="14" splitType="Stretch"/>
+	</summary>
+</jasperReport>

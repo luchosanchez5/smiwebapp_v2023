@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quoteFormOrderByPart" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="d535f75b-4a85-4a1d-bafa-76edbfce795d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SMIADAPTER"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<parameter name="idQuote" class="java.lang.Long"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT quote.created_date,
+	quote.nro_rfq,
+	quote.id,
+	quote.quote_notes,
+	part.part_desc,
+	part.part_number,
+	item.created_date,
+	item.item_number,
+	item.id_item,
+	item.quantity,
+	measure_unit.descmeasure_unit,
+	item.smi_total_cost,
+	item.smi_sale_cost,
+	customer.customer_name,
+	customer.contact_phone,
+	customer.contact_email,
+	customer.contact_name,
+	item.tooling_cost,
+	item.note,
+	item.new_part_name,
+	terms.term_desc,
+	quote.print_lead_time,
+	quote.print_materials,
+	quote.print_tolerance,
+	quote.print_fob,
+	quote.moq,
+	estimator.sure_name,
+	estimator.last_name,
+	estimator.sure_name || '    ' ||  estimator.last_name as estimatorfullname,
+	  CASE item.id_itemtype
+    WHEN 1
+    THEN  rpad(rtrim(item.new_part_name), 25) ||  coalesce(item.new_part_description, ' ')
+    WHEN 2
+    THEN  rpad(rtrim(item.new_part_name), 25) ||  coalesce(item.new_part_description, ' ')
+    WHEN 3
+    THEN  rpad(rtrim(item.new_part_name), 25) ||  coalesce(item.new_part_description, ' ')
+    WHEN 4
+    THEN rpad(rtrim(part.part_number), 25) || part.part_desc
+  END AS part_report,
+  	quote.contact_email as email_c,
+	quote.contact_name as name_c,
+	quote.contact_phone as phone_c,
+	item.new_part_description,
+	item.id_itemtype,
+	seller.sure_name || ' ' ||  seller.last_name as Salesman,
+	quote.expiration_days
+FROM quote
+	INNER JOIN item ON 
+	 item.id_quote = quote.id 
+	LEFT JOIN part ON 
+	 item.id_part = part.id 
+	LEFT JOIN measure_unit ON 
+	 item.id_measureunit = measure_unit.id_measureunit 
+	INNER JOIN customer ON 
+	 quote.id_customer = customer.id 
+	INNER JOIN terms ON 
+	 quote.id_term = terms.id 
+	INNER JOIN estimator ON 
+	 quote.id_estimator = estimator.id 
+	LEFT OUTER JOIN seller ON 
+	 quote.id_seller = seller.id 	 
+WHERE 
+	 quote.id = $P{idQuote} 
+	 AND item.stat_reg = '0' AND (item.id_itemstatus = 2 OR item.id_itemstatus =4)]]>
+	</queryString>
+	<field name="created_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="created_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="nro_rfq" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nro_rfq"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="quote_notes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="quote_notes"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="part_desc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="part_desc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="part"/>
+	</field>
+	<field name="part_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="part_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="part"/>
+	</field>
+	<field name="COLUMN_7" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="created_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="item_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="item_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="id_item" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id_item"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="quantity" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="quantity"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="descmeasure_unit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="descmeasure_unit"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="measure_unit"/>
+	</field>
+	<field name="smi_total_cost" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="smi_total_cost"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="smi_sale_cost" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="smi_sale_cost"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="customer_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="contact_phone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contact_phone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="contact_email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contact_email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="contact_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contact_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="tooling_cost" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="tooling_cost"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="note" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="note"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="new_part_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="new_part_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="term_desc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="term_desc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="terms"/>
+	</field>
+	<field name="print_lead_time" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="print_lead_time"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="print_materials" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="print_materials"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="print_tolerance" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="print_tolerance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="print_fob" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="print_fob"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="moq" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="moq"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="sure_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sure_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estimator"/>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estimator"/>
+	</field>
+	<field name="estimatorfullname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="estimatorfullname"/>
+	</field>
+	<field name="part_report" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="part_report"/>
+	</field>
+	<field name="email_c" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="email_c"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="name_c" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name_c"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="phone_c" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="phone_c"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<field name="new_part_description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="new_part_description"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="id_itemtype" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id_itemtype"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+	</field>
+	<field name="salesman" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="salesman"/>
+	</field>
+	<field name="expiration_days" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="expiration_days"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="quote"/>
+	</field>
+	<sortField name="part_report"/>
+	<sortField name="quantity"/>
+	<group name="Group_Items">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupHeader>
+			<band height="22">
+				<rectangle>
+					<reportElement x="0" y="0" width="571" height="21" backcolor="rgba(182, 187, 212, 0.5803922)" uuid="5fca2a40-4ddc-490a-ab1a-1991531b20ea"/>
+					<graphicElement>
+						<pen lineColor="rgba(0, 0, 0, 0.0)"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="202" y="2" width="100" height="18" uuid="363ff755-b5d4-4e17-9e6f-9b139131318a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="08fc8715-fe0d-4a61-a476-a21bcb2856d4"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Part Number]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="296" y="2" width="100" height="20" uuid="63635714-eda6-49d7-bfe5-62a0a8f539a4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ade734d2-299f-4ac8-b511-a613defaa72b"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Item Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="2" width="100" height="18" uuid="38e96b6e-e1bc-4334-88b1-afae42b00109">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="08fc8715-fe0d-4a61-a476-a21bcb2856d4"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Item#]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="93" y="2" width="100" height="18" uuid="5bf06e54-8aff-41f5-ab10-eb1d298fbc35">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="08fc8715-fe0d-4a61-a476-a21bcb2856d4"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quantity]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="156" y="2" width="44" height="18" uuid="c295929d-2ed0-45f4-ae7a-4f1b5dba58a4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="15293e27-1645-4370-b5e3-48a76cc2379c"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[U/M]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="482" y="2" width="85" height="20" uuid="dd323987-0d10-4c76-ab92-5f7fb3e62907">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd8e3c3f-0b20-41ea-88dd-defd440c3a70"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Price Per U/M]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="8"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="192" splitType="Stretch">
+			<image>
+				<reportElement x="1" y="17" width="591" height="100" uuid="befad9c4-3c54-483b-aba6-961eb32421bf"/>
+				<imageExpression><![CDATA["/target/classes/static/images/logo-smi-new.png"]]></imageExpression>
+			</image>
+			<textField hyperlinkType="Reference">
+				<reportElement x="485" y="89" width="76" height="15" uuid="46c9c1a3-8467-4dd0-bb10-0d9e42bb48ce">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{nro_rfq}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["mailto:"+$F{contact_email}]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="461" y="70" width="100" height="14" uuid="24b79751-2491-4bc9-a30f-2c93333625e1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="426" y="89" width="45" height="16" uuid="ab09d9dd-5f8a-4cea-9d22-c29d151458d5"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quote#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="127" width="29" height="20" uuid="0fc20d3b-5ae6-47a3-97d1-a96ea100e4e1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="08fc8715-fe0d-4a61-a476-a21bcb2856d4"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TO:]]></text>
+			</staticText>
+			<textField evaluationTime="Group" evaluationGroup="Group_Items">
+				<reportElement x="32" y="127" width="256" height="20" forecolor="#333399" uuid="239a4279-62b5-47e2-b319-ac74b5f12240">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="405" y="107" width="170" height="6" uuid="a8982499-d5c8-4b68-8a57-9cfd94e53838"/>
+				<imageExpression><![CDATA["/target/classes/static/images/line1.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="4" y="148" width="152" height="14" uuid="57aa3665-1d9d-4f3f-a4ac-266cd16cb471">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{phone_c}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="486" y="22" width="37" height="16" uuid="6bdd19fb-7432-4ad1-ae12-10dc7a5601d8"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Page#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="536" y="22" width="18" height="16" uuid="4bf2fb0e-d30c-4caf-acac-acc738573c80">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Courier New" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[of]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="507" y="21" width="20" height="16" uuid="cd0df93a-e77d-421a-97de-a7996cbdba87">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="538" y="21" width="24" height="16" uuid="2fd3d5de-88ee-490a-a66a-baed360aeb45">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="528" y="110" width="20" height="17" uuid="9c944625-4645-4f2d-9fd2-79f527f1a41f"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expiration_days}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="454" y="110" width="126" height="13" uuid="a8be9764-677e-44b4-b413-b6540065dbb4"/>
+				<textElement textAlignment="Left">
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Quotation valid for     days.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="56" width="65" height="14" uuid="c5c6e39e-5d69-46ff-90ed-5061e97ebce1"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quote Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="70" width="65" height="14" uuid="fa91c832-05a6-4beb-9059-435229744585"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Print Date:]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="461" y="56" width="100" height="14" uuid="921b652a-ecb1-4915-912a-e20e0049d3b7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{created_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="3" y="158" width="569" height="20" backcolor="#FFFFFF" uuid="9fa2fa03-4a81-4cd3-aac7-f3a4ea69e899"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subject: Price Quotation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="171" width="570" height="21" uuid="c9737859-d21b-4964-bf39-89178c94d56d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Please review the following price quotation:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch">
+			<staticText>
+				<reportElement x="529" y="0" width="100" height="9" uuid="38c94623-8f20-48e2-a0fb-2d05fe16323a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3047c50b-4a14-416f-9146-81f794aac95c"/>
+				</reportElement>
+				<text><![CDATA[tooling_cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="0" width="100" height="9" uuid="a70d1dd4-1695-4b9d-bbbf-6bee2d3b2c73">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e03df950-1e27-4dfd-a149-23a15abc1219"/>
+				</reportElement>
+				<text><![CDATA[new_part_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="0" width="100" height="9" uuid="15f9cd1c-e02b-42f0-a496-8c139a7027fb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71b1c8d3-9252-42da-b1ce-5ea838b61663"/>
+				</reportElement>
+				<text><![CDATA[part_report]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="4" y="-32" width="188" height="16" uuid="18a5f5e9-509b-4cea-bef7-a77c0fc73552">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email_c}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="-20" width="188" height="14" uuid="64358a9b-a585-491f-8cb6-ec2610855276">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name_c}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="380" y="0" width="100" height="9" uuid="4a209be4-55f1-47b5-9fa2-acab32ab8f1f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4702b739-4fb7-4c01-8511-5e1946847fea"/>
+				</reportElement>
+				<text><![CDATA[new_part_description]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<rectangle>
+				<reportElement x="280" y="22" width="291" height="16" backcolor="#E8EAEB" uuid="2992a8ea-d950-42b9-84e9-01ba72c558ea"/>
+				<graphicElement>
+					<pen lineColor="rgba(0, 0, 0, 0.0)"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="10" y="3" width="80" height="16" uuid="82010128-6c20-48aa-921d-c14f15150a14">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf3c2cb8-2ead-47bd-999a-92d1769e79d1"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{item_number}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###">
+				<reportElement x="94" y="3" width="53" height="16" uuid="83dfd1e2-0902-48ac-b2fa-22e1cd6bdb3e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a49be4d-700f-445f-a5a0-5abd7617e5d0"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="3" width="35" height="16" uuid="d72e89cc-0b6d-4d21-b9e1-6f575c0bc0eb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="15293e27-1645-4370-b5e3-48a76cc2379c"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{descmeasure_unit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00#####;¤-#,##0.00#####">
+				<reportElement x="482" y="3" width="63" height="16" uuid="c7dd60fe-b127-4ca4-8e0c-cfff2b7cd5e6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd8e3c3f-0b20-41ea-88dd-defd440c3a70"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<paragraph lineSpacing="AtLeast"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smi_sale_cost}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="285" y="21" width="190" height="16" uuid="b6ebb66a-aa68-4870-af40-8f021f4fca90"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[One Time Non Recurring Set-Up Charge]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00#####;¤-#,##0.00#####">
+				<reportElement x="482" y="23" width="63" height="13" uuid="47aa45dc-601d-4029-bc9b-133105098443">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3047c50b-4a14-416f-9146-81f794aac95c"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{tooling_cost}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="192" y="3" width="283" height="16" uuid="a4afa9a7-2514-474e-928d-98e7bf53b987">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71b1c8d3-9252-42da-b1ce-5ea838b61663"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{part_report}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="570" height="15" uuid="3f45ed12-84b3-481c-8b60-1514c38e1032"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Please, Visit our website, you'd be amazed at what can do for you!]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-3" y="13" width="570" height="15" uuid="bd8efa8a-020a-486c-8d89-de86012bdf3f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[11915 Shoemaker Ave, Santa Fe Springs CA 90670   800-423-4777 562-944-0291  Fax 562-9469439 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="26" width="570" height="15" forecolor="#1D1DCC" uuid="bf9ca110-c37c-4492-8e72-cf5de991598f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[www.sealmethodsinc.com]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="326">
+			<staticText>
+				<reportElement x="15" y="26" width="121" height="17" uuid="eeda83b2-8df5-40c2-80fd-00f23859c6d4"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Notes:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="84" width="48" height="17" uuid="19c6a18f-431f-4b24-a50c-d6529267d304"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Materials:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="127" width="55" height="17" uuid="79b66f9b-0f8d-4d25-a620-70e0d4f9b136"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tolerance:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="144" width="55" height="17" uuid="738886ad-3715-4df5-9566-7a246140a918"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lead Time:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="188" width="40" height="17" uuid="b99b8bf2-487f-425a-86f8-91c2b102aadb"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Terms:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="57" y="25" width="513" height="58" uuid="ce4e46a3-a9c2-4b90-83e6-fa4724494b74">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{quote_notes}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="57" y="186" width="150" height="17" uuid="888f7b22-55fe-49f5-86d5-b2fe8a190c9b">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{term_desc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="204" width="472" height="71" uuid="a4bec8f0-70ff-49e9-b512-352426689e5b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thank you for the opportunity to quote the obove item.
+Feel free to contact me with any questions.
+Regards,]]></text>
+			</staticText>
+			<image>
+				<reportElement x="15" y="261" width="365" height="6" uuid="2d2b0eee-ac9b-4ec2-8a51-7c4541581db0"/>
+				<imageExpression><![CDATA["/target/classes/static/images/line1.jpg"]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="83" width="420" height="41" uuid="ffa708e7-218b-4c27-a71d-92cdd7100219">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{print_materials}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="127" width="502" height="17" uuid="8e67d582-bf01-4e1b-96d5-841f5f195fe0">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{print_tolerance}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="144" width="502" height="17" uuid="69003851-cb83-4c48-9c2f-47c8c9962bd9"/>
+				<textFieldExpression><![CDATA[$F{print_lead_time}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="57" y="168" width="328" height="17" uuid="db5bfcc8-4a15-49a4-9ae7-4be243bb245e">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{print_fob}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="245" width="192" height="16" uuid="3e6f8f50-da19-4536-b99e-e1373763db14"/>
+				<textFieldExpression><![CDATA[$F{estimatorfullname}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="6" width="40" height="17" uuid="6e845816-f754-4571-be01-577542d3f8e4"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MOQ:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="57" y="5" width="261" height="17" uuid="c38f8dfa-2a95-49fa-934c-657b24f2f8aa">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{moq}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="170" width="40" height="17" uuid="3c4f90d6-d593-4957-88cb-d44218303601"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXW:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="284" width="570" height="13" uuid="88a04b5f-4373-47df-ad3c-25700998920c"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Please, Visit our website, you'd be amazed at what can do for you!]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-3" y="297" width="570" height="13" uuid="702b8649-3d3c-471e-b9d2-590b48978155"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[11915 Shoemaker Ave, Santa Fe Springs CA 90670   800-423-4777 562-944-0291  Fax 562-9469439 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="310" width="570" height="13" forecolor="#1D1DCC" uuid="2b37e43b-226a-433b-87fe-b48a4ff67ea0"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[www.sealmethodsinc.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="267" width="77" height="17" forecolor="#292727" uuid="ef44f180-d590-42d1-a4b6-a6b5424106fc"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Estimator]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="267" width="77" height="17" forecolor="#292727" uuid="95a89371-91a6-4a55-a8ea-b9b83d5f7174">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Sales]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="243" y="245" width="232" height="18" uuid="373620a4-cc48-4c84-82ef-cd3d29495923">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{salesman}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="79" y="157" width="421" height="11" uuid="60ba79e4-a65f-48f1-8aea-e694729c4da5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[* Lead times are based on best information available and subject to change upon raw material supplier fluctuations.]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+</jasperReport>

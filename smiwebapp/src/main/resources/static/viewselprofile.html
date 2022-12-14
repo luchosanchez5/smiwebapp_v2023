@@ -1,0 +1,379 @@
+
+
+         <div>
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Seller Activities</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Seller <small>Activity report</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+
+                      <div class="profile_img">
+
+                        <!-- end of image cropping -->
+                        <div id="crop-avatar">
+                          <!-- Current avatar -->
+                          <img class="img-responsive avatar-view" src="images/user.png" alt="Avatar" title="Change the avatar">
+
+                          <!-- Cropping modal -->
+                          <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <form class="avatar-form" action="crop.php" enctype="multipart/form-data" method="post">
+                                  <div class="modal-header">
+                                    <button class="close" data-dismiss="modal" type="button">&times;</button>
+                                    <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="avatar-body">
+
+                                      <!-- Upload image and data -->
+                                      <div class="avatar-upload">
+                                        <input class="avatar-src" name="avatar_src" type="hidden">
+                                        <input class="avatar-data" name="avatar_data" type="hidden">
+                                        <label for="avatarInput">Local upload</label>
+                                        <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
+                                      </div>
+
+                                      <!-- Crop and preview -->
+                                      <div class="row">
+                                        <div class="col-md-9">
+                                          <div class="avatar-wrapper"></div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="avatar-preview preview-lg"></div>
+                                          <div class="avatar-preview preview-md"></div>
+                                          <div class="avatar-preview preview-sm"></div>
+                                        </div>
+                                      </div>
+
+                                      <div class="row avatar-btns">
+                                        <div class="col-md-9">
+                                          <div class="btn-group">
+                                            <button class="btn btn-primary" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees">Rotate Left</button>
+                                            <button class="btn btn-primary" data-method="rotate" data-option="-15" type="button">-15deg</button>
+                                            <button class="btn btn-primary" data-method="rotate" data-option="-30" type="button">-30deg</button>
+                                            <button class="btn btn-primary" data-method="rotate" data-option="-45" type="button">-45deg</button>
+                                          </div>
+                                          <div class="btn-group">
+                                            <button class="btn btn-primary" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees">Rotate Right</button>
+                                            <button class="btn btn-primary" data-method="rotate" data-option="15" type="button">15deg</button>
+                                            <button class="btn btn-primary" data-method="rotate" data-option="30" type="button">30deg</button>
+                                            <button class="btn btn-primary" data-method="rotate" data-option="45" type="button">45deg</button>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <button class="btn btn-primary btn-block avatar-save" type="submit">Done</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- <div class="modal-footer">
+                                                    <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                                                  </div> -->
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /.modal -->
+
+                          <!-- Loading state -->
+                          <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+                        </div>
+                        <!-- end of image cropping -->
+
+                      </div>
+                      <h3>{{actSeller.sureName + ' ' + actSeller.lastName}}</h3>
+
+                      <ul class="list-unstyled user_data">
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> {{actSeller.ubication}}
+                        </li>
+
+                        <li>
+                          <i class="fa fa-briefcase user-profile-icon"></i> {{actSeller.posittion}}
+                        </li>
+
+                        <li class="m-top-xs">
+                          <i class="fa fa-external-link user-profile-icon"></i>
+                          <a href="https://www.sealmethods.com" target="_blank">{{actSeller.emailContact}}</a>
+                        </li>
+                      </ul>
+
+                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      <br />
+
+                      <!-- start skills -->
+                      <h4>Status Items</h4>
+                      <ul class="list-unstyled user_data" ng-repeat="it in pitems track by $index" class="ng-scope">
+                        <li>
+                          <p>{{it.name}}</p>
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{it.total}}" aria-valuemin="0" 
+                              aria-valuemax="100" ng-style="{width : ( it.total + '%' ) }" title="{{it.total + '%'}}"></div>
+                          </div>
+                        </li>
+
+                      </ul>
+                      <!-- end of skills -->
+
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                      <div class="profile_title">
+                        <div class="col-md-6">
+                          <h2>User Activity Report</h2>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                      </div>
+                      <!-- start of user-activity-graph -->
+                      <div class="demo-container" >
+                      <!--    <div id="lineChart" class="demo-placeholder"></div> -->
+
+						<canvas  id="line3" class="chart chart-bar" chart-data="data1Sel"
+						chart-labels="labels1Sel" chart-series="series1Sel" chart-options="options1Sel"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+						</canvas>
+						
+                      </div>
+                      <!-- end of user-activity-graph -->
+
+                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                          
+                          <li role="presentation" class="active"><a data-target="#tab_content1" href="" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
+                          </li>
+                          <li role="presentation" class=""><a data-target="#tab_content2" href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Quotes</a>
+                          </li>
+                          <li role="presentation" class=""><a data-target="#tab_content3" href="" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+                          </li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                          <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                            <!-- start recent activity -->
+                            <ul class="messages" ng-repeat="act in sact track by $index" class="ng-scope">
+                              <li>
+                                <img src="images/{{act.status}}" class="avatar" alt="Avatar">
+                                <div class="message_date">
+                                  <h3 class="date text-info">{{act.day | date:'dd'}}</h3>
+                                  <p class="month">{{act.day | date:'MMM'}}</p>
+                                </div>
+                                <div class="message_wrapper">
+                                  <h4 class="heading">{{actSeller.sureName + ' ' + actSeller.lastName}}</h4>
+                                  <blockquote class="message" ng-bind="act.name"></blockquote>
+                                  <br />
+                                  <p class="url">
+                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                   
+                                  </p>
+                                </div>
+                              </li>
+                     
+  
+
+                            </ul>
+                            <!-- end recent activity -->
+
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                            <!-- start user projects -->
+                    <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 1%"></th>
+                          <th style="width: 30%">RFQ</th>
+                          <th>Estimator / Seller</th>
+                          <th>Project Progress</th>
+                          <th>Status</th>
+                          <th style="width: 10%">#Edit</th>
+                        </tr>
+                      </thead>
+                      <tbody ng-repeat="pr in quotes track by $index" class="ng-scope">
+                        <tr>
+                          <td><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></td>
+
+                          <td>
+                            <a>{{pr.customer.customerName}} <br /></a>
+                            
+                            <small ng-bind="pr.nroRfq + ' ' + pr.createdDate | date:'MM/dd/yyyy'"></small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li>
+                                <img ng-src="images/{{pr.estimator.imgUrl}}" class="avatar" alt="Avatar">
+                              </li>
+                              <li ng-if="pr.estimator != null">
+                                <img ng-src="images/{{pr.seller.imgUrl}}" class="avatar" alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                           <div ng-if=" pr.statQuote == 0">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:1%"></div>
+                            </div>
+                            <small>1% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 1">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:25%"></div>
+                            </div>
+                            <small>25% Complete</small>
+                           </div>                            
+                           <div ng-if="pr.statQuote == 3">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:40%"></div>
+                            </div>
+                            <small>40% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 4">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:80%"></div>
+                            </div>
+                            <small>70% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 5">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:85%"></div>
+                            </div>
+                            <small>80% Complete</small>
+                           </div>  
+                           <div ng-if="pr.statQuote == 6">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:100%"></div>
+                            </div>
+                            <small>95% Complete</small>
+                           </div>  
+                           <div ng-if="pr.statQuote == 7">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:0%"></div>
+                            </div>
+                            <small>0% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 8">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:0%"></div>
+                            </div>
+                            <small>100% Complete</small>
+                           </div>                            
+                           <div ng-if="pr.statQuote == 2">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:0%"></div>
+                            </div>
+                            <small>0% Complete</small>
+                           </div>                                                         
+                         </td>
+                          
+                            
+                            <td ng-if="pr.statQuote=='0'"><span class="label label-default">New</span></td>
+                            <td ng-if="pr.statQuote=='1'"><span class="label label-info">In Progress</span></td>
+                            <td ng-if="pr.statQuote=='2'"><span class="label label-danger">Cancelled</span></td>
+                            <td ng-if="pr.statQuote=='3'"><span class="label label-primary">Partial Estimated</span></td>
+                            <td ng-if="pr.statQuote=='4'"><span class="label label-success">Complete Estimated</span></td>
+                            <td ng-if="pr.statQuote=='5'"><span class="label label-success">FeedBack Pending</span></td>
+                            <td ng-if="pr.statQuote=='6'"><span class="label label-success">Order Received</span></td>
+                            <td ng-if="pr.statQuote=='7'"><span class="label label-danger">On Hold</span></td>
+                            <td ng-if="pr.statQuote=='8'"><span class="label label-success">Complete</span></td>
+
+                                                      
+                            
+                          
+                          <td>
+                            <a class="btn btn-primary btn-xs" ng-click="findListQuote($index)"><i class="fa fa-folder"></i> View </a>
+                           
+                          </td>
+                        </tr>
+ 
+                      </tbody>
+                    </table>
+
+                            <!-- end user projects -->
+
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                            <p>Seller Profile Seller Profile</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <script>
+        
+	      var ctx = document.getElementById("graph_barseller");
+ 	      var graph_barseller = new Chart(ctx, {
+ 	        type: 'bar',
+ 	        data: {
+ 	          labels: ["June", "July", "Agoust", "September", "October", "November", "December"],
+ 	          datasets: [{
+ 	            label: '# of Quotes',
+ 	            backgroundColor: "#26B99A",
+ 	            data: [20, 45, 40, 12, 30, 20, 5]
+ 	          }, {
+ 	            label: '# of Items',
+ 	            backgroundColor: "#03586A",
+ 	            data: [41, 56, 40, 18, 32, 20, 12]
+ 	          }]
+ 	        },
+
+ 	        options: {
+ 	          scales: {
+ 	            yAxes: [{
+ 	              ticks: {
+ 	                beginAtZero: true
+ 	              }
+ 	            }]
+ 	          }
+ 	        }
+ 	      });
+        
+        </script> 
+
+          

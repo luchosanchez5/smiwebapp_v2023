@@ -1,0 +1,2112 @@
+	<div>
+<div class="">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Quote Detail <small> design</small></h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Quote : {{currQuote.nroRfq}}</h2>
+                    <h2 class="value text-success" ng-if="((currQuote.requoteRevision != null) && (currQuote.requoteRevision != ''))"> - Rev. : {{currQuote.requoteRevision}}</h2>
+                    
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                      <ul class="stats-overview">
+                        <li>
+                          <span class="name"> Create Date </span>
+                          <span class="value text-success" ng-bind="currQuote.createdDate  | date:'MM/dd/yyyy'"></span>
+                        </li>
+                        <li class="hidden-phone">
+                          <span class="name"> Terms </span>
+                          <span class="value text-success" ng-bind="currQuote.terms.termDesc"> </span>
+
+                        </li>
+                        <li>
+                          <span class="name"> Total Items  </span>
+                          <span class="value text-primary" ng-bind="currQuote.totItems"></span>
+                        </li>
+
+                      </ul>
+                      <br />
+
+
+
+
+                       
+			              
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2><i class="fa fa-bars"></i> Quote <small> & details</small></h2>
+			                    <ul class="nav navbar-right panel_toolbox">
+			                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+			                      </li>
+			                      <li class="dropdown">
+			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+			                        <ul class="dropdown-menu" role="menu">
+			                          <li><a href="#">Settings 1</a>
+			                          </li>
+			                          <li><a href="#">Settings 2</a>
+			                          </li>
+			                        </ul>
+			                      </li>
+			                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+			                      </li>
+			                    </ul>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+			                  
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a data-target="#tab_content1" href="" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Details</a>
+                        </li>
+                        <li role="presentation" class=""><a data-target="#tab_content2" href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Items</a>
+                        </li>
+                        <li ng-if="role == 'ADMIN'" role="presentation" class=""><a data-target="#tab_content3" href="" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Funding</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                          <p>
+			                          <div class="panel-body">
+			                            <p><strong>Customer</strong>
+			                            </p>
+			                            {{currQuote.customer.customerName }} 
+			                          </div>
+			                          
+			                          <div class="panel-body">
+			                            <p><strong>Contact Name W</strong>
+			                            </p> 
+			                            <div><span>{{currQuote.contactName}}</span><br /></div>
+			                            <div><span>{{currQuote.contactEmail}} <strong>   Phone : </strong> {{currQuote.contactPhone}} </span><br /></div>
+			                            <br />
+			                            <strong>Status</strong>
+			                            <div ng-if="currQuote.statQuote=='0'"><span href="" ng-click="" data-toggle="modal" data-target="#editquoteStat" class="label label-default">New</span></div>
+			                            <div ng-if="currQuote.statQuote=='1'"><span href="" ng-click="" data-toggle="modal" data-target="#editquoteStat" class="label label-info">In Progress</span></div>
+			                            <div ng-if="currQuote.statQuote=='2'"><span href="" ng-click="" data-toggle="modal" data-target="#editquoteStat" class="label label-danger">Cancelled</span></div>
+			                            <div ng-if="currQuote.statQuote=='3'"><span href="" ng-click="" data-toggle="modal" data-target="#editquoteStat" class="label label-primary">Partial Estimated</span></div>
+			                            <div ng-if="currQuote.statQuote=='4'"><span href="" ng-click="" data-toggle="modal" data-target="#editquoteStat" class="label label-success">Complete Estimated</span></div>
+			                            <div ng-if="currQuote.statQuote=='5'"><span href="" ng-click="" data-toggle="modal" data-target="#editquoteStat"class="label label-success">FeedBack Pending</span></div>	
+			                            <div ng-if="currQuote.statQuote=='6'"><span href="" ng-click="" data-toggle="modal" data-target="#editquoteStat"class="label label-success">Order Received</span></div>	
+			                            <div ng-if="currQuote.statQuote=='7'"><span href="" ng-click="" data-toggle="modal" data-target="#editquoteStat"class="label label-danger">On Hold</span></div>
+			                            <div ng-if="currQuote.statQuote=='8'"><span href="" ng-click="" data-toggle="modal" data-target="#editquoteStat"class="label label-warning">Complete</span></div>                          
+			                            
+			                          </div>
+			                          
+			                          <div ng-if="((role == '1' || role=='3' ))" class="panel-body">
+			                          	 <button ng-if="(currQuote.statQuote=='0' || currQuote.statQuote=='1'  || currQuote.statQuote=='3')" type="button" data-toggle="modal" data-target="#quoteDetails" class="btn btn-success btn-xs" ng-click="clickeditqDet()">Edit Details</button>
+			                          	 <button ng-if="(currQuote.statQuote == '5') && (currQuote.requoteRevision == null)"  type="button" data-toggle="modal" class="btn btn-info btn-xs"  ng-click="clickRequote()">Requote</button>
+			                          	 
+			                          	 
+			                          </div>	
+			                          
+			                          <div class="panel-body">		                          								      
+								      	<a class="btn btn-warning btn-xs" ng-click="" data-toggle="modal" data-target="#addFeedback" title="Add a Feedback "><i class="fa fa-comments"></i></a>
+							          </div>	
+								      
+								      
+								      <div class="clearfix"></div>
+								      <ul class="stats-overview"> 
+								      
+			                  
+			                        
+			                  		
+			                  		
+			                                            
+                          </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+					                          <p>
+													      
+													                                
+														<table id="tbItemsquote" class="table table-striped">
+												                      <thead>
+												                        <tr>
+					                                                       
+					                                                      <th>Item #</th> 
+												                          <th>Item Type</th>
+																		  <th>Name</th>
+																		  <th>Quote Per</th>
+																		  <th>Quantity</th>
+																		  <th>Status</th>
+																		  <th>RFQ Due Date</th>
+												
+																		  <th>Action</th>
+												  
+												                        </tr>
+												                      </thead>
+												                      <tbody>
+												                        <tr ng-repeat="itemsquote in itemsquote track by $index" class="ng-scope">
+					                                                                <td>{{itemsquote.itemNumber}}</td>
+																			        <td>{{itemsquote.itemType.descItemType}}</td>
+																			        <td ng-if="((itemsquote.itemType.id == 1) || (itemsquote.itemType.id == 2) || (itemsquote.itemType.id == 3))"><a>{{itemsquote.newPartName}}</a></td>
+																					<td ng-if="(itemsquote.itemType.id == 4)"><a>{{itemsquote.part.partDesc}}</a></td>
+																		        
+																			        
+												
+																					<td>{{itemsquote.qitemType.descitemType}}</td>
+																					<td>{{itemsquote.quantity}}</td>
+																					<td ng-if="(itemsquote.itemStatus.ordened == 'N') || (itemsquote.itemStatus.ordened == 'Y') "><a href="" ng-click="editItem($index)" data-toggle="modal" data-target="#editItemStat">{{itemsquote.itemStatus.itemStatusDesc}}</a></td>
+																					
+																					<td>{{itemsquote.rfqdueDate | date:'MM/dd/yyyy'}}</td>
+												
+																					<td>
+																					        <a class="btn btn-primary btn-xs" ng-click="clickitemDetails($index)" data-toggle="modal" data-target="#itemDetails" title="View Details"><i class="fa fa-file-pdf-o"></i></a>
+																							<a ng-if="(role == '1') || (role == '3') || (currQuote.estimator.user.userName == userName) || (currQuote.user.userName == userName)" class="btn btn-info btn-xs" ng-click="editItem($index)" data-toggle="modal" data-target="#editItem" title="Edit"><i class="fa fa-pencil"></i></a>
+																							<a ng-if="(role == '1') || (role == '3') " class="btn btn-info btn-xs" ng-click="editItem($index)" data-toggle="modal" data-target="#copyItem" title="Copy"><i class="fa fa-copy"></i></a>
+												                           					<a ng-if="(role == '1') || (role == '3')" class="btn btn-danger btn-xs" ng-click="borrar($index)" title="Delete"><i class="fa fa-trash-o"></i></a>
+												                           					
+												                           					<a class="btn btn-warning btn-xs" ng-click="clickitemActivity($index)" data-toggle="modal" data-target="#editLeadAct" title="Add Comment"><i class="fa fa-comments"></i></a>
+												                           					<a ng-if="(role == '3' || role == '1')" class="btn btn-success btn-xs" ng-click="clickitemsheetcost($index)" title="Open Sheet Cost" ><i class="fa fa-file-excel-o"></i></a>
+												                           					<a ng-if="(role == '1') || (role == '3') " class="btn btn-success btn-xs" ng-click="clickCopytoPaste($index)" title="Copy Sheet Cost"><i class="fa fa-copy"></i></a>
+																					</td>
+																					
+														
+																			   
+												                        </tr>
+												
+												                      </tbody>
+												
+												                    </table>
+					      
+					                        <div ng-if="role == '3'" class="col-md-9 col-sm-9 col-xs-12 form-group has-feedback"><button type="button"  ng-click="cancelUpdate()" class="btn btn-round btn-success" data-toggle="modal" data-target="#newItem">+</button></div>
+					
+					 
+					                      
+					                        <br />
+					                        <br />
+					                        <br />
+					                        
+					                        
+					                                      <div class="clearfix"></div>
+													      <ul class="stats-overview">
+					                                                
+					                          </p>
+					                          
+			                          
+					                          
+					                          
+					                          
+                        </div>
+                        
+                        <!------------------------------------------------------------------------------------->
+                        <!--------------------------***** TAB FUNDING ***** ----------------------------------->
+                        <!------------------------------------------------------------------------------------->
+                     
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                          <p> 
+
+		                        <form id="wizard1"class="form-horizontal form-label-left">
+		                          
+		                          <br />
+		                          <br />
+		                          
+		                          
+		                          <div class="form-group">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Funding Payment Method <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="actFund.fundingType" ng-options="tipoPagoF.idtipoPagoF as tipoPagoF.desctipoPagoF for tipoPagoF in tipoPagoF">
+		                              </select>
+		                            </div>
+		                          </div>
+		
+		                          <div class="form-group" ng-if="actFund.fundingType == 0">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Financial Proyect Id <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <select id="select2" data-width="100%" class="form-control" required="required" ng-change="getamountFund()" ng-model="actFund.prf.idProyectFinancial" ng-options="prfinancial.idProyectFinancial as prfinancial.financialId for prfinancial in prfinancialAct">
+		                              </select>
+		                            </div>
+		                          </div>   
+		                          
+			                      <div class="form-group">
+			                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Funding Date <span class="required">*</span>
+			                            </label>
+			                            <div class="col-md-6 col-sm-6 col-xs-12">
+			                              <input id="appdate" ng-model="actFund.fundingDate" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+			                            </div>
+			                      </div> 		
+			                      
+		                          <div class="form-group" ng-if="actFund.fundingType == 1">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Ref Number (Check, Deposit) <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <input type="text" id="last-name" name="last-name" required="required" ng-model="actFund.refNumber" class="form-control col-md-7 col-xs-12">
+		                          </div>
+		                          </div>
+		                          
+		                          <div class="form-group" ng-if="actFund.fundingType == 1">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Bank <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <input type="text" id="last-name" name="last-name" required="required" ng-model="actFund.bank" class="form-control col-md-7 col-xs-12">
+		                          </div>	
+		                          </div>	                          
+		                          
+		                          			                                                
+		                          
+		                          <div class="form-group" ng-if="actFund.fundingType == 0">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Funding Amount $ <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <input type="text" id="last-name" name="last-name" required="required" ng-model="actFund.amount" class="form-control col-md-7 col-xs-12" disabled>
+		                              
+
+		                             </div>
+		                            
+		                            <br />
+						            <br />
+
+                              		<a class="btn btn-success btn-xs" ng-click="addFunding()"><i class="fa fa-plus"></i></a>
+		                          </div>
+		                          
+		                          <div class="form-group" ng-if="actFund.fundingType == 1">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Funding Amount $ <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                             
+		                              <input  type="text" id="last-name" name="last-name" required="required" ng-model="actFund.amount" class="form-control col-md-7 col-xs-12" >
+
+		                             </div>
+		                            
+		                            <br />
+						            <br />
+
+                              		<a class="btn btn-success btn-xs" ng-click="addFunding()"><i class="fa fa-plus"></i></a>
+		                          </div>		                             
+		 
+					               
+					               		                          <div class="ln_solid"></div>
+											                      <div class="form-group">
+											                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+											                          
+											                          
+											                        </div>
+											                      </div>  
+		
+		                        </form> 
+		                        
+							  <div ng-if="totFund > 0">
+							  <table class="table table-striped">
+							                      <thead>
+							                        <tr>
+							                          <th>Funding Date</th>
+							                          <th>Funding Type</th>
+							                          <th>Description</th>
+							                          <th>Amount</t>
+													  <th></th>
+							  
+							                        </tr>
+							                      </thead>
+							                      <tbody>
+							                        <tr ng-repeat="iv in listfundings track by $index" class="ng-scope">
+							                             		<td>{{iv.fundingDate | date:'MM/dd/yyyy'}}</td>
+							                             		<td ng-if="iv.fundingType == 0">Financial</td>
+							                             		<td ng-if="iv.fundingType == 1">Cash</td>
+							                             		<td ng-if="iv.fundingType == 0" ng-bind="'Proyect ID : ' + iv.prf.financialId + '  ' + iv.prf.financial.descFinancial"></td>
+							                             		<td ng-if="iv.fundingType == 1" ng-bind="'Ref Number (Check, Deposit) :  ' + iv.refNumber + '    ' + iv.bank" ></td>
+							                             		<td>{{iv.amount}}</td>
+																<td>
+							                           					<a class="btn btn-danger btn-xs" ng-click="deleteprFunding($index)"><i class="fa fa-trash-o"></i></a>
+																</td>
+																
+									
+														   
+							                        </tr>
+							
+							                      </tbody>
+							
+							      </table>
+							 </div>
+                          
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+			
+			                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+								      
+								      </ul>
+								      
+								      <ul class="nav navbar-right panel_toolbox">
+			                    </div>
+			
+			                  </div>
+			                  
+						<div id="quotedetails1" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Printing Details</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						     
+               
+
+																<form class="form-horizontal form-label-left">
+																
+											                      <div class="form-group">
+											                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">Contact Name <span class="required">*</span>
+											                        </label>
+											                        <div class="col-md-9 col-sm-9 col-xs-12">
+											                          <input type="text" id="idmoq" required="required" ng-model="currQuote.contactName"  class="form-control col-md-7 col-xs-12">
+											                        </div>
+											                      </div>											
+										                      
+											                      <div class="form-group">
+											                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">Contact Phone <span class="required">*</span>
+											                        </label>
+											                        <div class="col-md-9 col-sm-9 col-xs-12">
+											                          <input type="text" id="idmoq" required="required" ng-model="currQuote.contactPhone"  class="form-control col-md-7 col-xs-12">
+											                          
+											                        </div>
+											                      </div>
+											                      
+											                      <div class="form-group">
+											                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">Contact Email <span class="required">*</span>
+											                        </label>
+											                        <div class="col-md-9 col-sm-9 col-xs-12">
+											                          <input type="text" id="idmoq" required="required" ng-model="currQuote.contactEmail"  class="form-control col-md-7 col-xs-12">
+											                        </div>
+											                      </div>												                      
+											                      
+											                      <div class="form-group">
+											                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">MOQ <span class="required">*</span>
+											                        </label>
+											                        <div class="col-md-9 col-sm-9 col-xs-12">
+											                          <input type="text" id="idmoq" required="required" ng-model="currQuote.moq"  class="form-control col-md-7 col-xs-12">
+											                          
+											                        </div>
+											                      </div>											                      
+											                      
+											                       <div class="form-group">
+											                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">Notes <span class="required">*</span>
+											                        </label>
+											                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+											                          <textarea class="form-control" rows="3" placeholder='' ng-model="currQuote.quoteNotes"></textarea>
+											                        </div>
+											                      </div>
+											                      
+										                      
+									                      
+											                      <div class="form-group">
+											                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">Materials <span class="required">*</span>
+											                        </label>
+											                        <div class="col-md-9 col-sm-9 col-xs-12">
+											                          <textarea class="form-control" rows="3" placeholder='' ng-model="currQuote.printMaterials"></textarea>
+											                        </div>
+											                      </div>											                      
+											                      											                      
+							                      
+											                      				  
+											                      <div class="form-group">
+											                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tolerance</label>
+											                        <div class="col-md-6 col-sm-6 col-xs-12">
+											                          <input type="text" id="lastName" required="required" ng-model="currQuote.printTolerance"  class="form-control col-md-7 col-xs-12">
+											                        </div>
+											                      </div>
+											                      <div class="form-group">
+											                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Lead Time</label>
+											                        <div class="col-md-9 col-sm-9 col-xs-12">
+											                          <input type="text" id="phone" required="required" ng-model="currQuote.printLeadTime"  class="form-control col-md-7 col-xs-12">
+											                        </div>
+											                      </div>
+											                      
+															      <div class="form-group">    
+												              		  <label class="control-label col-md-3 col-sm-3 col-xs-12">Incoterms <span class="required">*</span></label>
+										                              <div class="col-md-6 col-sm-6 col-xs-12">                                                       
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.incoTerms" ng-options="inc as inc.incotermDesc for inc in incoterms track by inc.id">
+										                              </select>
+										                              </div>
+										                              
+										                  		  </div>		                      
+															  
+											                      <div class="form-group">
+											                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >FOB</label>
+											                        <div class="col-md-6 col-sm-6 col-xs-12">
+											                          <input type="text" id="txtEmail"  class="form-control col-md-7 col-xs-12" ng-model="currQuote.printFOB">
+											                        </div>
+											                      </div>	
+											                      
+											                       <div class="form-group">
+										                               
+										                               <label class="control-label col-md-3 col-sm-3 col-xs-12" >Order Items by :</label>
+												                      <p class="col-md-6 col-sm-6 col-xs-12">
+												                        Item Number:
+												                        <input i-Check type="radio" class="flat" name="order" id="orderId" value="0" ng-model="currQuote.setorderItems" checked="" required /> Part Number:
+												                        <input i-Check type="radio" class="flat" name="order" id="orderDesc" value="1" ng-model="currQuote.setorderItems" />
+												                      </p>
+										                              
+	                     										  </div>					  
+																	  
+											 
+											
+																                         
+											                       <div class="ln_solid"></div>
+											                       <div class="form-group">
+											                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+											                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Return</button>
+											                          
+											                                                                                  
+											                          <button type="button" class="btn btn-success" ng-click="updateQuote()">Update</button>
+											                         
+											                        </div>
+											                      </div>
+											                        
+															</form>	
+
+
+                   
+						                        
+											    
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						
+						
+						<!-- /Ventana Modal -->
+						
+						
+						<!-- Init      EDIT DETAILS QUOTE -->
+						
+						<div id="quoteDetails" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Quote Details</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						     
+               
+
+					               <form id="formOwner" class="form-horizontal form-label-left" ng-submit="">
+ 
+    
+							                          <div class="form-group">
+							                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Terms <span class="required">*</span>
+							                            </label>
+							                            <div class="col-md-6 col-sm-6 col-xs-12">
+							                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.terms" ng-options="terms as terms.termDesc for terms in terms track by terms.id">
+							                              </select>
+							                            </div>
+							                          </div>  
+							                          
+	                          
+							                          
+							                          <div class="form-group">
+							                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Sales Rep<span class="required">*</span>
+							                            </label>
+							                            <div class="col-md-6 col-sm-6 col-xs-12">
+							                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.seller" ng-options="sellers as sellers.sureName for sellers in sellers track by sellers.id">
+							                              </select>
+							                            </div>
+							                          </div>  
+							                          
+							                          <div class="form-group">	
+														  <div class="col-md-6 col-sm-6 col-xs-12">
+														    
+														         <input type="checkbox" id="ch7" class="" ng-true-value="1" ng-false-value="0" ng-model="currQuote.sharedQuote" /> Shared Quote
+														        														    
+														  </div>	
+													  </div>  							                          
+							                          
+       
+							                          <div class="form-group" ng-if="currQuote.sharedQuote == '1'">
+							                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Sales Rep Shared<span class="required">*</span>
+							                            </label>
+							                            <div class="col-md-6 col-sm-6 col-xs-12">
+							                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.seller2" ng-options="sellers as sellers.sureName for sellers in sellers track by sellers.id">
+							                              </select>
+							                            </div>
+							
+							                            
+							                          </div>    
+							                          
+							                                                 
+                   
+							                          
+							                           <div class="form-group">
+							                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Estimator <span class="required">*</span>
+							                            </label>
+							                            <div class="col-md-6 col-sm-6 col-xs-12">
+							                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.estimator" ng-options="estimators as estimator.sureName + '  ' + estimators.lastName for estimators in estimators track by estimators.id">
+							                              </select>
+							                            </div>
+							                          </div>   
+							                          
+							                           <div class="form-group">
+							                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Quote Obtain by <span class="required">*</span>
+							                            </label>
+							                            <div class="col-md-6 col-sm-6 col-xs-12">                                                                                                      
+							                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.referral" ng-options="referrals as referrals.referralfullName for referrals in referrals track by referrals.id">
+							                              </select>
+							                            </div>
+							                          </div>    
+							                          
+							                         <div class="form-group">
+                            						  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Expiration Days: <span class="required">*</span>
+                            						  </label>
+								 						<div class="col-md-6 col-sm-6 col-xs-12">
+
+								            				<input type="text" id="eaU" class="form-control" name="eaU" ng-model="currQuote.expirationDays" required />
+								 					   </div>
+                     
+						  							</div>                                                                
+							                          
+							                          <div class="form-group">
+							                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Notes <span class="required" ng-model="currQuote.quoteNotes">*</span>
+							                            </label>
+							                        	<div class="col-md-6 col-sm-6 col-xs-12">
+							                          		<textarea class="form-control" rows="3" placeholder=''></textarea>
+							                        	</div>
+							                      	  </div>
+								  
+																	  
+											 
+											
+																                         
+											                       <div class="ln_solid"></div>
+											                       <div class="form-group">
+											                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+											                          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="canceleditDet()"> Return</button>
+											                          
+											                                                                                  
+											                          <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="updateQuote()">Update</button>
+											                         
+											                        </div>
+											                      </div>
+											                        
+															</form>	
+
+
+                   
+						                        
+											    
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- END      EDIT DETAILS QUOTE -->						
+			            
+                      
+                        <h4>Recent Activitys</h4>
+
+                        <!-- end of user messages -->          
+                        <ul class="messages" ng-repeat="act in notesquote track by $index" class="ng-scope">
+                          <li>
+                            <img ng-src="images/{{act.user.imageUrl}}" class="avatar" alt="Avatar">
+                            <div class="message_date">
+                              <h3 class="date text-info">{{act.createdDate | date:'dd'}}</h3>
+                              <p class="month">{{act.createdDate | date:'MMM'}}</p>
+                            </div>
+                            <div class="message_wrapper">
+                              <h4 class="heading">{{act.user.name + " " + act.user.lastName}}</h4>
+                              <blockquote class="message" ng-bind="act.comment"> </blockquote> 
+               
+                              <br />
+                              <p class="url" ng-if="act.fileName != null">
+                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                <a href="#"><i class="fa fa-paperclip"></i> {{act.fileName}} </a>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                        <!-- end of user messages -->
+
+
+                      </div>
+
+
+                    </div>
+
+                    <!-- start project-detail sidebar -->
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+
+                      <section class="panel">
+
+                        <div class="x_title">
+                          <h2>Quote Description</h2>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body">
+                          <h3 class="green"><i class="fa fa-paint-brush"></i> Quote</h3>
+
+                          
+                          <div ng-if="currProyect.typeConstruction==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeWinDoors==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeAc==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeConcrete==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeRoof==1"><p class="message" ng-bind="currProyect.roofScopeOfWork"></p></div>
+                          
+                          
+                          
+                          
+                          <br />
+
+                          <div class="project_detail">
+
+                            <p class="title">Quote Date</p>
+                            <p>{{ currQuote.createdDate | date:'dd/MMM/yyyy' }}</p>
+                            <p class="title">Quote Estimator</p>
+                            <p>{{ currQuote.estimator.sureName + " " + currQuote.estimator.lastName }}</p>
+                            <p class="title">Quote Salesman</p>
+                            <p>{{ currQuote.seller.sureName + " " + currQuote.seller.lastName }}</p> 
+                            <p ng-if="currQuote.sharedQuote == '1'">{{ currQuote.seller2.sureName + " " + currQuote.seller2.lastName }}</p>                           
+                            
+                            
+                          </div>
+
+                          <br />
+                          <h5>Quote Options</h5>
+                                  <div class="text-center mtop20">
+                                                <a class="btn btn-app">
+                      									<i class="fa fa-edit" data-toggle="modal" data-target="#quotedetails1"></i> Print Details
+                    							</a>
+                    							<a ng-if="swPrint == '0'" class="btn btn-app" disabled>
+                      									<i class="fa fa-print" ></i> Processing...
+                    							</a>
+                    							<a ng-if="swPrint == '1'" class="btn btn-app">
+                      									<i class="fa fa-print" ng-click="printQuote()"></i> Preview
+                    							</a>
+                    							
+                    							
+                    							
+                                 </div>
+                                 
+                           <br />
+                          <h5>Files</h5>       
+                          <ul class="list-unstyled project_files" ng-repeat="pr in prFiles track by $index" class="ng-scope" >
+                            <li ng-if="pr.mimeType == 'image/jpeg' || pr.mimeType == 'image/png' || pr.mimeType == 'image/gif'"><a href=""><i class="fa fa-picture-o" ng-click="downloadFile($index)" ></i>{{ pr.filename }}</a>
+                            </li>
+                            <li ng-if="pr.mimeType == doc"><a href=""><i class="fa fa-file-word-o"></i>{{ pr.filename }}</a>
+                            </li>
+                            <li ng-if="pr.mimeType == 'application/pdf'"><a a target="_blank" href="" ng-href="{{ fileUrl }}"><i  class="fa fa-file-pdf-o"  ng-click="downloadFile($index)"></i> {{ pr.filename }}</a>
+                            </li>
+                             <li ng-if="pr.mimeType == 'JPG'"><a a target="_blank" href="" ng-href="{{ fileUrl }}"><i  class="fa fa-picture-o"  ng-click="downloadFile($index)"></i> {{ pr.filename }}</a>
+                            </li>                           
+                            <li ng-if="pr.mimeType == 'mail'"><a href=""><i  class="fa fa-mail-forward"></i> {{ pr.filename }}</a>
+                            </li>
+
+                            <li ng-if="pr.mimeType == 'xlxs'"><a href=""><i class="fa fa-file-word-o"></i> {{ pr.filename }}</a>
+                            </li>
+                            <li ng-if="pr.mimeType == 'xlx'"><a href=""><i class="fa fa-file-word-o"></i> {{ pr.filename }}</a>
+                            </li>
+                            <li ng-if="pr.mimeType != 'image/jpeg' && pr.mimeType != 'image/png' && pr.mimeType != 'application/pdf'" ><a target="_blank" href="" ng-href="{{ fileUrl }}" download="{{ pr.filename }}" ><i class="fa fa-file-o" ng-click="downloadFile($index)" ></i> {{ pr.filename }}</a>
+                            </li>
+                                                        
+                            
+                          </ul>
+                          
+                          <br />
+                          <div class="text-center mtop20">
+                            <button type="file" class="btn btn-sm btn-primary" ngf-select="uploadFiles($file, $invalidFiles)" >Add files</button>
+                          </div>  
+
+
+                                                  <div ng-if="f.progress < 100">
+													  File:
+													  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+													      <span class="progress" ng-show="f.progress >= 0">
+													          <div style="width:{{f.progress}}%"  
+													               ng-bind="f.progress + '%'"></div>
+													      </span>
+													  </div> 
+													  {{errorMsg}} 
+												  </div> 	                          
+                        </div>
+                        
+						<!-- ***** FINACIAL ID *** -->           
+						<div id="addFinancialId" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Add Financial Id</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+											<form class="form-horizontal form-label-left" ng-submit="">
+											
+										          <div class="form-group">
+						                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Contrator <span class="required">*</span>
+						                            </label>
+						                            <div class="col-md-6 col-sm-6 col-xs-12">
+						                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="financialpr.contrator" ng-options="contrators as contrators.descContrator for contrators in contrators">
+						                              </select>
+						                            </div>
+						                          </div>
+						
+						                          <div class="form-group" ng-if="currProyect.paymentMethod == 1 || currProyect.paymentMethod == 3">
+						                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Financial <span class="required">*</span>
+						                            </label>
+						                            <div class="col-md-6 col-sm-6 col-xs-12">
+						                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="financialpr.financial" ng-options="financials as financials.descFinancial for financials in financials">
+						                              </select>
+						                            </div>
+						                          </div>  
+						                          
+										           <div class="form-group">
+										                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cashPay">Financial Id <span class="required">*</span>
+										                 </label>
+										                 <div class="col-md-6 col-sm-6 col-xs-12">
+										                      <input type="text" id="cashPay" name="cashPay" ng-model="financialpr.financialId" required="required"  class="form-control col-md-7 col-xs-12">
+										                 </div>
+										           </div>						                           
+						                          
+						                          <div class="form-group">
+						                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Total Amount $ <span class="required">*</span>
+						                            </label>
+						                            <div class="col-md-6 col-sm-6 col-xs-12">
+						                              <input type="text" id="last-name" name="last-name" required="required" ng-model="financialpr.amount" class="form-control col-md-7 col-xs-12">
+						                            		<br />
+						                            		<br />
+
+                              								<a class="btn btn-success btn-xs" ng-click="addprfinancial()"><i class="fa fa-plus"></i></a>
+						                            </div>
+						                          </div>   
+						                          
+						                       </form>   
+						                          
+						    <!-- Se Activa esta seccion si hay mas de un Invoice -->	
+							  <div ng-if="totfinancial > 0">
+							  <table class="table table-striped">
+							                      <thead>
+							                        <tr>
+							                          <th>Financial Id</th>
+							                          <th>Financial Name</th>
+							                          <th>Contrator</th>
+							                          <th>Amount</th>
+													  <th></th>
+							  
+							                        </tr>
+							                      </thead>
+							                      <tbody>
+							                        <tr ng-repeat="iv in prfinancial track by $index" class="ng-scope">
+							                             		<td>{{iv.financialId}}</td>
+							                             		<td>{{iv.financial.descFinancial}}</td>
+							                             		<td>{{iv.contrator.descContrator}}</td>
+							                             		<td>{{iv.amount}}</td>
+																<td>
+							                           					<a ng-if="iv.statFunding==0" class="btn btn-danger btn-xs" ng-click="deleteprFinancial($index)"><i class="fa fa-trash-o"></i></a>
+							                           					<span ng-if="iv.statFunding==1" class="label label-success">Funded</span>
+																</td>
+																
+									
+														   
+							                        </tr>
+							
+							                      </tbody>
+							
+							      </table>
+							 </div>
+							  <!-- Fin Se Activa esta seccion si hay mas de un Owner -->              
+										         						                      		                         
+						                       <div class="ln_solid"></div>
+						                       <div class="form-group">
+						                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						                          
+
+						                        </div>
+						                      </div>
+						                      
+					                      
+						                        
+										    
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->                        
+
+
+						<!-- CHANGE ITEM STATUS *** -->           
+						<div id="editItemStat" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Change Status</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+											<form class="form-horizontal form-label-left" ng-submit="">
+											
+											
+							                      <div class="form-group">
+							                        <label class="control-label col-md-3 col-sm-3 col-xs-12">New Status</label>
+							                        <div ng-if="itemDel.itemStatus.id != 4" class="col-md-9 col-sm-9 col-xs-12">
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.itemStatus" ng-options="itemStatus as itemStatus.itemStatusDesc for itemStatus in itemStatus track by itemStatus.id ">
+								                              </select>
+							                        </div>
+							                        
+							                        <div ng-if="itemDel.itemStatus.id == 4" class="col-md-9 col-sm-9 col-xs-12">
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.itemStatus"  ng-options="itemStatus as itemStatus.itemStatusDesc for itemStatus in itemStatus track by itemStatus.id ">
+								                              </select>
+							                        </div>							                        
+							                      </div> 
+							                      
+							                             
+                                                  <div class="form-group" ng-if="(itemDel.itemStatus.id == '4') && (ordened == 'Y') && (editOrd == 'Y')">
+
+							                             <div class="col-md-4 col-sm-4 col-xs-4">
+								                            <label for="appdate">Date Order Received :
+								                            </label>                            
+							                                <input id="appdate" ng-model="itemDel.dateRegisterOrdered" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+							                             </div>
+										                  
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">PO Number :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.poNumber" required />
+									                      </div>										                                      
+									                    
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">PO Amount :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.poAmount" required />
+									                      </div>
+									                      
+                                                 </div>
+                                                 
+                                                  <div class="form-group" ng-if="(itemDel.itemStatus.id == '4') && (ordened == 'N') && (editOrd == 'N')">
+
+							                             <div class="col-md-4 col-sm-4 col-xs-4">
+								                            <label for="appdate">Date Order Received :
+								                            </label>                            
+							                                <input id="appdate" ng-model="itemDel.dateRegisterOrdered" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+							                             </div>
+										                  
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">PO Number :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.poNumber" required />
+									                      </div>										                                      
+									                    
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">PO Amount :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.poAmount" required />
+									                      </div>
+									                      
+                                                 </div>                                                 
+                                                 
+                                                 
+                                                 
+                                                  <div class="form-group" ng-if="(ordened == 'Y') && (editOrd == 'N')">
+
+								                      <ul class="stats-overview">
+								                        <li>
+								                          <span class="name"> Create Date </span>
+								                          <span class="value text-success" ng-bind="itemDel.dateRegisterOrdered | date:'MM/dd/yyyy'"></span>
+								                        </li>
+								                        <li class="hidden-phone">
+								                          <span class="name"> PO Number </span>
+								                          <span class="value text-success" ng-bind="itemDel.poNumber"> </span>
+								
+								                        </li>
+								                        <li>
+								                          <span class="name"> PO Amount  </span>
+								                          <span class="value text-primary" ng-bind="itemDel.poAmount | currency:'$':2"></span>
+								                        </li>
+								
+								                      </ul>
+								                      
+								                      <div><a class="btn btn-info btn-xs" ng-click="clickEditOrd()" title="Edit PO Details"><i class="fa fa-pencil"></i></a></div>
+                                                 </div>                                                 
+                                                 
+					                      
+									                    
+					                    
+						
+						                      		                         
+						                       <div class="ln_solid"></div>
+						                       <div class="form-group">
+						                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						                          <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="updateItemStat()">Update</button>
+                                                  <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelUpdate()">Close</button>
+						                        </div>
+						                      </div>
+						                      
+					                      
+						                        
+										    </form>
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->
+						
+						<!-- CHANGE ITEM STATUS QUOTE QUOTE ************************************* *** -->           
+						<div id="editquoteStat" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Change Quote Status</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+											<form class="form-horizontal form-label-left" ng-submit="">
+											
+											
+							                      <div class="form-group" ng-if="((role=='3' ))" >
+							                        <label class="control-label col-md-3 col-sm-3 col-xs-12">New Status</label>
+							                        <div class="col-md-9 col-sm-9 col-xs-12">
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.statQuote" ng-options="qStatus.idStat as qStatus.descStat for qStatus in statQuotes">
+								                              </select>
+							                        </div>
+							                      </div> 
+							                      
+							                      <div class="form-group" ng-if="((role == '2' || role == '1'))" >
+							                        <label class="control-label col-md-3 col-sm-3 col-xs-12">New Status</label>
+							                        <div class="col-md-9 col-sm-9 col-xs-12">
+								                              <select ng-if="(currQuote.statQuote == '5' || currQuote.statQuote == '8')" ng-change="clickQuoteStatus()" id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.statQuote" ng-options="qStatus.idStat as qStatus.descStat for qStatus in statQuotesFeed ">
+								                              </select>
+								                              <h4 ng-if="(currQuote.statQuote != '') && (currQuote.statQuote != '5') && (currQuote.statQuote != '8') " class="modal-title" id="myModalLabel2">You can only change Status when the current status is in Feedback Pending</h4>
+							                        </div>
+							                      </div> 
+							                      
+							                      <div ng-if="((role == '2' || role == '1' ) && (currQuote.statQuote == '5' || currQuote.statQuote == '8'))">
+							                      
+								                      <div class="form-group" >
+								                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Reason for Reject</label>
+								                        <div class="col-md-9 col-sm-9 col-xs-12">
+									                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.quotesubStatus" ng-options="quotesubStatus as quotesubStatus.substatusDesc for quotesubStatus in quotesubStatus track by quotesubStatus.id ">
+									                              </select>
+								                        </div>
+								                      </div> 	
+								                      
+								                      <div ng-if="currQuote.quotesubStatus.id == 8"   class="form-group" >
+								                        <label class="control-label col-md-3 col-sm-3 col-xs-12">SOP Year</label>
+								                        <div class="col-md-9 col-sm-9 col-xs-12">
+									                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currQuote.sopYear" ng-options="statsop.id as statsop.id for statsop in sosyearList">
+									                              </select>
+								                        </div>
+								                      </div> 									                      
+							                      
+								                      <div class="form-group">
+
+								                        <div class="col-md-12 col-sm-12 col-xs-12">
+								                          <label>Notes <span class="required"></span>
+								                          </label>
+								                          <textarea class="form-control" rows="3" placeholder=''  ng-model="currQuote.noteRejected"></textarea>
+								                        </div>
+								                      </div>							                      
+							                      
+							                      
+							                      </div>							                      						                      
+					                    
+						
+						                      		                         
+						                       <div class="ln_solid"></div>
+						                       <div class="form-group">
+						                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						                          <button ng-if="(((currQuote.statQuote == '8') || (currQuote.statQuote == '5')) && (role == '2'))" type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="updateQuoteStatus()">Update</button>
+						                          <button ng-if="((role == '1' || role=='3' ))" type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="updateQuoteStatus()">Update</button>
+                                                  <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelUpdate()">Close</button>
+						                        </div>
+						                      </div>
+						                      
+					                      
+						                        
+										    </form>
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->						
+
+
+                      </section>
+
+                    </div>
+                    <!-- end project-detail sidebar -->
+
+  	<script type="text/ng-template" id="borrar.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Delete</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="removeItem(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+    </script>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+   </div>    
+   
+   											<!-- Ventana Modal - Item Details -->
+											    
+											                  <div id="itemDetails" class="modal fade bs-example-modal-ed" tabindex="-1" role="dialog" aria-hidden="true">
+											                    <div class="modal-dialog">
+											                      <div class="modal-content">
+											
+											                        <div class="modal-header">
+											                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+											                          </button>
+											                          <h4 class="modal-title" id="myModalLabel">Item Details</h4>
+											                        </div>
+											                        <div class="modal-body">
+											
+											                       
+                        <!-- price element -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="pricing ui-ribbon-container">
+                            <div class="title">
+						            <h2>Quote Per : {{itemActual.qitemType.descitemType}} </h2>
+						            <h1>Item # : {{itemActual.itemNumber}}</h1>
+							        <span nf-ig="(itemActual.itemType.id == 1 || itemActual.itemType.id == 2 || itemActual.itemType.id == 3)">{{itemActual.newPartName}}</span>
+							        <span nf-ig="itemActual.itemType.id == 4">{{itemActual.part.partDesc}}</span>
+                            </div>
+                            <div class="x_content">
+                              <div class="">
+                                <div class="pricing_features">
+                                  <ul class="list-unstyled text-left">
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+															                                    <li ng-if = "itemActual.drawingAva == '1'"><i class="fa fa-check text-success"></i> Drawing <strong> available</strong></li>
+															                                    <li ng-if = "itemActual.drawingAva == '0'"><i class="fa fa-times text-danger"></i> Drawing <strong> available</strong></li>
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+															                                    <li ng-if = "itemActual.newPart == '1'"><i class="fa fa-check text-success"></i> <strong>New Part to customer</strong></li>
+															                                    <li ng-if = "itemActual.newPart == '0'"><i class="fa fa-times text-danger"></i> <strong>New Part to customer</strong></li>
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+													                                    		<li ng-if = "itemActual.sampleAva == '1'"><i class="fa fa-check text-success"></i> Sample <strong> available</strong></li>
+													                                    		<li ng-if = "itemActual.sampleAva == '0'"><i class="fa fa-times text-danger"></i> Sample <strong> available</strong></li>
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+													                                    		<li ng-if = "itemActual.concernsCurr == '1'"><i class="fa fa-check text-success"></i> <strong> Concerns</strong> with current Part</li>
+													                                    		<li ng-if = "itemActual.concernsCurr == '0'"><i class="fa fa-times text-danger"></i> <strong> Concerns</strong> with current Part</li>
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+													                                    	<li ng-if = "itemActual.cadfileAva == '1'"><i class="fa fa-check text-success"></i> CAD File <strong> available</strong></li>
+													                                    	<li ng-if = "itemActual.cadfileAva == '0'"><i class="fa fa-times text-danger"></i> CAD File <strong> available</strong></li>	
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+													                                    	<li ng-if = "itemActual.packageReq == '1'"><i class="fa fa-check text-success"></i> <strong> Packaging Requirements</strong></li>
+													                                    	<li ng-if = "itemActual.packageReq == '0'"><i class="fa fa-times text-danger"></i>  <strong> Packaging Requirements</strong></li>
+													                                    </div>
+													                                    <div class="col-md-12 col-sm-12 col-xs-12">
+													                                    	<li ng-if = "itemActual.partKissCut == '1'"><i class="fa fa-check text-success"></i> Part <strong> kiss cut</strong></li>
+													                                    	<li ng-if = "itemActual.partKissCut == '0'"><i class="fa fa-times text-danger"></i> Part <strong> kiss cut</strong></li>													                                    													                                    												                                    													                                    													                                    													                  
+																						</div>
+																						
+																						<br />
+																						<br />
+																						
+																						
+																						
+                                            						                     <div class="col-md-6 col-sm-6 col-xs-6">
+                                            						                          <span> Annual Usage : <strong> {{ itemActual.anualUsage }}</strong></span>
+																						</div>
+																						
+																						<div class="col-md-6 col-sm-6 col-xs-6">
+																						     <span> Quantities to Quote : <strong> {{ itemActual.quantity }}</strong></span>
+																						</div>
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <span> Suggested Materials : <strong> {{ itemActual.suggestMat }}</strong></span>
+																						</div>																																												
+																						
+																						<div class="col-md-6 col-sm-6 col-xs-6">
+																						     <span> Suggested Vendors : <strong> {{ itemActual.suggestVend }}</strong></span>
+																						</div>
+																						
+																						<div class="col-md-6 col-sm-6 col-xs-6">
+																						     <span> Target Price : <strong> {{ itemActual.targetPrice }}</strong></span>
+																						</div>
+																						
+																						<div class="col-md-6 col-sm-6 col-xs-6">
+																						     <span> EXW : <strong> {{ itemActual.fob }}</strong></span>
+																						</div>
+																						
+																						<div class="col-md-6 col-sm-6 col-xs-6">
+																						     <span> RFQ Due Date : <strong> {{ itemActual.rfqdueDate | date:'MM/dd/yyyy' }}</strong></span>
+																						</div>	
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <span> Comment : <strong> {{ itemActual.note }}</strong></span>
+																						     
+																							                                    
+                                  </ul>
+
+                                </div>
+                       
+                              </div>
+                              
+                              <div class="pricing_footer">
+												                                <div ng-if="(itemActual.itemStatus.id == 2) || (itemActual.itemStatus.id == 4)">
+													                                <a ng-if = "swPrint == '1'" ng-click="printsheetCost()" class="btn btn-primary btn-block" role="button" ><i class="fa fa-file-pdf-o"></i>&nbsp; Print Cost <span> Sheet</span></a>
+													                                <a ng-if = "swPrint == '0'"  class="btn btn-primary btn-block" role="button" ><i class="fa fa-spinner fa-spin"></i>&nbsp; Loading <span> ...</span></a>
+													                                
+												                                </div>                        
+                                <p>
+                                
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- price element -->											
+											                        <!-- end of user messages -->          
+
+                                                                    </div>
+											                        <div class="modal-footer">
+											                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											                         
+											                        </div>
+											
+											                      </div>
+											                    </div>
+											                  </div>
+											    
+											    
+											    
+															  
+											<!-- Ventana Modal - item Details --	-->	   
+    
+  											<!-- Ventana Modal - Add Feedback -->
+											    
+											                  <div id="addFeedback" class="modal fade bs-example-modal-ed" tabindex="-1" role="dialog" aria-hidden="true">
+											                    <div class="modal-dialog">
+											                      <div class="modal-content">
+											
+											                        <div class="modal-header">
+											                         <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+											                          </button>
+											                          <h4 class="modal-title" id="myModalLabel">Add Feedback</h4>
+											                        </div>
+											                        <div class="modal-body">
+											
+											                        <h4>Item # : {{currItem.itemNumber}}</h4>
+											
+											                        <!-- end of user messages          
+											                        <ul class="messages" ng-repeat="act in itemActivitys track by $index" class="ng-scope">
+											                          <li>
+											                            <img ng-src="images/{{act.user.imageUrl}}" class="avatar" alt="Avatar">
+											                            <div class="message_date">
+											                              <h3 class="date text-info">{{act.createdDate | date:'dd'}}</h3>
+											                              <p class="month">{{act.createdDate | date:'MMM'}}</p>
+											                            </div>
+											                            <div class="message_wrapper">
+											                              <h4 class="heading">{{act.user.name + " " + act.user.lastName}}</h4>
+											                              <blockquote class="message" ng-bind="act.descActivity"> </blockquote> 
+											               
+											                              <br />
+											                              <a class="btn btn-danger btn-xs" ng-click="removeItemAct($index)"><i class="fa fa-trash-o"></i></a>
+											
+											                                
+											
+											
+											                            </div>
+											                          </li>
+											                          
+											                        </ul> --> 
+											                      <!--  <div><button type="button"  class="btn btn-round btn-success" ng-click="buttLeadAct()">+</button></div>  --> 
+											 			                    <div class="well" style="overflow: auto" >
+														                      
+																					                          <div class="form-group">
+																					                            <label class="control-label col-md-6 col-sm-6 col-xs-12" for="">Activity <span class="required">*</span>
+																					                            </label>
+																					                            <div class="col-md-10 col-sm-10 col-xs-12">
+																					                              <textarea class="form-control" rows="3" ng-model="noteFollow" required="required"></textarea>	
+																					                            </div>
+																					                          </div>
+																					                          <button type="button" class="btn btn-primary" ng-click="addFeedback()">Save</button>
+														                      
+											
+														                    </div> 
+											                        </div>
+											                        <div class="modal-footer">
+											                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											                         
+											                        </div>
+											
+											                      </div>
+											                    </div>
+											                  </div>
+											    
+											    
+											    
+															  
+											<!-- Ventana Modal - End Add Feedback --	-->	      						   
+   											<!-- Ventana Modal - Activitys -->
+											    
+											                  <div id="editLeadAct" class="modal fade bs-example-modal-ed" tabindex="-1" role="dialog" aria-hidden="true">
+											                    <div class="modal-dialog">
+											                      <div class="modal-content">
+											
+											                        <div class="modal-header">
+											                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+											                          </button>
+											                          <h4 class="modal-title" id="myModalLabel">New Message</h4>
+											                        </div>
+											                        <div class="modal-body">
+											
+											                        <h4>Item # : {{currItem.itemNumber}}</h4>
+											
+											                        <!-- end of user messages -->          
+											                        <ul class="messages" ng-repeat="act in itemActivitys track by $index" class="ng-scope">
+											                          <li>
+											                            <img ng-src="images/{{act.user.imageUrl}}" class="avatar" alt="Avatar">
+											                            <div class="message_date">
+											                              <h3 class="date text-info">{{act.createdDate | date:'dd'}}</h3>
+											                              <p class="month">{{act.createdDate | date:'MMM'}}</p>
+											                            </div>
+											                            <div class="message_wrapper">
+											                              <h4 class="heading">{{act.user.name + " " + act.user.lastName}}</h4>
+											                              <blockquote class="message" ng-bind="act.descActivity"> </blockquote> 
+											               
+											                              <br />
+											                              <a class="btn btn-danger btn-xs" ng-click="removeItemAct($index)"><i class="fa fa-trash-o"></i></a>
+											
+											                                
+											
+											
+											                            </div>
+											                          </li>
+											                          
+											                        </ul>
+											                        <div><button type="button"  class="btn btn-round btn-success" ng-click="buttLeadAct()">+</button></div> 
+											 			                    <div class="well" style="overflow: auto" ng-if="showFields == 1">
+														                      
+																					                          <div class="form-group">
+																					                            <label class="control-label col-md-6 col-sm-6 col-xs-12" for="">Activity <span class="required">*</span>
+																					                            </label>
+																					                            <div class="col-md-10 col-sm-10 col-xs-12">
+																					                              <textarea class="form-control" rows="3" ng-model="itemActivity.descActivity" required="required"></textarea>	
+																					                            </div>
+																					                          </div>
+																					                          <button type="button" class="btn btn-primary" ng-click="saveItemAct()">Save</button>
+														                      
+											
+														                    </div> 
+											                        </div>
+											                        <div class="modal-footer">
+											                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											                         
+											                        </div>
+											
+											                      </div>
+											                    </div>
+											                  </div>
+											    
+											    
+											    
+															  
+											<!-- Ventana Modal - End Activitys --	-->	
+											
+											
+			<!-- Ventana Modal -Modifiy Items --	-->									
+											
+                 <div id="editItem" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Edit Item Details</h4>
+                        </div>
+                        <div class="modal-body">                                                           
+									  			  <form class="form-horizontal form-label-left input_mask">
+ 
+								                      
+								                          <div class="form-group">
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Part Type * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.itemType" ng-options="itemsType as itemsType.descItemType for itemsType in itemsType track by itemsType.id">
+								                              </select>
+								                            </div>
+								                            
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Industry * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" ng-model="itemDel.industry" ng-options="industries as industries.industryDesc for industries in industries track by industries.id" required>
+								                              </select>
+
+								                            </div>
+								                            
+
+									                        								                            
+								                          </div> 
+								                          
+								                          <div ng-show="itemDel.itemType.id ==4" class="form-group">
+
+								                          	<p>Actual Part <code>&lt;{{itemDel.part.partDesc}}&gt;</code></p>
+								                          	
+
+								                          
+								                           
+								                            <div class="form-group">
+								                            
+										                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+												                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2"  ng-change="onChangePart()" ng-model="itemDel.part.partNumber" placeholder="SMI PART NUMBER">
+												                        <span class="" aria-hidden="true"></span>
+												                        <a href="" class="btn btn-success btn-xs"   ng-click="findPartExpandableEdit()" title="Page Table"><i class="fa fa-refresh"></i></a>
+		                     									     </div>  
+															 
+									                          
+
+										                    </div>
+																		 
+			 								                             
+									                       							                            
+								                          </div> 
+								                          
+								                          
+								                          <div ng-show="(itemDel.itemType.id ==1) || (itemDel.itemType.id ==3) " class="form-group">
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">New Part Name * :</label>
+									                           <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.newPartName" required />
+									                         </div>
+									                         
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">New Part Description * :</label>
+									                           <input type="text" id="newpartdesc" class="form-control" name="newpartdesc" ng-model="itemDel.newPartDescription" required />
+									                         </div>									                         
+									                         
+									                          <div class="form-group">
+ 
+										                       </div>	
+										                       								                         
+								                          </div>
+								                          
+								                          
+
+								                          <div class="form-group">
+										                          <div class="col-md-3 col-sm-3 col-xs-12">    
+													              		  <label >Um <span class="required">*</span></label>
+											                                                                                     
+											                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+											                              </select>
+											                      </div> 								                          
+								                          
+								                          
+							                                 <div class="col-md-4 col-sm-4 col-xs-4">
+								                              <label for="select2">Quote Per * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.qitemType" ng-options="qitemsType as qitemsType.descitemType for qitemsType in qitemsType track by qitemsType.id ">
+								                              </select>
+								                            </div>
+								                            <br />
+								                            <br />
+								                            <br />
+								                          </div>
+								                          
+								                          
+								                          
+								                          
+									                       <div class="col-md-12 col-sm-12 col-xs-12">   <!--  INIT SWITCHS -------------------------------- --> 
+	                    									<div class="well" style="overflow: auto">
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox"  id="ch1"  class="js-switch" ng-model="itemDel.drawingAva" /> Drawing Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch2" class="" ng-model="itemDel.newPart" /> New Part to Customer
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch3" class="" ng-model="itemDel.sampleAva" /> Sample of Part Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch4" class="" ng-model="itemDel.concernsCurr" /> Concerns with current Plan
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch5" class="" ng-model="itemDel.cadfileAva"/> CAD File Available
+									                            </label>
+									                          </div>								                          
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch6" class="" ng-model="itemDel.packageReq" /> Package Requirements
+									                            </label>
+									                          </div>
+									      					  <div class="col-md-12 col-sm-12 col-xs-12">
+									                            <label>
+									                              <input type="checkbox" id="ch7" class="" ng-model="itemDel.partKissCut" /> Parts kit Cut
+									                            </label>
+									                          </div> 
+	                    									</div>  
+	                    								 </div>		<!--  END SWITCHS -------------------------------- -->							                          								                      
+								                          
+									                    <div class="form-group">
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="eaU">Estimated Anual Usage * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.anualUsage" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="qtq">Quantities to Quote * :</label>
+									                        <input type="text" id="qtq" class="form-control" name="qtq" ng-model="itemDel.quantity" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="targetp">Target Price * :</label>
+									                        <input type="text" id="targetp" class="form-control" name="targetp" ng-model="itemDel.targetPrice" required />
+									                      </div>									                      
+									                      
+									                    </div> 
+									                    
+									                    <div class="form-group">
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Materials * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestMat" required />
+									                      </div>								                            
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Vendors * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestVend" required />
+									                      </div>								                            
+								                        </div>								                        
+
+
+									                    <div class="form-group">
+									                    
+											              <div class="col-md-4 col-sm-4 col-xs-4">    
+												              		  <label >Tesla Model <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.teslaModel" ng-options="tesla as tesla.descModel for tesla in tesla track by tesla.id">
+										                              </select>
+										                  </div> 
+										                  
+													      <div class="col-md-4 col-sm-4 col-xs-4">    
+												              		  <label >Incoterms <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.incoTerms" ng-options="inc as inc.incotermDesc for inc in incoterms track by inc.id">
+										                              </select>
+										                  </div> 				                   
+										                  
+										                   	                    
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">FOB * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.fob" required />
+									                      </div>
+									                      
+
+
+							                             <div class="col-md-4 col-sm-4 col-xs-4">
+								                            <label for="appdate">Rfq Due Date *:
+								                            </label>                            
+							                                <input id="appdate" ng-model="date_lead" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date" >
+							                             </div>
+  							                      
+									                      
+									                    </div>								                      
+
+								                      <div class="form-group">
+
+								                        <div class="col-md-12 col-sm-12 col-xs-12">
+								                          <label>Notes <span class="required"></span>
+								                          </label>
+								                          <textarea class="form-control" rows="3" placeholder=''  ng-model="itemDel.note"></textarea>
+								                        </div>
+								                      </div>
+								
+								                      <br />
+								                      
+								
+								                       <div class="form-group">
+
+								                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								                            
+								                            <button type="submit" ng-click="updateItemEdit()" class="btn btn-success">Update</button>
+								                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelUpdate()">Close</button>
+
+								                        </div>
+								                       </div>		
+								                       						
+								                    </form> 
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>         
+											
+	
+	
+	<!-- Ventana Modal -NEW ITEM--	-->	
+	
+	
+	
+			<!-- Ventana Modal -Modifiy Items --	-->									
+											
+                 <div id="newItem" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">New Item Details</h4>
+                        </div>
+                        <div class="modal-body">                                                           
+									  			  <form class="form-horizontal form-label-left input_mask">
+ 
+								                      
+								                          <div class="form-group">
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Part Type * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.itemType" ng-options="itemsType as itemsType.descItemType for itemsType in itemsType track by itemsType.id">
+								                              </select>
+								                            </div>
+								                            
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Industry * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" ng-model="itemDel.industry" ng-options="industries as industries.industryDesc for industries in industries track by industries.id" required>
+								                              </select>
+
+								                            </div>
+								                            
+
+									                        								                            
+								                          </div> 
+								                          
+								                          <div ng-show="itemDel.itemType.id ==4" class="form-group">
+								                          
+								                          	<p>Actual Part <code>&lt;{{itemDel.part.partDesc}}&gt;</code></p>
+								                          	
+
+								                          
+								                           
+								                            <div class="form-group">
+   									                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+												                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2"  ng-change="onChangePart()" ng-model="itemDel.part.partNumber" placeholder="SMI PART NUMBER">
+												                        <span class="" aria-hidden="true"></span>
+												                        <a href="" class="btn btn-success btn-xs"   ng-click="findPartExpandableEdit()" title="Page Table"><i class="fa fa-refresh"></i></a>
+		                     									     </div>  
+													        </div>						                          
+
+
+															 
+								                           <div class="form-group">
+											                          <div class="col-md-3 col-sm-3 col-xs-12">    
+														              		  <label >Um <span class="required">*</span></label>
+												                                                                                     
+												                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+												                              </select>
+												                       </div> 
+									                       </div>  			 								                             
+									                       							                            
+								                          </div> 
+								                          
+								                          
+								                          <div ng-show="itemDel.itemType.id ==1" class="form-group">
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">New Part Name * :</label>
+									                           <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.newPartName" required />
+									                         </div>
+									                         
+									                          <div class="form-group">
+									                          <div class="col-md-3 col-sm-3 col-xs-12">    
+												              		  <label >Um <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+										                              </select>
+										                       </div> 
+										                       </div>	
+										                       								                         
+								                          </div>
+								                          
+								                          
+
+								                          <div class="form-group">
+							                                 <div class="col-md-4 col-sm-4 col-xs-4">
+								                              <label for="select2">Quote Per * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.qitemType" ng-options="qitemsType as qitemsType.descitemType for qitemsType in qitemsType track by qitemsType.id ">
+								                              </select>
+								                            </div>
+								                            <br />
+								                            <br />
+								                            <br />
+								                          </div>
+								                          
+								                          
+								                          
+								                          
+									                       <div class="col-md-12 col-sm-12 col-xs-12">   <!--  INIT SWITCHS -------------------------------- --> 
+	                    									<div class="well" style="overflow: auto">
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox"  id="ch1"  class="js-switch" ng-model="itemDel.drawingAva" /> Drawing Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch2" class="" ng-model="itemDel.newPart" /> New Part to Customer
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch3" class="" ng-model="itemDel.sampleAva" /> Sample of Part Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch4" class="" ng-model="itemDel.concernsCurr" /> Concerns with current Plan
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch5" class="" ng-model="itemDel.cadfileAva"/> CAD File Available
+									                            </label>
+									                          </div>								                          
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch6" class="" ng-model="itemDel.packageReq" /> Package Requirements
+									                            </label>
+									                          </div>
+									      					  <div class="col-md-12 col-sm-12 col-xs-12">
+									                            <label>
+									                              <input type="checkbox" id="ch7" class="" ng-model="itemDel.partKissCut" /> Parts kit Cut
+									                            </label>
+									                          </div> 
+	                    									</div>  
+	                    								 </div>		<!--  END SWITCHS -------------------------------- -->							                          								                      
+								                          
+									                    <div class="form-group">
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="eaU">Estimated Anual Usage * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.anualUsage" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="qtq">Quantities to Quote * :</label>
+									                        <input type="text" id="qtq" class="form-control" name="qtq" ng-model="itemDel.quantity" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="targetp">Target Price * :</label>
+									                        <input type="text" id="targetp" class="form-control" name="targetp" ng-model="itemDel.targetPrice" required />
+									                      </div>									                      
+									                      
+									                    </div> 
+									                    
+									                    <div class="form-group">
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Materials * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestMat" required />
+									                      </div>								                            
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Vendors * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestVend" required />
+									                      </div>								                            
+								                        </div>								                        
+
+
+									                    <div class="form-group">
+									                    
+											              <div class="col-md-4 col-sm-4 col-xs-4">    
+												              		  <label >Tesla Model <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.teslaModel" ng-options="tesla as tesla.descModel for tesla in tesla track by tesla.id">
+										                              </select>
+										                  </div>  
+										                  
+													      <div class="col-md-4 col-sm-4 col-xs-4">    
+												              		  <label >Incoterms <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.incoTerms" ng-options="inc as inc.incotermDesc for inc in incoterms track by inc.id">
+										                              </select>
+										                  </div> 
+										                  
+										                  										                   	                    
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">FOB * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.fob" required />
+									                      </div>
+									                      
+
+
+							                             <div class="col-md-4 col-sm-4 col-xs-4">
+								                            <label for="appdate">Rfq Due Date *:
+								                            </label>                            
+							                                <input id="appdate" ng-model="date_lead" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date" >
+							                             </div>
+  							                      
+									                      
+									                    </div>								                      
+
+								                      <div class="form-group">
+
+								                        <div class="col-md-12 col-sm-12 col-xs-12">
+								                          <label>Notes <span class="required"></span>
+								                          </label>
+								                          <textarea class="form-control" rows="3" placeholder=''  ng-model="itemDel.note"></textarea>
+								                        </div>
+								                      </div>
+								
+								                      <br />
+								                      
+								
+								                       <div class="form-group">
+
+								                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								                            
+								                            <button type="submit" ng-click="newItem()" class="btn btn-success">Save</button>
+								                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelUpdate()">Close</button>
+
+								                        </div>
+								                       </div>		
+								                       						
+								                    </form> 
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>         
+											
+	<!-- Ventana Modal -NEW ITEM --	-->	
+	
+	
+    <!-- Ventana Modal -COPY ITEM--	-->	
+	
+	
+	
+			<!-- Ventana Modal -COPY Items --	-->									
+											
+                 <div id="copyItem" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Copy Item</h4>
+                        </div>
+                        <div class="modal-body">                                                           
+									  			  <form class="form-horizontal form-label-left input_mask">
+ 
+								                      
+								                          <div class="form-group">
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Part Type * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.itemType" ng-options="itemsType as itemsType.descItemType for itemsType in itemsType track by itemsType.id">
+								                              </select>
+								                            </div>
+								                            
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Industry * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" ng-model="itemDel.industry" ng-options="industries as industries.industryDesc for industries in industries track by industries.id" required>
+								                              </select>
+
+								                            </div>
+								                            
+
+									                        								                            
+								                          </div> 
+								                          
+								                          <div ng-show="itemDel.itemType.id ==4" class="form-group">
+								                          
+								                          	<p>Actual Part <code>&lt;{{itemDel.part.partDesc}}&gt;</code></p>
+								                          	
+
+								                          
+								                           
+								                            <div class="form-group">
+								                            
+										                             <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+												                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2"  ng-change="onChangePart()" ng-model="itemDel.part.partNumber" placeholder="SMI PART NUMBER">
+												                        <span class="" aria-hidden="true"></span>
+												                        <a href="" class="btn btn-success btn-xs"   ng-click="findPartExpandableEdit()" title="Page Table"><i class="fa fa-refresh"></i></a>
+		                     									     </div>  
+															 
+									                          
+
+										                    </div>  			 								                             
+									                       							                            
+								                          </div> 
+								                          
+								                          
+								                          <div ng-show="(itemDel.itemType.id ==1) || (itemDel.itemType.id ==3)" class="form-group">
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">New Part Name * :</label>
+									                           <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.newPartName" required />
+									                         </div>
+									                         
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">New Part Description * :</label>
+									                           <input type="text" id="newpartdesc" class="form-control" name="newpartdesc" ng-model="itemDel.newPartDescription" required />
+									                         </div>											                         
+									                         
+									                          <div class="form-group">
+
+										                       </div>	
+										                       								                         
+								                          </div>
+								                          
+								                          
+
+								                          <div class="form-group">
+								                               <div class="col-md-3 col-sm-3 col-xs-12">    
+												              		  <label >Um <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+										                              </select>
+										                       </div> 
+								                          
+							                                 <div class="col-md-4 col-sm-4 col-xs-4">
+								                              <label for="select2">Quote Per * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.qitemType" ng-options="qitemsType as qitemsType.descitemType for qitemsType in qitemsType track by qitemsType.id ">
+								                              </select>
+								                            </div>
+								                            <br />
+								                            <br />
+								                            <br />
+								                          </div>
+								                          
+								                          
+								                          
+								                          
+									                       <div class="col-md-12 col-sm-12 col-xs-12">   <!--  INIT SWITCHS -------------------------------- --> 
+	                    									<div class="well" style="overflow: auto">
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox"  id="ch1"  class="js-switch" ng-model="itemDel.drawingAva" /> Drawing Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch2" class="" ng-model="itemDel.newPart" /> New Part to Customer
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch3" class="" ng-model="itemDel.sampleAva" /> Sample of Part Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch4" class="" ng-model="itemDel.concernsCurr" /> Concerns with current Plan
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch5" class="" ng-model="itemDel.cadfileAva"/> CAD File Available
+									                            </label>
+									                          </div>								                          
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch6" class="" ng-model="itemDel.packageReq" /> Package Requirements
+									                            </label>
+									                          </div>
+									      					  <div class="col-md-12 col-sm-12 col-xs-12">
+									                            <label>
+									                              <input type="checkbox" id="ch7" class="" ng-model="itemDel.partKissCut" /> Parts kit Cut
+									                            </label>
+									                          </div> 
+	                    									</div>  
+	                    								 </div>		<!--  END SWITCHS -------------------------------- -->							                          								                      
+								                          
+									                    <div class="form-group">
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="eaU">Estimated Anual Usage * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.anualUsage" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="qtq">Quantities to Quote * :</label>
+									                        <input type="text" id="qtq" class="form-control" name="qtq" ng-model="itemDel.quantity" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="targetp">Target Price * :</label>
+									                        <input type="text" id="targetp" class="form-control" name="targetp" ng-model="itemDel.targetPrice" required />
+									                      </div>									                      
+									                      
+									                    </div> 
+									                    
+									                    <div class="form-group">
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Materials * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestMat" required />
+									                      </div>								                            
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Vendors * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestVend" required />
+									                      </div>								                            
+								                        </div>								                        
+
+
+									                    <div class="form-group">
+									                    
+											              <div class="col-md-4 col-sm-4 col-xs-4">    
+												              		  <label >Tesla Model <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.teslaModel" ng-options="tesla as tesla.descModel for tesla in tesla track by tesla.id">
+										                              </select>
+										                  </div>  
+										                  
+													
+													      <div class="col-md-4 col-sm-4 col-xs-4">    
+												              		  <label >Incoterms <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.incoTerms" ng-options="inc as inc.incotermDesc for inc in incoterms track by inc.id">
+										                              </select>
+										                  </div> 
+										                  
+										                  				                   	                    
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">FOB * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.fob" required />
+									                      </div>
+									                      
+
+
+							                             <div class="col-md-4 col-sm-4 col-xs-4">
+								                            <label for="appdate">Rfq Due Date *:
+								                            </label>                            
+							                                <input id="appdate" ng-model="date_lead" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date" >
+							                             </div>
+  							                      
+									                      
+									                    </div>								                      
+
+								                      <div class="form-group">
+
+								                        <div class="col-md-12 col-sm-12 col-xs-12">
+								                          <label>Notes <span class="required"></span>
+								                          </label>
+								                          <textarea class="form-control" rows="3" placeholder=''  ng-model="itemDel.note"></textarea>
+								                        </div>
+								                      </div>
+								
+								                      <br />
+								                      
+								
+								                       <div class="form-group">
+
+								                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								                            
+								                            <button type="submit" ng-click="copyItem()" class="btn btn-success">Copy</button>
+								                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelUpdate()">Close</button>
+
+								                        </div>
+								                       </div>		
+								                       						
+								                    </form> 
+                        </div>
+                        
+                        
+						<!-- /Ventana Modal -->	   
+						
+						
+
+											
+																	          
+						<script type="text/ng-template" id="requote.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Requote</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure you want to generate a Requote, this will create a new quote with the same RFQ and a correlative for the revision number ?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="generateRequote()">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+    				  </script>
+                        
+                        
+                        <div class="modal-footer">
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>         
+											
+	<!-- Ventana Modal COPY ITEM --	-->	
+												
+												
+											
+											
+											

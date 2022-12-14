@@ -1,0 +1,161 @@
+<div>
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+                </div>
+              </div>
+            </div>
+
+           
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Filter Projects</h2>
+                  
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                   <div class="well" style="overflow: auto">
+
+                   <div class="col-md-10 left-margin">
+				   <form class="form-horizontal form-label-left">
+					  <input  type="checkbox" class="flat" checked="checked" ng-model="proyfilter.statFilter1" ng-click="validateCheck()" ng-false-value="'0'"  ng-checked="proyfilter.statFilter1 == '1'" name="hobbies[]" id="hobby1" /> Type Project
+                       <div class="form-group" ng-if="proyfilter.statFilter1=='1'">
+                                             <div class="col-md-10">	
+													            <div class="radio">
+													            
+													                            <label>
+													                              <input type="radio" ng-model="proyfilter.typeProject" value="0" class="flat" checked name="iCheck"> Construction.
+       											                                </label>
+													                            <label>
+													                              <input type="radio" ng-model="proyfilter.typeProject" value="1" class="flat" name="iCheck"> Roof, Windows, Doors, and Others.
+													                            </label>
+
+													                            
+													            </div>                  
+													                            
+											  </div>	                                                   
+                         <div class="col-md-8">	  
+	  						<div><button type="button"  class="btn btn-round btn-success" ng-click="qLeadsFilter()">Apply</button></div>	
+						 </div>
+                        
+					   </div>	
+					 
+					 <div ng-if="proyfilter.typeProject==0">
+					 	<input  type="checkbox" class="flat" checked="checked" ng-model="proyfilter.statFilter2" ng-click="validateCheck()" ng-false-value="0"  ng-checked="proyfilter.statFilter2 == 1" name="hobbies[]" id="hobby1" /> Type Construction 	
+                     </div>
+                       <div class="form-group" ng-if="proyfilter.statFilter2==1">
+                                             <div class="col-md-10">	
+													            <div class="radio">
+													            
+													                            <label>
+													                              <input type="radio" ng-model="proyfilter.subConstruction" value="0" class="flat" checked name="iCheck2"> Garage.
+       											                                </label>
+													                            <label>
+													                              <input type="radio" ng-model="proyfilter.subConstruction" value="1" class="flat" name="iCheck2"> Adition.
+													                            </label>
+													                            <label>
+													                              <input type="radio" ng-model="proyfilter.subConstruction" value="2" class="flat" name="iCheck2"> Adition.
+													                            </label>													                            
+													            </div>                  
+													                            
+											  </div>		                                                   
+
+                        
+					   </div>				  
+					  					  
+					  			  
+					</form>  
+				   </div>
+				  					  
+                    
+					
+					</div>
+					
+				 				    
+				   
+				    <div>
+				    		<div><button type="button"  class="btn btn-round btn-success" ng-click="findFilterProjects()">Find</button></div>	
+				    </div>               
+                    
+<!-- /Ventana Modal -->				
+				
+				
+ <table id="tbLead" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                      <thead>
+                        <tr>
+                          <th>Company Id</th>
+                          <th>Date</th>
+                          <th>Customer</th>
+                          <th>Address</th>
+                          <th>Seller</th>
+                          <th>Address</th>
+						  <th>Total Amount</th>
+                          <th>Financial Amount</th>
+						  <th>Cash Amount</th>
+                          <th>Financial Pending $</th>
+						  <th>Cash Pending $</th>						  
+						  <th>Edition</th>
+						  
+  
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="projFil in projFils track by $index" class="ng-scope">
+                             
+                            <td ng-bind="projFil.proycompanyId"></td> 
+							<td width="5%" ng-bind="projFil.proyDate | date:'dd/MMM/yyyy'"></td>
+    						<td ng-bind="projFil.proycompanyId"></td>
+    						<td ng-bind="projFil.proyCustomers"></td>
+    						<td ng-bind="projFil.proySeller1"></td>
+    						<td ng-bind="projFil.proyaddresName"></td>
+    						<td ng-bind="projFil.proytotalAmount"></td>
+    						
+    						<td ng-bind="projFil.proytotalFinancial"></td>
+    						<td ng-bind="projFil.proytotalCash"></td>
+    						<td ng-bind="projFil.financialPending"></td>
+    						<td ng-bind="projFil.cashPending"></td>    		
+    						
+    						<td ng-if="projFil.statProject=='0'"><span class="label label-default">Active</span></td>
+                            <td ng-if="projFil.statProject=='1'"><span class="label label-danger">Canceled</span></td>
+                            <td ng-if="projFil.statProject=='2'"><span class="label label-default">Signed</span></td>
+                            <td ng-if="projFil.statProject=='3'"><span class="label label-primary">Preeliminared</span></td>
+                            <td ng-if="projFil.statProject=='4'"><span class="label label-info">Preeliminared Signed</span></td>
+                            <td ng-if="projFil.statProject=='5'"><span class="label label-warning">City Someted</span></td>
+                            <td ng-if="projFil.statProject=='7'"><span class="label label-success">Permised Approved</span></td>  
+                            <td ng-if="projFil.statProject=='9'"><span class="label label-success">Executing</span></td>
+                            <td ng-if="projFil.statProject=='10'"><span class="label label-success">Completed</span></td>				
+    						
+
+									<td>
+									        <a class="btn btn-primary btn-xs"><i class="fa fa-folder"></i></a>
+                           					<a class="btn btn-warning btn-xs" ng-click="leadActivity($index)" data-toggle="modal" data-target="#editLeadAct"><i class="fa fa-comments"></i></a>
+									</td>
+									
+		
+							   
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+ <!-- Ventana Modal -->
+       					
+					
+											  
+                        
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

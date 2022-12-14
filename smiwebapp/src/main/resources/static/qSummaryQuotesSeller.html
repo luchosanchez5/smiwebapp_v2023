@@ -1,0 +1,269 @@
+ <div clas="">
+
+      <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Quotes Summary<small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    
+			            <div class="col-md-12 col-sm-12 ">
+			              <div class="x_panel tile fixed_height_360">
+			                <div class="x_title">
+			                  <h2>Quotes by Status</h2>
+			                  <ul class="nav navbar-right panel_toolbox">
+			                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+			                    </li>
+			                    <li class="dropdown">
+			                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+			                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			                          <a class="dropdown-item" href="#">Settings 1</a>
+			                          <a class="dropdown-item" href="#">Settings 2</a>
+			                        </div>
+			                    </li>
+			                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+			                    </li>
+			                  </ul>
+			                  <div class="clearfix"></div>
+			                </div>
+			                <div class="x_content">
+			                  <h4>Total Amounts Quotes per Status</h4>
+			                  <div ng-repeat="it in qSumm track by $index">
+			                  <div class="widget_summary">
+			                    <div class="w_left w_25">
+			                      <span><a href="" ng-click="clickStatus($index)"">{{it.stat_desc + '   '}}</a></span>
+			                      <div><small class="value text-success">{{'Total Quotes : ' + it.total + ' - Total Items : ' +  it.items}}</small></div>
+			                    </div>
+			                    <div class="w_center w_55">
+			                      <div class="progress">
+			                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( it.porcL + '%' ) }"">
+			                          <span class="sr-only">60% Complete</span>
+			                        </div>
+			                      </div>
+			                    </div>
+			                    <div class="w_right w_20">
+			                      <span ng-if="it.stat_desc != 'Order Received'">{{it.proficit | currency:USD$:2 }}</span>
+			                      <span ng-if="it.stat_desc == 'Order Received'">{{totOrder | currency:USD$:2 }}</span>
+			                    </div>
+			                    <div class="clearfix"></div>
+			                  </div>
+			
+
+
+
+
+			                  
+			                  </div>
+			
+			                </div>
+			              </div>
+			            </div>
+			            
+			      <div ng-if="showTable == false" id="loadSpinner" class="text-center">  <img id="spinner" ng-src="images/spinner2.gif"> </div>       
+			            
+                  <div ng-if="showTable == true">
+                  
+                  <!-- end project list 
+                      
+                  <div class="col-md-9 col-sm-9 col-xs-12 form-group has-feedback"><a href="" class="btn btn-success btn-xs" ng-click="refresh()" title="Page Table"><i class="fa fa-refresh"></i></a>   </div>  
+                          
+                
+                  -->  
+                  
+                    <br />                      
+		                    <p>Table with Quotes listing with progress and view details options</p>
+		
+		                    <!-- start project list -->
+		                    <table id="tbVQuotesStatus" class="table table-striped table-bordered">
+		                      <thead>
+		                        <tr>
+		                          <th>RFQ</th>
+		                          <th>Created Date</th>
+		                          <th>Customer</th>
+		                          <th>Estimator</th>
+		                          <th>Salesman</th>
+		                          <th>Status</th>
+		                          <th>Rfq Due Date</th>
+		                          <th>Total Items</th>
+		                          <th>PO Amount</th>
+		                          <th>Total Amount</th>
+		                         
+		                        </tr>
+		                      </thead>
+		                      <tbody>
+		                        <tr ng-repeat="pr in viewqAllSel track by $index" ng-if="pr[6] == filterStat" class="ng-scope">
+		                          <td><a href="" ng-click="findVListQuote($index)"">{{pr[4]}}</a></td>
+		                          <td ng-bind="pr[1] | date:'MM/dd/yyyy'"></td>
+		
+		                          <td>
+		                            <a>{{pr[18]}} <br /></a>
+		                            
+		   
+		                          </td>
+		
+		                          <td>
+		                          		{{ pr[15] }}		
+		                          </td>
+		
+		                          <td>
+		                          		{{ pr[16] }}		
+		                          </td>                          
+		                    
+		                          
+		                            
+		                            <td ng-if="pr[6]=='0'"><span class="label label-default">New</span></td>
+		                            <td ng-if="pr[6]=='1'"><span class="label label-info">In Progress</span></td>
+		                            <td ng-if="pr[6]=='2'"><span class="label label-danger">Cancelled</span></td>
+		                            <td ng-if="pr[6]=='3'"><span class="label label-primary">Partial Estimate</span></td>
+		                            <td ng-if="pr[6]=='4'"><span class="label label-success">Complete Estimate</span></td>
+		                            <td ng-if="pr[6]=='5'"><span class="label label-success">FeedBack Pending</span></td>
+		                            <td ng-if="pr[6]=='6'"><span class="label label-success">Order Received</span></td>
+		                            <td ng-if="pr[6]=='7'"><span class="label label-danger">On Hold</span></td>
+		                            <td ng-if="pr[6]=='8'"><span class="label label-warning">Complete</span></td>
+		                            
+	                            
+		                          <td ng-if="(pr[20] >=0) && ((pr[6]=='0') || (pr[6]=='3') || (pr[6]=='1') || (pr[6]=='7')) "  style="color: red;"  ng-bind="pr[13] | date:'MM/dd/yyyy'">	
+		                          </td>
+		                          
+		                          <td ng-if="(pr[20] < 0) && ((pr[6]=='0') || (pr[6]=='3') || (pr[6]=='1') || (pr[6]=='7')) "   ng-bind="pr[13] | date:'MM/dd/yyyy'">	
+		                          </td>		                          
+		                          
+		                          <td ng-if="(pr[6]=='2') || (pr[6]=='4') || (pr[6]=='5') || (pr[6]=='6') || (pr[6]=='8')"  ng-bind="pr[13] | date:'MM/dd/yyyy'">	
+		                          </td>		                          
+		                          
+		                          <td>	
+		                          		<a href="" data-toggle="modal" data-target="#showItems" ng-click="showquoteItems($index)" "> {{ pr[11] }}	 </a>
+		                          </td>	
+		                          
+		                          <td ng-bind="pr[19] | currency:USD$:2 ">	
+		                          </td>			                          		                          
+		                          
+		                          <td ng-bind="pr[12]  | currency:USD$:2">	
+		                          </td>			
+
+		                        </tr>
+		 
+		                      </tbody>
+		                    </table>
+		                    <!-- end project list -->                      
+                      
+                      
+                      </div>		            
+			            
+                      <br />
+                      <br />   
+                           
+                      <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-4">
+                          
+                          
+                         <button ng-if="readyRe1 == false" class="btn btn-disabled"" ng-click="btqprint_q1()" disabled><i class="fa fa-print"></i> {{txtPromise}}</button>
+                         <button ng-if="readyRe1 == true" class="btn btn-success" ng-click="btqprint_q1()"><i class="fa fa-print"></i> Print</button>
+                       
+                        </div>
+                      </div>     
+                      
+                      
+                         				<!-- Ventana Modal - Activitys -->
+											    
+											                  <div id="showItems" class="modal fade bs-example-modal-ed" tabindex="-1" role="dialog" aria-hidden="true">
+											                    <div class="modal-dialog modal-lg">
+											                      <div class="modal-content">
+											
+											                        <div class="modal-header">
+											                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+											                          </button>
+											                          <h4 class="modal-title" id="myModalLabel">Items Quote</h4>
+											                        </div>
+											                        <div class="modal-body">
+											                        
+											                        
+														 				  <table id="tbItemsQuerySel" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+														                      <thead>
+														                        <tr>                         
+																					                          <th>Item #</th>
+																					                          <th>Item Type</th>
+																					                          <th>Part</th>
+																					                          <th>RFQ Number</th>
+
+																											  <th>Target Price (%)</th>
+																											  <th>Quantity</th>
+																											  
+																											  <th>SMI Total Cost</th>
+																											  <th>SMI Sale Cost</th>
+																											  <th>Status</th>
+																					
+																											  
+														  
+														                        </tr>
+														                      </thead>
+														                      <tbody>
+														                        <tr ng-repeat="itemsTemp in itemsquote track by $index" class="ng-scope">
+
+																														<td><a ng-href="">{{itemsTemp.itemNumber}}</a></td>
+																												        <td>{{itemsTemp.itemType.descItemType}}</td>
+																												        <td ng-if="itemsTemp.itemType.id == 4">{{itemsTemp.part.partNumber + " - " + itemsTemp.part.partDesc}}</td>
+																												        <td ng-if="(itemsTemp.itemType.id == 1) || (itemsTemp.itemType.id == 2) || (itemsTemp.itemType.id == 3)  ">{{itemsTemp.newPartName}}</td>
+																												        <td><a href="" ng-click="findListQuote($index)"">{{itemsTemp.quote.nroRfq}}</a></td>
+
+																														<td>{{itemsTemp.targetPrice}}</td>
+																														<td>{{itemsTemp.quantity}}</td>
+																														
+																														<td>{{itemsTemp.smiTotalCost | currency:USD$:2}}</td>
+																														<td>
+																														       {{itemsTemp.smiSaleCost | currency:USD$:2  +  '  ' }}<a></a>
+																														       <a target="_blank" href="" ng-href="">
+																														       		<i ng-if = "(swPrint == '0') " class="fa fa-spinner fa-spin"></i>
+																														       		<i ng-if = "(swPrint == '1') " class="fa fa-file-pdf-o" ng-click="printsheetCost($index)"></i>
+																														       </a>
+																															
+																														</td>
+																														<td>{{itemsTemp.itemStatus.itemStatusDesc}}</td>
+  
+														                        </tr>
+														
+														                      </tbody>
+														
+														   				</table>											                        
+
+											
+											                        <!-- end of user messages -->          
+											                        <div class="modal-footer">
+											                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											                         
+											                        </div>
+											
+											                      </div>
+											                    </div>
+											                  </div>
+
+											<!-- Ventana Modal - End Activitys --	-->	                                    
+                    
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+</div>            

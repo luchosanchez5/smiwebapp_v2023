@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptOriginGroupMonth" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="56a0c2c0-faa3-433d-8a63-931a4f5c2022">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgressSQL"/>
+	<queryString language="SQL">
+		<![CDATA[Select
+  Query.nombre,
+  Case Query.Mes When 1 Then 'January' When 2 Then 'February'
+    When 3 Then 'March' When 4 Then 'April' When 5 Then 'May' When 6 Then 'Juny'
+    When 7 Then 'July' When 8 Then 'August' When 9 Then 'September'
+    When 10 Then 'October' When 11 Then 'November' When 12 Then 'December'
+  End As Mes,
+  Query.Ano,
+  Query."Total"
+From
+  (Select
+    Count(lead.id_lead) As "Total",
+    origin.name As nombre,
+    Date_Part('month', lead.record_date) As Mes,
+    Date_Part('year', lead.record_date) As Ano
+  From
+    lead Inner Join
+    origin
+      On lead.id_origin = origin.id_origin
+  Group By
+    origin.name, Date_Part('month', lead.record_date), Date_Part('year',
+    lead.record_date)
+  Order By
+    Ano) As Query]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="origin"/>
+	</field>
+	<field name="mes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mes"/>
+	</field>
+	<field name="ano" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ano"/>
+	</field>
+	<field name="Total" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="Total"/>
+	</field>
+	<variable name="nombre1" class="java.lang.Integer" resetType="Group" resetGroup="nombre" calculation="Count">
+		<variableExpression><![CDATA[$F{nombre}]]></variableExpression>
+	</variable>
+	<group name="nombre">
+		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
+		<groupHeader>
+			<band height="46">
+				<textField>
+					<reportElement x="138" y="8" width="100" height="30" uuid="47384157-7a1d-4365-90af-e03e8246bd81"/>
+					<textFieldExpression><![CDATA[$V{nombre1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="20" y="8" width="100" height="30" uuid="6c8fba66-d610-47db-b4e8-3e45794659be"/>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="134" splitType="Stretch">
+			<image>
+				<reportElement x="24" y="6" width="106" height="112" uuid="fe9713d4-fe0c-4f93-91d6-6f16211d8896"/>
+				<imageExpression><![CDATA["images/logopng..png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="-20" y="10" width="610" height="21" uuid="1a32407a-a09f-4e6a-9a0f-ee42e4a46c58"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Eco Home Improvement, LLC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="29" width="610" height="21" uuid="b96b511f-88a7-4654-a190-81320d28ec72"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Procesing Departament]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="50" width="610" height="21" uuid="3c216c39-87b0-4713-918a-143f631d4b58"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Montebello - California]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="90" width="610" height="21" uuid="de29c2ee-ab84-4e87-a16b-47d9b880a959"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Leads Report by Origin]]></text>
+			</staticText>
+			<textField pattern="MMM d, yyyy h:mm:ss a">
+				<reportElement x="440" y="80" width="130" height="30" uuid="a3894d81-51eb-40b6-9a34-9f1f8b3efb9a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

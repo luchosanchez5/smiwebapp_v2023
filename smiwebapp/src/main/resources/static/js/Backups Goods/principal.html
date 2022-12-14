@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appEco">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Seal Methods Inc. | Gaskets, Seals, Tapes & Precision die cuts</title>
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="vendors/general.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="vendors/ngprogress/ngProgress.css" rel="stylesheet"> 
+    <!-- jVectorMap -->
+    <link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+    <!-- Datatables -->
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Ion.RangeSlider -->
+    <link href="vendors/normalize-css/normalize.css" rel="stylesheet">
+    <link href="vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <!-- Bootstrap Colorpicker -->
+    <link href="vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <!-- PNotify -->
+    <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="vendors/starrr/dist/starrr.css" rel="stylesheet">
+     <!-- Dropzone.js -->
+    <link href="../vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">    
+    
+    <link href="vendors/cropper/dist/cropper.min.css" rel="stylesheet">	
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+
+  <body class="nav-md">
+    <div class="container body" ng-controller="homeController" >
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;" align="center">
+            <a href="#/" ><img  ng-src="images/logo.jpg" class="img-responsive" alt="Cinque Terre" width="100"></a>
+              <!-- <a href="#/" class="site_title"><i class="fa fa-paw"></i> <span>Antares Plant Aplication</span></a>-->
+            </div>
+
+            <div class="clearfix"></div>
+            <br />
+            <!-- menu profile quick info -->
+            <div class="profile" ng-init="myVar = 'images/luis.jpg'">
+              <div class="profile_pic">
+                <img ng-src="{{dirimageUrl}}" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2 ng-bind="greeting.completeName"></h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+               <br />
+               <br />
+               <br />
+               <br />
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                      <ul class="nav child_menu">
+                      <li><a href="#/dashboard">Dashboard</a></li>
+                      <li ng-if="greeting.role == 'SELLER'"><a href="#/dashboardSeller">Dashboard</a></li>
+                                          
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-edit"></i> Basics <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/customers">Customers</a></li>
+                      <li><a href="#/ess">Parts</a></li>
+                      <li><a href="#/lress">Materials</a></li>
+                      <li ng-if="greeting.role == 'ADMIN' || greeting.role == 'CEO'"><a href="#/scontrators">Sub-Contrators</a></li>
+                      <li ng-if="greeting.role == 'ADMIN' || greeting.role == 'CEO'"><a href="#/banks">Banks</a></li>
+                      <li ng-if="greeting.role == 'ADMIN' || greeting.role == 'CEO'"><a href="#/sellers">Sellers</a></li>
+                      <li ng-if="greeting.role == 'ADMIN' || greeting.role == 'CEO'"><a href="#/inventory">Inventory</a></li>
+                      <li ng-if="greeting.role == 'ADMIN' || greeting.role == 'CEO'"><a href="#/improvements">Improvements</a></li>
+                      
+                      
+
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-tasks"></i> Pipeline <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li ng-if="greeting.role == '1'"><a href="#/add-qlead">New Lead</a></li>
+                        <li ng-if="greeting.role == '1'"><a href="#/quote-leads">Leads</a></li>
+                        <li ng-if="greeting.role == '2'"><a href="#/seller-leads">Leads</a></li>
+                    </ul>
+                  </li>
+      
+                  <li><a><i class="fa fa-file-excel-o"></i> Quotes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '1'"><a href="#/addquotes"> Add Quote </a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/find-item">Find Item</a></li>
+                      
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-bar-chart-o"></i>Querys <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li ng-if="greeting.role == '1'"><a href="#/qestimators">Quotes per Estimator</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qreferral">Quotes per Referral</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qfollowup">Follow Up</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/qitemsstatus">Items per Status</a></li>
+                      <li ng-if="greeting.role == '2'"><a href="#/qitemsstatus">Quotes per Status</a></li>
+
+
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-cog"></i>Setup <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#/profile">Profile</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/estimators">Estimators</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/industry">Industry</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/machine">Machine</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/measure">Measure Units</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/roles">Roles</a></li>
+                      <li ng-if="greeting.role == '1'"><a href="#/terms">Terms</a></li>
+
+
+
+					  
+                    </ul>
+                  </li>				  
+                </ul>
+              </div>
+              <div class="menu_section">
+
+                <ul class="nav side-menu">
+                                    
+                   </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+ 
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span style="pointer-events: auto; cursor: pointer;" class="glyphicon glyphicon-off" aria-hidden="true" ng-click="logout()"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav class="" role="navigation">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="" alt="">{{greeting.userName}}
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> Perfil</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">0%</span>
+                        <span>Opciones</span>
+                      </a>
+                    </li>
+                     <li><a ng-click="logout()"><i  class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">0</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>Message</span>
+                          <span class="time">1 Hour Ago</span>
+                        </span>
+                        <span class="message">
+                          New Quote...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>Message</span>
+                          <span class="time">1 Hour Ago</span>
+                        </span>
+                        <span class="message">
+                          New Quote...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>Message</span>
+                          <span class="time">1 Hour Ago</span>
+                        </span>
+                        <span class="message">
+                          New Quote...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>Message</span>
+                          <span class="time">1 Hour Ago</span>
+                        </span>
+                        <span class="message">
+                          New Quote...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>...</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content ----------------------------------------------------------------------------->
+        <div ng-view class="right_col" role="main"></div>
+        <!-- /page content ----------------------------------------------------------------------------->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            smiwebapp 1.0 <a href="www.dlsistemas.com.ve">Seal Methods Inc</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-file.js"></script> 
+	
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.3.0.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.3.0.min.js"></script>
+    <script src="js/angular.js"></script>
+ 	<script src="js/angular-pnotify.js"></script>
+
+ 	<script src="vendors/Chart.js/dist/Chart.min.js"></script>
+ 	<script src="js/angular-chart.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAOmgUL7x5obC2XNN5xw22q0Lo5S6oegaA"></script>
+
+    <!-- vsGoogleAutocomplete -->
+    <script src="js/vs-google-autocomplete.js"></script>
+    
+    <script src="js/ng-file-upload-shim.js"></script>
+    <script src="js/ng-file-upload.js"></script>
+
+	<script src="js/directives.js"></script> 	
+ 	<script src="js/ecoapp.js"></script> 
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>		
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="vendors/ngprogress/ngprogress.js"></script>
+    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="vendors/iCheck/icheck.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.min.js"></script>    
+    <!-- Chart.js -->
+    
+    
+    <!-- gauge.js -->
+    <script src="vendors/bernii/gauge.js/dist/gauge.min.js"></script>
+
+
+    <!-- Skycons -->
+    <script src="vendors/skycons/skycons.js"></script>
+
+	
+    <!-- Flot -->
+    <script src="vendors/Flot/jquery.flot.js"></script>
+    <script src="vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="vendors/Flot/jquery.flot.time.js"></script>
+    <script src="vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Datatables -->
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>  
+    <!-- Flot plugins -->
+    
+    <script src="js/flot/jquery.flot.orderBars.js"></script>
+    <script src="js/flot/date.js"></script>
+    <script src="js/flot/jquery.flot.spline.js"></script>
+    <script src="js/flot/curvedLines.js"></script>
+    <!-- jVectorMap -->
+    <script src="js/maps/jquery-jvectormap-2.0.3.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="vendors/google-code-prettify/src/prettify.js"></script>    
+    <!-- jQuery Sparklines -->
+    <script src="vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- PNotify -->
+    <script src="vendors/pnotify/dist/pnotify.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.confirm.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>
+
+
+    <!-- Flot -->
+
+    <!-- /Flot -->
+
+    <!-- jVectorMap -->
+    <script src="js/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="js/maps/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="js/maps/gdp-data.js"></script>
+    
+    <!-- Dropzone.js -->
+    <script src="../vendors/dropzone/dist/min/dropzone.min.js"></script>
+
+    <!-- jQuery Tags Input -->
+    <script src="vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <!-- Switchery -->
+    <script src="vendors/switchery/dist/switchery.min.js"></script>
+    <!-- Select2 -->
+    <script src="vendors/select2/dist/js/select2.full.min.js"></script>
+    <!-- Parsley -->
+    <script src="vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Autosize -->
+    <script src="vendors/autosize/dist/autosize.min.js"></script>
+    <!-- jQuery autocomplete -->
+    <script src="vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <!-- starrr -->
+    <script src="vendors/starrr/dist/starrr.js"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <!-- jquery.inputmask -->
+    <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+    <!-- vsGoogleAutocomplete -->
+    <!-- validator -->
+    <script src="vendors/validator/validator.min.js"></script>
+    
+
+
+
+
+    <!-- /jVectorMap -->
+    
+    <!-- jQuery Sparklines -->
+
+    <!-- /jQuery Sparklines -->
+
+  
+
+    <!-- Skycons -->
+
+    <!-- /Skycons -->
+
+    <!-- Doughnut Chart -->
+
+    <!-- /Doughnut Chart -->
+
+    
+    <!-- bootstrap-daterangepicker -->
+
+    <!-- /bootstrap-daterangepicker -->
+
+
+    <!-- gauge.js -->
+
+
+    
+	<script> $(document).ready( function () {
+         $('#tbCust').dataTable();
+         
+		 });
+	 </script>	
+	 
+
+	 
+
+	     
+    <!-- /gauge.js -->
+  </body>
+</html>

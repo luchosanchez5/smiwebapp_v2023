@@ -1,0 +1,506 @@
+
+
+        <!-- page content -->
+        <div >
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Create Shipment | {{packingSelected.packingslip_no}}</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+		
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Packing Slip <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" ng-model="packingSelected.packingslip_no" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Ship Via</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          
+                          <select id="cbocarrier" data-width="100%" class="form-control" required="required" ng-model="car"  ng-options="car as car.carrier_code for car in carriersApi.carriers">
+					      </select>
+                        </div>
+                      </div>                          
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+ 						  <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="submit" ng-click="generatemultiPack()" class="btn btn-success" data-toggle="modal" data-target="#modalMulti">Submit</button>
+                        </div>
+                      </div>
+
+                    </form>				  
+              
+
+		                
+                 <div class="clearfix"></div>	
+                 
+                 
+                 			  
+<!-- Ventana Modal -->
+				  
+				
+<!-- Ventana Modal -->				
+				
+<!-- Ventana Modal -->
+				
+<!-- Ventana Modal -->	             
+  	<script type="text/ng-template" id="borrar.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Eliminar</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="removeCustomer(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+    </script>
+
+
+
+                  </div>
+                </div>
+                
+             <div class="row">
+              <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Recepient Information <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left input_mask">
+
+                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" ng-model="shipTo.name" placeholder="Contact Name">
+                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+
+                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control" id="inputSuccess3" ng-model="shipTo.company_name" placeholder="Company Name">
+                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      </div>
+
+                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" id="inputSuccess4"  placeholder="Email">
+                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+
+                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control" id="inputSuccess5" ng-model="shipTo.phone_no" placeholder="Phone">
+                        <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">City</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" ng-model="shipTo.city_locality" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Address 1 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" disabled="disabled" ng-model="shipTo.address_line1" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Address 2</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" readonly="readonly" ng-model="shipTo.address_line2" placeholder="">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Address 3</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" readonly="readonly" ng-model="shipTo.address_line3" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Postal Code</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control"  ng-model="shipTo.postal_code" placeholder="">
+                        </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">State</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control"  ng-model="shipTo.state_province" placeholder="">
+                        </div>                        
+                      </div>                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Address 3</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" readonly="readonly" placeholder="">
+                        </div>
+                      </div>   
+                      
+                      <div class="form-group">
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'" ng-model="returnLabel"> Include Return Label
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'" ng-model="residentialAddress"> This is a Residential Address
+                            </label>
+                          </div>
+                           <div class="checkbox">
+                            <label>
+                              <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'" ng-model="sendAsn" disabled> Send ASN
+                            </label>
+                          </div>
+                      </div>  
+                      </div>                                        
+
+
+
+                    </form>
+                  </div>
+                </div>
+                
+                
+              </div>
+              
+              
+              <!-- Shipment Details -->
+              
+              <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Package and Shipment Details <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  
+                  
+                    <br />
+                    <form class="form-horizontal form-label-left input_mask">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Number of Packages</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="number" class="form-control" ng-model="noPacks" placeholder="" ng-change="noPacksChange()">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                              <input id="identical1" type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'" ng-model="identicalPacks"> Identical Packages
+                            </label>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Service Type</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" ng-model="servicetype">
+							   <option ng-repeat="item in car.services"  value="{{item.service_code}}">{{item.name}}</option>
+                          </select>
+                        </div>
+                      </div>    
+                      
+                      <div ng-show="((multiPackages==false) || (identicalPacks =='YES'))">
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Weight</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" ng-model="packWeight"  placeholder="pounds">
+                        </div>
+                      </div>  
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Package Type</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" ng-model="packageType">
+                            <option value="1">Your Packaging</option>
+                          </select>
+                        </div>
+                      </div>  
+                      
+                     <div ng-show="packageType == '1'" class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Package Dimensions</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select id="select2" class="form-control" ng-model="packageDimension" ng-options="item as item.description for item in packDimensions">
+                           
+                          </select>
+                        </div>
+                      </div>  
+                      
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Dimensions</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" ng-model="packageDimension.length" placeholder="Length">
+                          
+                       </div>
+                       
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" ng-model="packageDimension.widht" placeholder="Witdh">
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" ng-model="packageDimension.height" placeholder="Height">
+                        </div>
+                      </div>
+                      
+                      </div>
+                        
+                     
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Ship Date</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="date" class="form-control" ng-model="shipDate" >
+                        </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Declare Value</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" ng-model="declaredValue"  placeholder="$0" disabled>
+                        </div>                        
+                      </div>          
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Po</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" ng-model="customerPo"  placeholder="pounds">
+                        </div>
+                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Reference</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" ng-model="customerSo"  placeholder="pounds">
+                        </div>
+                      </div>       
+                      
+                      <div class="form-group">
+
+                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Bill to Account</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" ng-model="advanced_options.bill_to_account"  placeholder="pounds">
+                        </div>
+                      </div>    
+                      
+                       <div ng-show="((multiPackages==true) && (identicalPacks=='NO'))" class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" ng-click="generatemultiPack()" class="btn btn-success" data-toggle="modal" data-target="#modalMulti">Submit</button>
+                        </div>
+               
+                                                  
+                                                           
+                     
+                      <div class="form-group">
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+
+                      </div>  
+                      </div>                                        
+
+                    </form>
+                  </div>
+                </div>
+                
+                
+              </div>
+              
+             
+ 
+ 
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div class="x_content">
+		
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-4">
+ 						  <button class="btn btn-primary" type="reset">Clear Form</button>
+                          <button ng-show="clickSaving == false" type="submit" ng-click="createShipment()" class="btn btn-success">Confirm Shipment</button>
+                          <button ng-show="clickSaving == true" type="submit" ng-click="" class="btn btn-success"><i class="fa fa-spinner fa-spin"></i>&nbsp; Sending <span> ...</span></button>
+  
+                        </div>
+                      </div>
+
+                    </form>				  
+              
+
+		                
+                 <div class="clearfix"></div>	
+ 
+ 
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->	
+        
+        <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------->	
+        <!------------------------------------------------------------- Modal Multi-Packages ---------------------------------------------------------------------------------------->	
+        <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------->	
+        
+        <div id="modalMulti" class="modal fade bs-example-modal-lg-ed" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Multi-Piece Shipment Information</h4>
+                        </div>
+                        <div class="modal-body">
+
+							<form class="form-horizontal form-label-left input_mask">
+							
+		                      <div class="form-group">
+		                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Weight</label>
+		                        <div class="col-md-3 col-sm-3 col-xs-12">
+		                          <input type="text" class="form-control" ng-model="packagesTemp[countPack].weight.value"  placeholder="pounds">
+		                        </div>
+		                      </div>
+		                      
+	                      
+		                      <div class="form-group">
+		                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Package Type</label>
+		                        <div class="col-md-6 col-sm-6 col-xs-12">
+		                          <select class="form-control" ng-model="packagesTemp[countPack].packageType">
+		                            <option value="1">Your Packaging</option>
+		                          </select>
+		                        </div>
+		                      </div>  
+		                      
+		                      
+		                     <div  class="form-group">
+		                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Package Dimensions</label>
+		                        <div class="col-md-6 col-sm-6 col-xs-12">
+		                          <select id="select2" class="form-control" ng-model="packagesTemp[countPack].dimensions" ng-options="item as item.description for item in packDimensions">
+		                           
+		                          </select>
+		                        </div>
+		                      </div>  
+		                      
+		                      
+		                      <div class="form-group">
+		                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Dimensions</label>
+		                        <div class="col-md-3 col-sm-3 col-xs-12">
+		                          <input type="text" class="form-control" ng-model="packagesTemp[countPack].dimensions.length" placeholder="Length">
+		                          
+		                       </div>
+		                       
+		                        <div class="col-md-3 col-sm-3 col-xs-12">
+		                          <input type="text" class="form-control" ng-model="packagesTemp[countPack].dimensions.widht" placeholder="Witdh">
+		                        </div>
+		                        
+		                        <div class="col-md-3 col-sm-3 col-xs-12">
+		                          <input type="text" class="form-control" ng-model="packagesTemp[countPack].dimensions.height" placeholder="Height">
+		                        </div>
+		                      </div>
+		                        
+		                      
+		                      <div class="form-group">
+		                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Declare Value</label>
+		                        <div class="col-md-3 col-sm-3 col-xs-12">
+		                          <input type="text" class="form-control" ng-model="declareValue"  placeholder="$0">
+		                        </div>                        
+		                      </div>          
+		                      
+	                      
+		                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+		                      	                     
+                      
+				                      <div class="btn-group">
+				                        <button type="button" class="btn btn-primary" data-method="move" data-option="-10" data-second-option="0" title="Move Left">
+				                          <span class="docs-tooltip" data-toggle="tooltip" ng-click="movepreviousPack()" title="Previous Package">
+				                            <span class="fa fa-arrow-left"></span>
+				                          </span>
+				                        </button>
+				                        <button type="button" class="btn btn-primary" data-method="move" data-option="10" data-second-option="0" ng-click="movenextPack()" title="Move Right">
+				                          <span class="docs-tooltip" data-toggle="tooltip" title="Next Package">
+				                            <span class="fa fa-arrow-right"></span>
+				                          </span> Package Information ({{ countPack+1 }} of {{ noPacks }})
+				                        </button>
+                             </div> 
+		                      </div>
+
+							</form>
+
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" ng-click="validMulti()" data-dismiss="modal" class="btn btn-primary">Done</button>
+                        </div>
+
+                      </div>
+                    </div>
+        </div>   
+        

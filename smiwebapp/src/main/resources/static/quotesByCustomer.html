@@ -1,0 +1,354 @@
+ 
+ <div>
+ <div class="">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Quotes <small>Listing</small></h3>
+              </div>
+              
+              
+            <div class="clearfix"></div>
+                
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+                </div>
+              </div>
+              
+           
+              
+              
+              
+              
+              
+              
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">             
+              <div class="col-md-12">
+                <div class="x_panel">
+                  
+                  <div ng-if="role == '1' || role == '3' || role == '2' ">
+                    <a><i class="glyphicon glyphicon-filter"></i></a>
+                    <div class="btn-group">
+                      
+                      <button type="button" class="btn btn-default btn-xs">All Status </button>
+                      <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                      
+                      <!--
+                        <li ng-repeat="sel in sellers track by $index"  class="ng-scope"><a href="#"></a>
+                             <label class="checkbox-inline" >
+                              <input type="checkbox" name="restore" checked>
+                                {{sel.sureName + ' ' + sel.lastName}}
+                            </label>
+                        </li>
+                       -->
+                       <label class="checkbox-inline" >
+                       		    <input  id="ch1" type="checkbox" ng-model="filterStatusQuote.statNew" ng-click="" ng-true-value="0" ng-false-value="10"/> New
+		                        <br />
+		
+		                        <input  id="ch2" type="checkbox" ng-model="filterStatusQuote.inProgress" ng-click="" ng-true-value="1" ng-false-value="10"  class="flat" /> In Progress 
+		                        <br />
+		
+		                        <input  id="ch3" type="checkbox" ng-model="filterStatusQuote.cancelled" ng-click="" ng-true-value="2" ng-false-value="10" class="flat" /> Canceled
+		                        <br />
+		
+		                        <input  id="ch4" type="checkbox" ng-model="filterStatusQuote.partialEstimate" ng-click="" ng-true-value="3" ng-false-value="10"  class="flat" /> Partial Estimate
+		                        <br />
+
+		                        <input  id="ch5" type="checkbox" ng-model="filterStatusQuote.completeEstimate" ng-click="" ng-true-value="4" ng-false-value="10"  class="flat" /> Complete Estimate
+		                        <br />		                        
+
+		                        <input  id="ch6" type="checkbox" ng-model="filterStatusQuote.feedbackPending" ng-click=""  ng-true-value="5" ng-false-value="10"  class="flat" /> Feedback Pending
+		                        <br />
+		                        
+		                        <input  id="ch7" type="checkbox" ng-model="filterStatusQuote.onHold" ng-click=""  ng-true-value="6" ng-false-value="10"  class="flat" /> Order Received
+		                        <br />
+		                        
+		                        <input  id="ch8" type="checkbox" ng-model="filterStatusQuote.orderReceived" ng-click=""  ng-true-value="7" ng-false-value="10"  class="flat" /> On Hold
+		                        <br />	
+		                        
+		                        <input  id="ch9" type="checkbox" ng-model="filterStatusQuote.complete" ng-click=""  ng-true-value="8" ng-false-value="10"  class="flat" /> Complete
+		                        <br />		                        	                        		                        
+
+		                        
+		                        
+                       </label> 
+                        <li class="divider"></li>
+                        <li><a href="#"></a>
+                             <div class="col-md-8">	  
+	  								<div><button type="button"  class="btn btn-success btn-xs" ng-click="setfilterStat()">Apply</button></div>	
+						     </div>
+                        </li>
+                      </ul>
+                      
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+	
+		                        
+		                        		                        		                        
+		                       <p>
+		                       </p>
+		                     </div> 
+                      
+                    </div>	
+                    
+                    
+                    <a ng-if="role == '1A'"><i class="glyphicon glyphicon-filter"></i></a>
+                    <div class="btn-group" ng-if="role == '1A'">
+                      
+                      <button type="button" class="btn btn-default btn-xs">{{lbFilterEst}} </button>
+                      <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                      
+                      
+                        <li ng-repeat="est in estimators track by $index" ng-click="setfilterEst($index)" class="ng-scope"><a href="#"></a>
+                             <label class="checkbox-inline">
+                            <!--  <input type="checkbox" name="restore" checked> -->
+                                {{est.sureName + ' ' + est.lastName}}
+                            </label>
+                        </li>
+                       
+
+                        <li class="divider"></li>
+                        <li><a href="#"></a>
+                             <div class="col-md-8">	  
+	  								<div><button type="button"  class="btn btn-success btn-xs" ng-click="refreshQuotes()">Apply</button></div>	
+						     </div>
+                        </li>
+                      </ul>
+                      
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+	
+		                        
+		                        		                        		                        
+		                       <p>
+		                       </p>
+		                     </div> 
+                      
+                    </div> 
+                    </div>
+                             
+                    <br />
+                    <button type="button"  class="btn btn-success btn-xs" ng-click="refreshQuotes()">Refresh</button>   
+                    
+                                  
+                    
+                    <br />
+                    <br />
+                  
+                  
+                  <div class="x_title">
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <p>Table with Quotes listing with progress and editing options</p>
+
+                    <!-- start project list -->
+                    <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 1%"></th>
+                          <th style="width: 20%">RFQ</th>
+                          <th>Estimator / Seller</th>
+                          <th>Quote Progress</th>
+                          <th>Status</th>
+                          <th style="width: 20%">#Edit</th>
+                        </tr>
+                      </thead>
+                      <tbody ng-repeat="pr in quotes track by $index" ng-if="pr.customer.id == idCustomer" class="ng-scope">
+                        <tr>
+                          <td><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></td>
+
+                          <td>
+                            <a>{{pr.customer.customerName}} <br /></a>
+                            
+                            <small class="value text-success" ng-if="(pr.requoteStatus == 'Y')" ng-bind="pr.nroRfq + '/ Rev : '+ pr.requoteRevision"></small>
+                            <small ng-if="(pr.requoteStatus != 'Y')" ng-bind="pr.nroRfq "></small>
+                            <small ng-bind="'  - Created : '"></small>
+                            <small ng-if="(pr.requoteStatus != 'Y')" ng-bind="pr.createdDate | date:'MM/dd/yyyy'"></small>
+                            <small ng-if="(pr.requoteStatus == 'Y')" ng-bind="pr.requoteDate | date:'MM/dd/yyyy'"></small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li ng-attr-title="{{estimator.sureName}}">
+                                <img ng-src="images/{{pr.estimator.imgUrl}}" class="avatar" alt="Avatar" >
+                              </li>
+                              <li ng-if="pr.estimator != null" ng-attr-title="{{seller.sureName}}">
+                                <img ng-src="images/{{pr.seller.imgUrl}}" class="avatar" alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                           <div ng-if=" pr.statQuote == 0">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:1%"></div>
+                            </div>
+                            <small>1% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 1">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:25%"></div>
+                            </div>
+                            <small>25% Complete</small>
+                           </div>                            
+                           <div ng-if="pr.statQuote == 3">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:40%"></div>
+                            </div>
+                            <small>40% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 4">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:70%"></div>
+                            </div>
+                            <small>70% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 5">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:80%"></div>
+                            </div>
+                            <small>80% Complete</small>
+                           </div>  
+                           <div ng-if="pr.statQuote == 6">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:100%"></div>
+                            </div>
+                            <small>100% Complete</small>
+                           </div>  
+                           <div ng-if="pr.statQuote == 7">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:0%"></div>
+                            </div>
+                            <small>0% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 8">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:100%"></div>
+                            </div>
+                            <small>100% Complete</small>
+                           </div>                            
+                           <div ng-if="pr.statQuote == 2">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:0%"></div>
+                            </div>
+                            <small>0% Complete</small>
+                           </div>                                                         
+                         </td>
+                          
+                            
+                            <td ng-if="pr.statQuote=='0'"><span class="label label-default">New</span></td>
+                            <td ng-if="pr.statQuote=='1'"><span class="label label-info">In Progress</span></td>
+                            <td ng-if="pr.statQuote=='2'"><span class="label label-danger">Cancelled</span></td>
+                            <td ng-if="pr.statQuote=='3'"><span class="label label-primary">Partial Estimate</span></td>
+                            <td ng-if="pr.statQuote=='4'"><span class="label label-success">Complete Estimate</span></td>
+                            <td ng-if="pr.statQuote=='5'"><span class="label label-success">FeedBack Pending</span></td>
+                            <td ng-if="pr.statQuote=='6'"><span class="label label-success">Order Received</span></td>
+                            <td ng-if="pr.statQuote=='7'"><span class="label label-danger">On Hold</span></td>
+                            <td ng-if="pr.statQuote=='8'"><span class="label label-warning">Complete</span></td>
+
+                                                      
+                            
+                          
+                          <td>
+                            <a ng-if="role == '1'" href="" class="btn btn-primary btn-xs" ng-click="sendEmail($index)" data-toggle="modal" data-target="#statusEmail" title="Send to Email" ><i class="fa fa-mail"></i> Email </a>
+                            <a href="" class="btn btn-primary btn-xs" ng-click="findListQuote($index)" title="View Details"><i class="fa fa-folder"></i> View </a>
+                            <a ng-if="(role == '1') || (role == '3')  "  class="btn btn-danger btn-xs" ng-click="borrar($index)" title="Delete"><i class="fa fa-trash-o"></i> </a>
+                          </td>
+                        </tr>
+ 
+                      </tbody>
+                    </table>
+                    <!-- end project list -->
+                    
+			  	<script type="text/ng-template" id="borrar.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Delete</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to cancel this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="cancelQuote(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+   				</script>       
+   				
+						<!-- STATUS EMAIL *** -->           
+						<div id="statusEmail" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Change Status</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+											<form class="form-horizontal form-label-left" ng-submit="">
+											
+											
+							                      <div class="form-group">
+                                                      <p>Email has been put in the queue</p>
+							                      </div> 
+					                    
+						
+						                      		                         
+						                       <div class="ln_solid"></div>
+						                       <div class="form-group">
+						                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="">Close</button>
+						                        </div>
+						                      </div>
+						                      
+					                      
+						                        
+										    </form>
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->   				             
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>   
+        

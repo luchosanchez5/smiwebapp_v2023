@@ -1,0 +1,303 @@
+
+ <div>
+        
+          <div class="">
+            <div class="row top_tiles">
+
+			  <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                <span>Total Quotes</span>
+                <h2 ng-bind="indicadores[0]" href="" ng-click="clickInd1()"></h2>
+                <span class="sparkline1" style="height: 160px;">
+                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                  </span>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                <span>Open Quotes</span>
+                <h2 ng-bind="indicadores[4]" href="" ng-click="clickInd2()" ></h2>
+                <span class="sparkline2" style="height: 160px;">
+                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                  </span>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                <span>Open Items</span>
+                <h2 ng-bind="indicadores[2]"></h2>
+                <span class="sparkline3" style="height: 160px;">
+                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                  </span>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                <span>Total Ordered Items -  <small class="value text-success">( {{ indicadores[5] | currency:USD$ }} )</small></span>
+                <h2 ng-bind="indicadores[3]" href="" ng-click="clickInd4()"> </h2>
+  
+                <span class="sparkline4" style="height: 160px;">
+                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                  </span>
+              </div>
+
+
+            </div>
+            <br />
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Quotes Summary <small>Weekly progress</small></h2>
+                    <div class="filter">
+                      <div id="reportrange2" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+					   		  <label >Dashboard Year <span class="required">*</span></label>
+                                   <select id="cbYearEst" data-width="100%" class="form-control" required="required" ng-change="clickYearDash()" ng-model="yearRoot" ng-options="years as years.descYear for years in years track by years.id">
+							   </select>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="col-md-9 col-sm-12 col-xs-12">
+                      <div class="demo-container" style="height:400px">
+                      <!--    <div id="lineChart" class="demo-placeholder"></div> -->
+                        <canvas ng-if="viewGr1 == '0'" id="line" class="chart chart-line" chart-data="data"
+						chart-labels="labels" chart-series="series" chart-options="options"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+						</canvas>
+						<canvas ng-if="viewGr1 == '1'" id="line2" class="chart chart-bar" chart-data="data2"
+						chart-labels="labels2" chart-series="series2" chart-options="options"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+						</canvas>
+						
+                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                      		  <label>View Options *:</label>
+		                      <p>
+		                        Daily:
+		                        <input i-Check type="radio" class="flat" name="gender" id="genderM" value="0" ng-model="viewGr1" checked="" required /> Monthly:
+		                        <input i-Check type="radio" class="flat" name="gender" id="genderF" value="1" ng-model="viewGr1" />
+		                      </p>
+                      </div>						
+                      </div>
+
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                      <div>
+                        <div class="x_title">
+                          <h2 href="" ng-click="viewSellers()">Top Salesman (History)</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <ul class="list-unstyled top_profiles scroll-view">
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="" ng-click="viewSalesman(0)">{{topSellers[0].name + ' ' + topSellers[0].lastName }}</a>
+                              <p ng-if="topSellers[0].total == 1"><strong>{{topSellers[0].total}} </strong> Quote </p>
+                              <p ng-if="topSellers[0].total > 1"><strong>{{topSellers[0].total}} </strong> Quotes </p>
+                              <p> <small>{{topSellers[0].items + ' Items - (' + topSellers[0].proficit + '% Ordered)' }}  </small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="" ng-click="viewSalesman(1)" >{{topSellers[1].name + ' ' + topSellers[1].lastName }}</a>
+                              <p ng-if="topSellers[1].total == 1"><strong>{{topSellers[1].total}} </strong> Quote </p>
+                              <p ng-if="topSellers[1].total > 1"><strong>{{topSellers[1].total}} </strong> Quotes </p>
+                              <p> <small>{{topSellers[1].items + ' Items - (' + topSellers[1].proficit + '% Ordered)' }}  </small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="" ng-click="viewSalesman(2)">{{topSellers[2].name + ' ' + topSellers[2].lastName }}</a>
+                              <p ng-if="topSellers[2].total == 1"><strong>{{topSellers[2].total}} </strong> Quote </p>
+                              <p ng-if="topSellers[2].total > 1"><strong>{{topSellers[2].total}} </strong> Quotes </p>
+                              <p> <small>{{topSellers[2].items + ' Items - (' + topSellers[2].proficit + '% Ordered)' }}  </small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="" ng-click="viewSalesman(3)">{{topSellers[3].name + ' ' + topSellers[3].lastName }}</a>
+                              <p ng-if="topSellers[3].total == 1"><strong>{{topSellers[3].total}} </strong> Quote </p>
+                              <p ng-if="topSellers[3].total > 1"><strong>{{topSellers[3].total}} </strong> Quotes </p>
+                              <p> <small>{{topSellers[3].items + ' Items - (' + topSellers[3].proficit + '% Ordered)' }}  </small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="" ng-click="viewSalesman(4)">{{topSellers[4].name + ' ' + topSellers[4].lastName }}</a>
+                              <p ng-if="topSellers[4].total == 1"><strong>{{topSellers[4].total}} </strong> Quote </p>
+                              <p ng-if="topSellers[4].total > 1"><strong>{{topSellers[4].total}} </strong> Quotes </p>
+                              <p> <small>{{topSellers[4].items + ' Items - (' + topSellers[4].proficit + '% Ordered)' }}  </small>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                        
+                        
+                        <ul class="list-unstyled top_profiles scroll-view" ng-if="greeting.role == 'SELLER'">
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[0].name != null">
+                              <a class="title" href="" ng-click="viewSalesman(5)">{{topSellers[5].contactName}}</a>
+                              <p><strong>{{topSellers[5].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[5].city + ' ' + topSellers[5].state + ',' + topSellers[5].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-green profile_thumb">
+                              <i class="fa fa-user green"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[1].contactName != null">
+                              <a class="title" href="#">{{topSellers[1].contactName}}</a>
+                              <p><strong>{{topSellers[1].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[1].city + ' ' + topSellers[1].state + ',' + topSellers[1].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-blue profile_thumb"> 
+                              <i class="fa fa-user blue"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[2].contactName != null">
+                              <a class="title" href="#">{{topSellers[2].contactName}}</a>
+                              <p><strong>{{topSellers[2].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[2].city + ' ' + topSellers[2].state + ',' + topSellers[2].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[3].contactName != null">
+                              <a class="title" href="#">{{topSellers[3].contactName}}</a>
+                              <p><strong>{{topSellers[3].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[3].city + ' ' + topSellers[3].state + ',' + topSellers[3].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-green profile_thumb">
+                              <i class="fa fa-user green"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[4].contactName != null">
+                              <a class="title" href="#">{{topSellers[4].contactName}}</a>
+                              <p><strong>{{topSellers[4].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[4].city + ' ' + topSellers[4].state + ',' + topSellers[4].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                        
+                        
+                        
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Weekly Summary <small>Activity shares - Current Year</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
+                      <div class="col-md-7" style="overflow:hidden;">
+                        <span class="sparkline5" style="height: 160px; padding: 10px 25px;">
+                                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                  </span>
+                        <h4 style="margin:18px">Weekly Activity progress</h4>
+                      </div>
+
+                      <div class="col-md-5">
+                        <div class="row" style="text-align: center;">
+                          <div class="col-md-4">
+                            <canvas id="canvas1i" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                            <h4 style="margin:0">Industry Items</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <canvas id="canvas1i2" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                            <h4 style="margin:0">Items Type</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <canvas id="canvas1i3" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                            <h4 style="margin:0">Quote for</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            
+        
+</div>        
+              
+        
+        
+        
+        
+        
+        
+        
+        

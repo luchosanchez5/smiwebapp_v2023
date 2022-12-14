@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LeadSellerInd" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1d086bde-a7a9-4a38-875f-ba06dfc2a0bc">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgressSQL"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="310"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="679"/>
+	<parameter name="Seller" class="java.lang.Integer"/>
+	<parameter name="startDate" class="java.sql.Date"/>
+	<parameter name="endDate" class="java.sql.Date"/>
+	<queryString language="SQL">
+		<![CDATA[Select
+  lead_seller.id_seller,
+  seller.sure_name || '  '|| seller.last_name sellerName,
+  lead.lead_date,
+  lead.contact_name,
+  lead.phone_number,
+  address.name,
+  Case lead.stat_lead When '0' Then 'Active' When '1' Then 'Cancelled'
+    When '2' Then 'Follow up' When '3' Then 'Signed' End As Stat_Lead,
+  lead.observations
+From
+  lead Inner Join
+  lead_seller
+    On lead_seller.id_lead = lead.id_lead Inner Join
+  seller
+    On lead_seller.id_seller = seller.id_seller Inner Join
+  address
+    On lead.id_address = address.id_address
+Where
+  lead.stat_record = '0' And lead_seller.id_seller = $P{Seller}
+And (to_date(to_char(lead.lead_date,'yyyy/MM/dd'),'yyyy/MM/dd') Between $P{startDate} and $P{endDate})]]>
+	</queryString>
+	<field name="id_seller" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_seller"/>
+	</field>
+	<field name="sellername" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sellername"/>
+	</field>
+	<field name="lead_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="lead_date"/>
+	</field>
+	<field name="contact_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contact_name"/>
+	</field>
+	<field name="phone_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="phone_number"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+	</field>
+	<field name="stat_lead" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="stat_lead"/>
+	</field>
+	<field name="observations" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="observations"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="188" splitType="Stretch">
+			<image>
+				<reportElement x="24" y="6" width="106" height="112" uuid="5f5eab99-2d88-4fc3-8155-a9092ab6a3fc"/>
+				<imageExpression><![CDATA["images/logopng..png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="-20" y="10" width="792" height="21" uuid="6fe1a18b-cccf-4a1e-a0d1-7b164d1f3e52"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Eco Home Improvement, LLC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="29" width="792" height="21" uuid="c1f58e29-3957-4808-9383-5c1595e67cc9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Procesing Departament]]></text>
+			</staticText>
+			<textField pattern="MMM d, yyyy h:mm:ss a">
+				<reportElement x="620" y="75" width="130" height="30" uuid="ac7af279-e4d5-44cd-830d-e23daae4e530"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-20" y="50" width="792" height="21" uuid="a90e32ba-94df-4ea4-a43c-684c8a5cab48"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Montebello - California]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="90" width="792" height="21" uuid="d678d5ee-79d4-49a8-9f0f-9a3abd0ad4d2"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Leads Report by Seller]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="137" width="150" height="21" uuid="c7ccb332-d770-4d19-91a5-f3ea3dac4951"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Seller Name :]]></text>
+			</staticText>
+			<textField pattern="M/d/yy">
+				<reportElement x="130" y="138" width="345" height="20" uuid="75822201-b614-4592-a3a7-615f439867bd"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sellername}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="157" width="150" height="21" uuid="c7dfeb05-808c-4383-a8de-c1682d3fbd15"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Period :]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yy">
+				<reportElement x="100" y="158" width="100" height="30" uuid="6e50c8f4-cb4a-4bce-9032-e523666f8b62"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{startDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yy">
+				<reportElement x="191" y="157" width="100" height="30" uuid="fda00182-1ebe-404d-b9f4-d3ffb53abbc4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{endDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="184" y="156" width="20" height="21" uuid="82c0e715-04e1-4ea1-ab6c-b292e67fc0a0"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<rectangle>
+				<reportElement x="30" y="1" width="721" height="21" backcolor="#E8E3E3" uuid="04e741bd-897a-4d5e-b514-1a81fe5280c7"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="40" y="3" width="30" height="14" uuid="1d1fbc4d-97d2-4a98-a136-ddfeeddafb80">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="972bfa09-b514-4db8-9e97-098bba23a601"/>
+				</reportElement>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="100" height="19" uuid="020bd81c-a90a-47ac-b28f-639d29d4e4da">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="192d39fe-bd37-496f-ad39-82d0bcfda003"/>
+				</reportElement>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Contact Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="2" width="100" height="19" uuid="d85535d0-4867-4231-9325-a5aaefd6d38a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3357e641-2bda-43f9-a072-31cb965cff15"/>
+				</reportElement>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Phone Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="3" width="100" height="18" uuid="8a33a3d6-b7d7-4ff1-a580-c672d3eaa387">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ea8844c-0120-4553-8e06-6cbcbbac5964"/>
+				</reportElement>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="2" width="100" height="20" uuid="15a3372f-7a53-49fc-a666-4b15cd58826a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="87b1b777-08fa-4cf7-9d6f-2e5efbe98b1d"/>
+				</reportElement>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="615" y="4" width="100" height="18" uuid="e63499b2-28e7-4110-95f6-f545f35df200">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a9e6f4f-3cbd-4c2c-bbfc-502f416214f7"/>
+				</reportElement>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Observations]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField pattern="MM/dd/yy">
+				<reportElement x="30" y="0" width="60" height="30" uuid="b4ec5165-2e1e-4b03-a751-0fea99b309a7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="972bfa09-b514-4db8-9e97-098bba23a601"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{lead_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="110" height="30" uuid="75a492a2-6344-45b0-9256-cfdd39a991b8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="192d39fe-bd37-496f-ad39-82d0bcfda003"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{contact_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="0" width="90" height="30" uuid="16374a84-84fd-4354-b71a-6b1a3cb286fd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3357e641-2bda-43f9-a072-31cb965cff15"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{phone_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="0" width="180" height="30" uuid="79c86771-3b0f-4a94-ad18-3bccc8df6545">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ea8844c-0120-4553-8e06-6cbcbbac5964"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="488" y="0" width="61" height="30" uuid="9e998062-8546-408c-9221-736d49ab3a1c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="87b1b777-08fa-4cf7-9d6f-2e5efbe98b1d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{stat_lead}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="549" y="0" width="202" height="30" uuid="62a9be4f-8d42-458c-98ee-f32de7209ade">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a9e6f4f-3cbd-4c2c-bbfc-502f416214f7"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{observations}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="32" splitType="Stretch">
+			<rectangle>
+				<reportElement x="28" y="0" width="721" height="21" uuid="fd5925d5-4aa9-43b0-a9ad-ead4fd666ea2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="589" y="0" width="80" height="21" uuid="4f56d922-6b6f-4522-a900-7da92347dd23"/>
+				<textElement>
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Total Leads :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="689" y="0" width="60" height="21" uuid="ec08db24-cea1-4fb3-84f2-92cad14f84ce"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="751" height="28" uuid="e0c27062-4248-4ba9-8b33-4fa0724b7357"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[2465 Whittier Blvd Suite 201 Montebello CA 90640
+Office Phone: 323-521-3475
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="751" height="20" forecolor="#2E165E" uuid="61bded60-100c-4779-8294-d6b2ea82a90c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[www.ecosolarhomeimprovement.com]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

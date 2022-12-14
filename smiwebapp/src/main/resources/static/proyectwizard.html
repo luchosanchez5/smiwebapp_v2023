@@ -1,0 +1,832 @@
+<div>
+
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Project Wizard</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button" ng-click="testButton()">Go!</button>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>{{ContactName}} <small>{{AddressName}}</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <!-- Smart Wizard -->
+                    <p>Follow the Steps and complete the Information.</p>
+                    <div id="wizard" class="form_wizard wizard_horizontal">
+                      <ul class="wizard_steps">
+                        <li>
+                          <a href="#step-1">
+                            <span class="step_no">1</span>
+                            <span class="step_descr">
+                                              Step 1<br />
+                                              <small>Project Information</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-2">
+                            <span class="step_no">2</span>
+                            <span class="step_descr">
+                                              Step 2<br />
+                                              <small>Owner's Information</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-3">
+                            <span class="step_no">3</span>
+                            <span class="step_descr">
+                                              Step 3<br />
+                                              <small>Project Details</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-4">
+                            <span class="step_no">4</span>
+                            <span class="step_descr">
+                                              Step 4<br />
+                                              <small>Payment Details</small>
+                                          </span>
+                          </a>
+                        </li>
+                      </ul>
+                      <div id="step-1">
+                        <h2 class="StepTitle">Project Information</h2>
+                        <form id="wizard1"class="form-horizontal form-label-left">
+
+                          <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Project Type:</label>
+		                      
+		                      <p style="padding: 5px;">
+		                      <div class="col-md-6 col-sm-6 col-xs-12">
+
+		                        <input  type="checkbox" checked="checked" ng-model="proyect.typeConstruction" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeConstruction == 1" name="hobbies[]" id="hobby1" class="flat" /> Construction
+		                        <br />
+		
+		                        <input  type="checkbox" ng-model="proyect.typeRoof" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeRoof == 1" name="hobbies[]" id="hobby2"  class="flat" /> Cool Roof 
+		                        <br />
+		
+		                        <input  type="checkbox" ng-model="proyect.typeWinDoors" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeWinDoors == 1" name="hobbies[]" id="hobby3"  class="flat" /> Windows and Doors
+		                        <br />
+		
+		                        <input  type="checkbox" ng-model="proyect.typeSolarPanels" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeSolarPanels == 1" name="statSolarPanels" id="hobby4" class="flat" /> Solars Panels
+		                        <br />
+
+		                        <input  type="checkbox" ng-model="proyect.typeAc" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeAc == 1" name="statAc" id="hobby5" class="flat" /> AC
+		                        <br />		                        
+
+		                        <input  type="checkbox" ng-model="proyect.typeConcrete" ng-click="validateCheck()"  ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeConcrete == 1" name="statAc" id="hobby6" class="flat" /> Concrete
+		                        <br />			                        
+		                       <p>
+		                       </p>
+		                      </div> 
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Contrator <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="proyect.contrator" ng-options="contrators as contrators.descContrator for contrators in contrators">
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Payment Method <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="proyect.paymentMethod" ng-options="tipoPago.idtipoPago as tipoPago.desctipoPago for tipoPago in tipoPago">
+                              </select>
+                            </div>
+                          </div>
+
+                        </form> 
+
+                      </div>
+                      <div id="step-2">
+                        <h2 class="StepTitle">Owner's Information</h2>
+
+                          
+                        <form id="formOwner" class="form-horizontal form-label-left">
+                         <div class="form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Property Owners <span class="required">*</span>
+                            </label>
+                             <div class="col-md-6 col-sm-6 col-xs-12">
+	                         <div class="radio">
+	                            <label>
+	                              <input type="radio" ng-model="owners" value="0" class="flat" checked name="iCheck" ng-change='newValue(value)'> Individual
+	                              
+	                            </label>
+	                            <label>
+	                              <input type="radio" ng-model="owners" value="1" class="flat" name="iCheck" ng-change='newValue(value)'> Joint
+	                            </label>
+	                          </div>
+                          </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="first-name" ng-model="client.sureName" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="last-name" ng-model="client.lastName" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone-number">Phone Number <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="phone-number" ng-model="client.cellPhone" name="last-name" required="required" input-mask="{mask: '(999) 999-9999'}" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="social-security">Social Security (Last 4 Digits) <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="ssn" name="ssn" ng-model="client.ssn"  input-mask="{mask: '9999'}" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input id="birthday" ng-model="client.dob" class="date-picker form-control col-md-7 col-xs-12"  type="date">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Email">Email <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="email" ng-model="client.email" name="email" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+                          
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button type="submit" ng-click="addOwner()" class="btn btn-success">Add</button>
+                        </div>
+                      </div>
+                     
+                     </form> 
+
+ <!-- Se Activa esta seccion si hay mas de un Owner -->	
+  <div ng-if="proyect.numOwners > 0">
+  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Owner Name</th>
+                          <th>Phone Number</th>
+                          <th>Date of Birth</th>
+                          <th>Email</th>
+						  <th>Edition</th>
+						  
+  
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="customer in tempOwners track by $index" class="ng-scope">
+                             		<td>{{customer.sureName + " " + customer.lastName}}</td>
+                             		<td>{{customer.cellPhone}}</td>
+                             		<td ng-bind="customer.dob | date:'dd/MMM/yyyy'"></td>
+    								<td>{{customer.email}}</td>
+									<td>
+                           					<a class="btn btn-danger btn-xs" ng-click="borrar($index)"><i class="fa fa-trash-o"></i></a>
+									</td>
+									
+		
+							   
+                        </tr>
+
+                      </tbody>
+
+      </table>
+ </div>
+  <!-- Fin Se Activa esta seccion si hay mas de un Owner -->
+
+
+ 
+                      </div>
+                      
+	
+ 
+ 
+                          
+                      
+                      <div id="step-3">
+                        <h2 class="StepTitle">Proyect Details</h2>
+                        
+                        	 <form id="wizard2" class="form-horizontal form-label-left"> 
+
+
+		                          <div ng-if="proyect.typeRoof == 1">
+		                          
+						                <div class="x_panel">
+						                  <div class="x_title">
+						                    <h2>Roof <small>Details</small></h2>
+						                    <ul class="nav navbar-right panel_toolbox">
+						                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						                      </li>
+						                      <li class="dropdown">
+						                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+						                        <ul class="dropdown-menu" role="menu">
+						                          <li><a href="#">Settings 1</a>
+						                          </li>
+						                          <li><a href="#">Settings 2</a>
+						                          </li>
+						                        </ul>
+						                      </li>
+						                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+						                      </li>
+						                    </ul>
+						                    <div class="clearfix"></div>
+						                  </div>
+						                  <div class="x_content">
+													 			<div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="existingRoof">Existing Roof <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="eRoof" name="eRoof" ng-model="proyect.existingRoof" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div> 
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roofType">Type Roof <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="proyect.roof" ng-options="roofs as roofs.descRoof for roofs in roofs">
+											                              </select>
+								                                     </div>
+										                          </div> 
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sqftRoof">Sq. Ft. <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="sRoof" name="sRoof" ng-model="proyect.sqftRoof" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>		                          		                          		                          
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="colorRoof">Color <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="cRoof" ng-model="proyect.roofColor" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>	
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="proyect.rootscopeOfwork">Scope of Works <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <textarea class="form-control" rows="3" ng-model="proyect.roofScopeOfWork"></textarea>	
+										                            </div>
+										                          </div>		                          
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Notes <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <textarea class="form-control" rows="2" ng-model="proyect.roofNotes"></textarea>	
+										                            </div>
+										                          </div>										                          
+										                          					
+						                  </div>
+						                </div>		                          
+
+		                          </div>	
+		                          
+		                          <div ng-if="proyect.typeConstruction == 1">
+		                          
+						                <div class="x_panel">
+						                  <div class="x_title">
+						                    <h2>Construction <small>Details</small></h2>
+						                    <ul class="nav navbar-right panel_toolbox">
+						                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						                      </li>
+						                      <li class="dropdown">
+
+						                      </li>
+						                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+						                      </li>
+						                    </ul>
+						                    <div class="clearfix"></div>
+						                  </div>
+						                  <div class="x_content">
+						                  
+						                  		                <input  type="checkbox" checked="checked" ng-model="proyect.statLivingroom" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.statLivingroom == 1" name="hobbies[]" id="hobby1" class="flat" /> Living Room
+										                        <br />
+										
+										                        <input  type="checkbox" ng-model="proyect.statKitchen" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.statKitchen == 1" name="hobbies[]" id="hobby2"  class="flat" /> Kitchen 
+										                        <br />
+										                        
+							                                        <div class="form-group">
+												                      <div class="col-md-6 col-sm-6 col-xs-12">
+												                      
+													                      <div class="radio">
+													                            <label>
+													                              <input type="radio" ng-model="proyect.subConstruccion" value="0" class="flat" checked name="iCheck" ng-change='newValue(value)'> Garage Conversion
+													                              
+													                            </label>
+													                            <label>
+													                              <input type="radio" ng-model="proyect.subConstruccion" value="1" class="flat" name="iCheck" ng-change='newValue(value)'> Adition
+													                            </label>
+													                            <label>
+													                              <input type="radio" ng-model="currProyect.subConstruccion" value="2" class="flat" name="iCheck" ng-change='newValue(value)'> Adition & Garage Conversion
+													                            </label>              
+													                            
+													                          </div>
+												                          </div>  
+												                          
+											                          </div> 
+										                           			                        
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="beds">Bedrooms <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="beds" name="beds" ng-model="proyect.bedNum" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Closets">Closets <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="Closets" name="Closets" ng-model="proyect.closetNum" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bath">BathRooms <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="bath" name="bath" ng-model="proyect.bathNum" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Sqft">Sqft <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="Sqft" name="Sqft" ng-model="proyect.sqft" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>										                          
+										                          						                  
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="proyect.scopeOfwork">Scope of Works <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <textarea class="form-control" rows="3" ng-model="proyect.scopeOfwork"></textarea>	
+										                            </div>
+										                          </div>		                          
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Notes <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <textarea class="form-control" rows="2" ng-model="proyect.notes"></textarea>	
+										                            </div>
+										                          </div>						
+						                  </div>
+						                </div>
+		                          
+		                          
+		                         
+		                          </div>
+		                          
+		                          <div ng-if="proyect.typeAc == 1">
+		                          
+						                <div class="x_panel">
+						                  <div class="x_title">
+						                    <h2>Air Conditioning and Heating <small>Details</small></h2>
+						                    <ul class="nav navbar-right panel_toolbox">
+						                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						                      </li>
+						                      <li class="dropdown">
+
+						                      </li>
+						                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+						                      </li>
+						                    </ul>
+						                    <div class="clearfix"></div>
+						                  </div>
+						                  <div class="x_content">
+
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winManufacture">Manufacturer <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="winManufacture" ng-model="proyect.acManufacturer" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>		                          
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Scope of Work <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <textarea class="form-control" rows="2" ng-model="proyect.acScopeOfWork"></textarea>	
+										                            </div>
+										                          </div>						
+						                  </div>
+						                </div>
+		                          
+		                          
+		                         
+		                          </div>		                          
+
+		                          <div ng-if="proyect.typeConcrete == 1">
+		                          
+						                <div class="x_panel">
+						                  <div class="x_title">
+						                    <h2>Concret, Cesped and Other <small>Details</small></h2>
+						                    <ul class="nav navbar-right panel_toolbox">
+						                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						                      </li>
+						                      <li class="dropdown">
+
+						                      </li>
+						                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+						                      </li>
+						                    </ul>
+						                    <div class="clearfix"></div>
+						                  </div>
+						                  <div class="x_content">
+
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winManufacture">Manufacturer <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="winManufacture" ng-model="proyect.concretManufacture" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>		                          
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Scope of Work <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <textarea class="form-control" rows="2" ng-model="proyect.concretScopeWork"></textarea>	
+										                            </div>
+										                          </div>	
+										                          
+
+										                          					
+						                  </div>
+						                </div>
+		                          
+		                          
+		                         
+		                          </div>	
+
+		                          
+		                          <div ng-if="proyect.typeSolarPanels == 1">
+								                <div class="x_panel">
+								                  <div class="x_title">
+								                    <h2>Solar Panels <small>Details</small></h2>
+								                    <ul class="nav navbar-right panel_toolbox">
+								                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+								                      </li>
+								                      <li class="dropdown">
+								
+								                      </li>
+								                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+								                      </li>
+								                    </ul>
+								                    <div class="clearfix"></div>
+								                  </div>
+								                  <div class="x_content">
+								                  
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winManufacture">Electrical Company <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="winManufacture" ng-model="proyect.electricalCompany" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>								                  
+								                  
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winManufacture">Existing Roof <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="winManufacture" ng-model="proyect.existingRoofPanel" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winManufacture">System Size <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="winManufacture" ng-model="proyect.systemSize" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winManufacture">Number of Panels <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="winManufacture" ng-model="proyect.panelsNumber" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>										                          										                          								                  
+								                  
+								                                  <h2 class="StepTitle">Panel Module </h2>
+								                                   
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winManufacture">Manufacturer <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="winManufacture" ng-model="proyect.panelManufacturer" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nWin">Part # <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="nWin" name="nWin" ng-model="proyect.panelpartNumber" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+
+								                                  <h2 class="StepTitle">Inverter </h2>
+								                                  										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="meWin">Manufacturer <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="meWin" name="meWin" ng-model="proyect.inverterManufacturer" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winScope">Part # <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="scopeWin" name="cRoof" ng-model="proyect.inverterpartNumber" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+
+
+								                                   
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="doorManufacture">Number of Inverters <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="doorManufacture" ng-model="proyect.numberofinverters" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nDoors">Size <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="nDoors" name="nDoors" ng-model="proyect.inverterSize" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="meDoor">Service Panel <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="meDoor" name="meDoor" ng-model="proyect.servicePanel" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="doorScope">Upgrade <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="scopeDoor" name="cDoor" ng-model="proyect.upgrade" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>										                          										                          										                          										                          								                  
+								                  
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="doorScope">Amperage <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="scopeDoor" name="cDoor" ng-model="proyect.amperage" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="doorScope">Photovoltaic Mount <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="scopeDoor" name="cDoor" ng-model="proyect.photovoltaic" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>	
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Scope of Work <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <textarea class="form-control" rows="2" ng-model="proyect.scopeWorkPanels"></textarea>	
+										                            </div>
+										                          </div>											                          									                          								
+								                  </div>
+								                </div>		                          
+		                          </div>		                          
+		                          
+		                          <div ng-if="proyect.typeWinDoors == 1">
+								                <div class="x_panel">
+								                  <div class="x_title">
+								                    <h2>Windows and Doors <small>Details</small></h2>
+								                    <ul class="nav navbar-right panel_toolbox">
+								                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+								                      </li>
+								                      <li class="dropdown">
+								
+								                      </li>
+								                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+								                      </li>
+								                    </ul>
+								                    <div class="clearfix"></div>
+								                  </div>
+								                  <div class="x_content">
+								                                  <h2 class="StepTitle">Windows </h2>
+								                                   
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winManufacture">Manufacture <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="winManufacture" ng-model="proyect.winManufacture" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nWin">Number of Windows <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="nWin" name="nWin" ng-model="proyect.winNumber" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="meWin">Windows Measures <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="meWin" name="meWin" ng-model="proyect.winMeasures" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="winScope">Scope of Work (Windows) <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="scopeWin" name="cRoof" ng-model="proyect.winScopeOfWork" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+
+								                                  <h2 class="StepTitle">Doors </h2>
+								                                   
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="doorManufacture">Manufacture <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="cRoof" name="doorManufacture" ng-model="proyect.doorManufacture" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nDoors">Number of Doors <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="nDoors" name="nDoors" ng-model="proyect.doorNumber" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="meDoor">Doors Measures <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="meDoor" name="meDoor" ng-model="proyect.doorMeasures" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="doorScope">Scope of Work (Doors) <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="text" id="scopeDoor" name="cDoor" ng-model="proyect.doorScopeOfWork" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>										                          										                          										                          										                          								                  
+								                  
+								
+								                  </div>
+								                </div>		                          
+		                          </div>
+		                          		                          
+                            </form> 
+                        
+                      </div>
+                      
+                      <div id="step-4">
+                        <h2 class="StepTitle">Payment Information</h2>
+                        <form id="wizard3" class="form-horizontal form-label-left"> 
+                          <div class="form-group" ng-if="proyect.paymentMethod == 1 || proyect.paymentMethod == 3">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Financial <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="proyect.financial" ng-options="financials as financials.descFinancial for financials in financials">
+                              </select>
+                            </div>
+                          </div>   
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Today's Investment $ <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="last-name" name="last-name" required="required" ng-model="proyect.todayInsvement" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>   
+										           
+										           <div class="form-group" ng-if="proyect.paymentMethod == 3">
+										                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cashPay">Financial Payment <span class="required">*</span>
+										                 </label>
+										                 <div class="col-md-6 col-sm-6 col-xs-12">
+										                      <input type="text" id="cashPay" name="cashPay" ng-model="proyect.financialAmount" required="required"  class="form-control col-md-7 col-xs-12">
+										                 </div>
+										           </div>
+										                                          
+										           <div class="form-group" ng-if="proyect.paymentMethod == 3" >
+										                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cashPay">Cash Payment <span class="required">*</span>
+										                 </label>
+										                 <div class="col-md-6 col-sm-6 col-xs-12">
+										                      <input type="text" id="cashPay" name="cashPay" ng-model="proyect.cashAmount" required="required"  class="form-control col-md-7 col-xs-12">
+										                 </div>
+										           </div>	  
+										                                 
+                                            
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Annual Payment $ <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="last-name" name="last-name" required="required" ng-model="proyect.anualPayment" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>     
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">First Payment Due $ <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="date" id="last-name" name="last-name" required="required" ng-model="proyect.firstDatePay" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>  
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Payment Terms Options <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="proyect.termsOption" ng-options="terminosPago.idTerminoPago as terminosPago.descTerminoPago for terminosPago in terminosPago">
+                              </select>
+                            </div>
+                          </div>                                                                                                 
+		                 </form>
+                      </div>
+
+                    </div>
+                    <!-- End SmartWizard Content -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        
+</div>        

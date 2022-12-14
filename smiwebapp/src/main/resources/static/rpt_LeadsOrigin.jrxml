@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_LeadsOrigin" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2b024685-e9b5-4213-afec-5f8c5ebd3756">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgressSQL"/>
+	<queryString language="SQL">
+		<![CDATA[Select
+  Count(lead.id_lead) As "Total",
+  origin.id_origin,
+  origin.name As nombre,
+  Date_Part('month', lead.record_date) As Mes,
+  Case Date_Part('month', lead.record_date) When 1 Then 'January'
+    When 2 Then 'February' When 3 Then 'March' When 4 Then 'April'
+    When 5 Then 'May' When 6 Then 'Juny' When 7 Then 'July' When 8 Then 'August'
+    When 9 Then 'September' When 10 Then 'October' When 11 Then 'November'
+    When 12 Then 'December' End As MesLe
+From
+  lead Inner Join
+  origin
+    On lead.id_origin = origin.id_origin
+Group By
+  origin.id_origin, origin.name, Date_Part('month', lead.record_date),
+  Case Date_Part('month', lead.record_date) When 1 Then 'January'
+    When 2 Then 'February' When 3 Then 'March' When 4 Then 'April'
+    When 5 Then 'May' When 6 Then 'Juny' When 7 Then 'July' When 8 Then 'August'
+    When 9 Then 'September' When 10 Then 'October' When 11 Then 'November'
+    When 12 Then 'December' End
+Order By
+  Mes]]>
+	</queryString>
+	<field name="Total" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="Total"/>
+	</field>
+	<field name="id_origin" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_origin"/>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+	</field>
+	<field name="mes" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="mes"/>
+	</field>
+	<field name="mesle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mesle"/>
+	</field>
+	<sortField name="id_origin"/>
+	<variable name="Variable_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{Total}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{id_origin}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<rectangle>
+					<reportElement x="40" y="5" width="535" height="21" backcolor="#E8E3E3" uuid="4624b446-f79c-4999-99d7-e5729a29973c"/>
+				</rectangle>
+				<textField>
+					<reportElement x="60" y="8" width="100" height="15" uuid="7286e5ca-6923-4cf1-9ca1-2dffcfdbd9ed"/>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="490" y="7" width="71" height="16" uuid="326f69c9-3ee1-4753-aba0-1a8b2f9989e1"/>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="397" y="7" width="100" height="17" uuid="75fcbf43-fe46-4607-8046-42de6581c8c9"/>
+					<text><![CDATA[Mes]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="29">
+				<rectangle>
+					<reportElement x="40" y="1" width="535" height="21" uuid="b3cfda56-b90b-4d64-b191-e9b6b397e458"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="491" y="4" width="42" height="14" uuid="3024a209-51c3-4257-ac09-fc792bf541f3"/>
+					<text><![CDATA[Total :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="533" y="4" width="34" height="14" uuid="6e38d5fc-04cf-4b06-9eb0-3042d3e78ab8"/>
+					<textFieldExpression><![CDATA[$V{Variable_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="2" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="129" splitType="Stretch">
+			<image>
+				<reportElement x="24" y="6" width="106" height="112" uuid="92561c25-9c24-4f3f-92c8-5b6fbd74ca24"/>
+				<imageExpression><![CDATA["images/logopng..png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="-20" y="29" width="612" height="21" uuid="8327a6df-99db-4b85-ba89-036106b4d371"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Procesing Departament]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="10" width="612" height="21" uuid="0fb21419-f799-4b18-b4f7-40a2b5fdaab7"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Eco Home Improvement, LLC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="50" width="612" height="21" uuid="2b2f44f2-c65a-4751-af48-74a9afd02d1d"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Montebello - California]]></text>
+			</staticText>
+			<textField pattern="MMM d, yyyy h:mm:ss a">
+				<reportElement x="440" y="71" width="130" height="30" uuid="c5e5bb14-8c91-482b-bf2a-260230bc639b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-20" y="90" width="612" height="21" uuid="b11ba38a-0770-4754-bf97-6b8849558b7b"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Leads Report by Origin]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="390" y="0" width="100" height="20" uuid="f7a0b420-0896-4a13-af66-db46c178e413"/>
+				<textFieldExpression><![CDATA[$F{mesle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="0" width="83" height="20" uuid="477b2078-d141-4eef-a159-312339a4e6e0"/>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="11" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="575" height="28" uuid="ed7a4437-1490-4d15-853a-408b8ad7bb54"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[2465 Whittier Blvd Suite 201 Montebello CA 90640
+Office Phone: 323-521-3475
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="575" height="20" forecolor="#2E165E" uuid="6a7be3e5-8b42-444d-8d48-4215621318a0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[www.ecosolarhomeimprovement.com]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

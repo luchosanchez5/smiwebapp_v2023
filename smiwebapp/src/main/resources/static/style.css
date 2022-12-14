@@ -1,0 +1,32 @@
+md-autocomplete#custom-template {
+  width: 500px;
+}
+.autocomplete-custom-template .md-autocomplete-suggestion {
+  border-bottom: 1px solid;
+  height: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  white-space: normal;
+}
+.autocomplete-custom-template .md-autocomplete-suggestion:last-child {
+  border-bottom-width: 0;
+}
+.autocomplete-custom-template .item-title,
+.autocomplete-custom-template .item-metadata {
+  display: block;
+  line-height: 1;
+}
+.autocomplete-custom-template .item-title md-icon {
+  height: 18px;
+  width: 18px;
+}
+.custom-container {
+  min-width: 500px !important;
+}
+
+
+/*
+Copyright 2020 Google LLC. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be found
+in the LICENSE file at http://material.angularjs.org/HEAD/license.
+*/

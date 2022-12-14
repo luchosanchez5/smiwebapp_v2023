@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="q_quotesestimatoryear" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="55d06a21-7967-40da-87d5-636e7fa0584b">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgressConnect"/>
+	<parameter name="pYear" class="java.lang.Long"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT public.vtotalquotesperestimator.sure_name,
+	public.vtotalquotesperestimator.last_name,
+	public.vtotalquotesperestimator.quotes,
+	public.vtotalquotesperestimator.items,
+	public.vtotalquotesperestimator.date_part,
+	public.vtotalquotesperestimator.id_estimator
+FROM public.vtotalquotesperestimator
+WHERE public.vtotalquotesperestimator.date_part=$P{pYear}]]>
+	</queryString>
+	<field name="sure_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sure_name"/>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="last_name"/>
+	</field>
+	<field name="quotes" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="quotes"/>
+	</field>
+	<field name="items" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="items"/>
+	</field>
+	<field name="date_part" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="date_part"/>
+	</field>
+	<field name="id_estimator" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id_estimator"/>
+	</field>
+	<background>
+		<band height="5" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="11" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="160" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="570" height="100" uuid="fc2e4651-4a39-4bd6-a0e9-d03c640c2faf"/>
+				<imageExpression><![CDATA["file:/C:/Develop/smiwebapp/target/classes/static/images/logo-smi-new.png"]]></imageExpression>
+			</image>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="461" y="70" width="100" height="14" uuid="2cef0197-49df-429f-9dd7-51640b471d27"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="405" y="98" width="170" height="6" uuid="b2bcb2ca-ebbd-4e5c-b29d-6a55aa0fca14"/>
+				<imageExpression><![CDATA["file:/C:/Develop/smiwebapp/src/main/resources/static/images/line1.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="138" width="540" height="21" uuid="c57fe0f2-9686-43b8-9d2e-57a8b0f8f078"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Year : ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="1" y="-38" width="569" height="20" backcolor="#FFFFFF" uuid="401217ac-6b2d-4b57-947f-45a52ad1376c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quotes per Estimator]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="0" width="571" height="21" backcolor="rgba(182, 187, 212, 0.5803922)" uuid="5804db24-5889-4f0b-8381-97025fcbfeb8"/>
+				<graphicElement>
+					<pen lineColor="rgba(0, 0, 0, 0.0)"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="340" y="2" width="70" height="20" uuid="fda517a2-296c-40cb-b4a4-8f65bb8a9ed0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ade734d2-299f-4ac8-b511-a613defaa72b"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quotes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="1" width="120" height="18" uuid="99c0b2ce-eb1c-4653-a753-d1e07bfbd311">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="08fc8715-fe0d-4a61-a476-a21bcb2856d4"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estimator Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="482" y="2" width="85" height="20" uuid="1aee3f6c-6dd1-4b09-bbd7-d03f4d8d980b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd8e3c3f-0b20-41ea-88dd-defd440c3a70"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Items]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="70" height="20" uuid="4c668246-268b-42eb-894c-a099c5c1c15f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ade734d2-299f-4ac8-b511-a613defaa72b"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="-22" width="100" height="15" uuid="a866a9e8-8541-4b4c-a11b-98cdad49d14c"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pYear}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="-1" width="100" height="20" uuid="22017884-3b16-42b7-9f87-429671aa7677">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="848a5409-f032-496f-9f62-e43625e6d5f2"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{sure_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="-1" width="100" height="20" uuid="084fee26-188d-4194-adf6-4b7412ec8bca">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5d1138d5-b1d1-452f-9d0e-b9b4a19f5364"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{last_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="-1" width="100" height="20" uuid="e4eed96c-55d5-4a66-930b-e161184149ce">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4a06cf93-5871-4719-a7a3-023fd5f170e8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{quotes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="-1" width="85" height="20" uuid="51dc0de2-621e-4d06-b68b-3ab1e0e69a8d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="612b58ea-6c87-4616-acb7-aed513c590c4"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{items}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="9" width="570" height="15" uuid="ab4a3f7c-ab1c-4325-a99e-019d3435fb83"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Please, Visit our website, you'd be amazed at what can do for you!]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-3" y="22" width="570" height="15" uuid="f6e07f88-9f2b-4552-adf7-0c9236318e73"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[11915 Shoemaker Ave, Santa Fe Springs CA 90670   800-423-4777 562-944-0291  Fax 562-9469439 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="35" width="570" height="15" forecolor="#1D1DCC" uuid="21b2d31a-3f65-41c3-8fd5-873b873bd715"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[www.sealmethodsinc.com]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="3" width="170" height="6" uuid="68bd37ec-3fd2-4cf1-b768-6ec5e2229463"/>
+				<imageExpression><![CDATA["file:/C:/Develop/smiwebapp/src/main/resources/static/images/line1.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="49" width="181" height="18" uuid="2ab1b7a4-2686-4050-9b4f-044d1226c25b"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[q_quotesestimatoryear.jrxml]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>

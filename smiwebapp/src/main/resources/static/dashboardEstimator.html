@@ -1,0 +1,323 @@
+
+ <div>
+        
+          <div class="">
+            <div class="row top_tiles">
+              <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+                  <div class="count" ng-bind="indicadores[0]"></div>
+                  <h3>Total Quotes</h3>
+                  <p>Whatever Origin.</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-comments-o"></i></div>
+                  <div class="count" ng-bind="indicadores[4]" href="" ng-click="clickInd2()"></div>
+                  <h3>Pending Quotes</h3>
+                  <p>Quotes in status New, In progress</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-minus-square-o"></i></div>
+                  <div class="count" ng-bind="indicadores[6]" href="" ng-click="clickInd6()"></div>
+                  <h3>Quotes on Hold</h3>
+                  <p>Status Hold</p>
+                </div>
+              </div>          
+              <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-thumbs-o-up"></i></div>
+                  <div class="count" ng-bind="indicadores[7]" href="" ng-click="clickInd7()"></div>
+                  <h3>Ordered Quotes</h3>
+                  <p>Status Order Received</p>
+                </div>
+              </div>      
+              <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+                  <div class="count" ng-bind="indicadores[2]" href="" ng-click="clickInd3()"></div>
+                  <h3>Pending Items</h3>
+                  <p>Whithout Proccessing</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-check-square-o"></i></div>
+                  <div class="count" ng-bind="indicadores[3]" href="" ng-click="clickInd4()"></div>
+                  <h3>Ordered Items</h3>
+                  <p>Anything Successfuled </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Quotes Summary <small>Weekly progress</small></h2>
+                    <div class="filter">
+                      <div id="reportrange2" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+					   		  <label >Dashboard Year <span class="required">*</span></label>
+                                   <select id="cbYearEst" data-width="100%" class="form-control" required="required" ng-change="clickYearDash()" ng-model="yearEst" ng-options="years as years.descYear for years in years track by years.id">
+							   </select>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="col-md-9 col-sm-12 col-xs-12">
+                      <div class="demo-container" style="height:280px">
+                        <div id="placeholder33x" class="demo-placeholder"></div>
+                      </div>
+                      <div class="tiles">
+                        <div class="col-md-4 tile">
+                          <span>Total Items Requested</span>
+                          <h2>{{indicadores[1]}}</h2>
+                          <span class="sparkline1 graph" style="height: 160px;">
+                                          <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                      </span>
+                        </div>
+                        <div class="col-md-4 tile">
+                          <span>Total Amount Orders</span>
+                          <h2>{{indicadores[5] | currency:USD$ }}</h2>
+                          <span class="sparkline2 graph" style="height: 160px;">
+                                          <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                      </span>
+                        </div>
+                        <div class="col-md-4 tile">
+                          <span>Items Ordened</span>
+                          <h2>{{indicadores[3]}}</h2>
+                          <span class="sparkline3 graph" style="height: 160px;">
+                                          <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                      </span>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                      <div>
+                        <div class="x_title">
+                          <h2>Last Quotes</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <ul class="list-unstyled top_profiles scroll-view">
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="#">{{lastQuotes[0].customer.customerName}}</a>
+                              <p ng-if="lastQuotes[0].totItems == 1"><strong>{{lastQuotes[0].totItems}} </strong> Item </p>
+                              <p ng-if="lastQuotes[0].totItems > 1"><strong>{{lastQuotes[0].totItems}} </strong> Items </p>
+                              <p> <small>{{lastQuotes[0].createdDate | date:'MM/dd/yyyy'}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="#">{{lastQuotes[1].customer.customerName}}</a>
+                              <p ng-if="lastQuotes[1].totItems == 1"><strong>{{lastQuotes[1].totItems}} </strong> Item </p>
+                              <p ng-if="lastQuotes[1].totItems > 1"><strong>{{lastQuotes[1].totItems}} </strong> Items </p>
+                              <p> <small>{{lastQuotes[1].createdDate | date:'MM/dd/yyyy'}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="#">{{lastQuotes[2].customer.customerName}}</a>
+                              <p ng-if="lastQuotes[2].totItems == 1"><strong>{{lastQuotes[2].totItems}} </strong> Item </p>
+                              <p ng-if="lastQuotes[2].totItems > 1"><strong>{{lastQuotes[2].totItems}} </strong> Items </p>
+                              <p> <small>{{lastQuotes[2].createdDate | date:'MM/dd/yyyy'}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="#">{{lastQuotes[3].customer.customerName}}</a>
+                              <p ng-if="lastQuotes[3].totItems == 1"><strong>{{lastQuotes[3].totItems}} </strong> Item </p>
+                              <p ng-if="lastQuotes[3].totItems > 1"><strong>{{lastQuotes[3].totItems}} </strong> Items </p>
+                              <p> <small>{{lastQuotes[3].createdDate | date:'MM/dd/yyyy'}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body">
+                              <a class="title" href="#">{{lastQuotes[4].customer.customerName}}</a>
+                              <p ng-if="lastQuotes[4].totItems == 1"><strong>{{lastQuotes[4].totItems}} </strong> Item </p>
+                              <p ng-if="lastQuotes[4].totItems > 1"><strong>{{lastQuotes[4].totItems}} </strong> Items </p>
+                              <p> <small>{{lastQuotes[4].createdDate | date:'MM/dd/yyyy'}}</small>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                        
+                        
+                        <ul class="list-unstyled top_profiles scroll-view" ng-if="greeting.role == 'SELLER'">
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[0].contactName != null">
+                              <a class="title" href="#">{{topSellers[0].contactName}}</a>
+                              <p><strong>{{topSellers[0].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[0].city + ' ' + topSellers[0].state + ',' + topSellers[0].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-green profile_thumb">
+                              <i class="fa fa-user green"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[1].contactName != null">
+                              <a class="title" href="#">{{topSellers[1].contactName}}</a>
+                              <p><strong>{{topSellers[1].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[1].city + ' ' + topSellers[1].state + ',' + topSellers[1].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-blue profile_thumb"> 
+                              <i class="fa fa-user blue"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[2].contactName != null">
+                              <a class="title" href="#">{{topSellers[2].contactName}}</a>
+                              <p><strong>{{topSellers[2].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[2].city + ' ' + topSellers[2].state + ',' + topSellers[2].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-aero profile_thumb">
+                              <i class="fa fa-user aero"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[3].contactName != null">
+                              <a class="title" href="#">{{topSellers[3].contactName}}</a>
+                              <p><strong>{{topSellers[3].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[3].city + ' ' + topSellers[3].state + ',' + topSellers[3].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="media event">
+                            <a class="pull-left border-green profile_thumb">
+                              <i class="fa fa-user green"></i>
+                            </a>
+                            <div class="media-body" ng-if="topSellers[4].contactName != null">
+                              <a class="title" href="#">{{topSellers[4].contactName}}</a>
+                              <p><strong>{{topSellers[4].leadDate | date:'MM/dd/yy' }}. </strong> Date </p>
+                              <p> <small>{{topSellers[4].city + ' ' + topSellers[4].state + ',' + topSellers[4].postcode}}</small>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                        
+                        
+                        
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Weekly Summary <small>Activity shares</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
+                      <div class="col-md-7" style="overflow:hidden;">
+                        <span class="sparkline4" style="height: 160px; padding: 10px 25px;">
+                                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                  </span>
+                        <h4 style="margin:18px">Weekly Activity progress</h4>
+                      </div>
+
+                      <div class="col-md-5">
+                        <div class="row" style="text-align: center;">
+                          <div class="col-md-4">
+                            <canvas id="canvas1i" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                            <h4 style="margin:0">Industry Items</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <canvas id="canvas1i2" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                            <h4 style="margin:0">Items Type</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <canvas id="canvas1i3" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                            <h4 style="margin:0">Referral Quotes</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            
+        
+</div>        
+              
+        
+        
+        
+        
+        
+        
+        
+        

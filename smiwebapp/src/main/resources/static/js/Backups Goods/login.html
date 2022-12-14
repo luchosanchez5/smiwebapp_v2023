@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appEco">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Seal Methods Inc. | Gaskets, Seals, Tapes & Precision die cuts </title>
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="login">
+    <div ng-controller="navigation"	>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+            <div style="border: 0;" align="center">
+            <a href="#/" ><img  ng-src="images/logoseal.png" class="img-responsive" alt="Cinque Terre" width="100"></a>
+              <!-- <a href="#/" class="site_title"><i class="fa fa-paw"></i> <span>Antares Plant Aplication</span></a>-->
+            </div>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form ng-submit="login()">
+            
+
+            
+              <h1>Login</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" required="" ng-model="credentials.username"/>
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" ng-model="credentials.password" />
+              </div>
+              <div ng-show="error" align="center">
+				<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+			</div>
+              <div>
+                <button type="submit" class="btn btn-success">Log In</button>
+                <a class="reset_pass" href="#">Lost your password?</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">New to site?
+                  <a href="#signup" class="to_register"> Create Account </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-certificate"></i>  Seal Methods Inc.</h1>
+                  <p>©2018 All Rights Reserved. Seal Methods Inc</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form>
+              <h1>Create Account</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" required="" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" required="" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="index.html">Submit</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Already a member ?
+                  <a href="#signin" class="to_register"> Log in </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> Seal Methods Inc.</h1>
+                  <p>©2018 All Rights Reserved. Seal Methods Inc</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+    
+    
+	<script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.3.0.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.3.0.min.js"></script>
+ 	<script src="js/angular.js"></script>
+ 	<script src="js/angular-pnotify.js"></script>
+ 	<script src="js/angular-file.js"></script>
+ 	<script src="vendors/Chart.js/dist/Chart.min.js"></script>
+ 	<script src="js/angular-chart.min.js"></script>
+    <script src="js/vs-google-autocomplete.min.js"></script>
+    <script src="js/vs-google-autocomplete.js"></script>   
+    
+    <script src="js/ng-file-upload-shim.js"></script>
+    <script src="js/ng-file-upload.js"></script>    
+    
+    
+    <!-- Here was loaded ecoapp -->  
+ 
+        <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>		
+	
+	<script src="vendors/ngprogress/ngprogress.js"></script>
+    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- vsGoogleAutocomplete -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>    
+    <script src="vendors/validator/validator.min.js"></script>
+   
+  
+    <script src="js/directives.js"></script>	
+	<script src="js/ecoapp.js"></script>
+  
+
+  </body>
+</html>

@@ -1,0 +1,291 @@
+
+
+        <!-- page content -->
+        <div >
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Sellers</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content" ng-controller="sellersController">
+		
+				  <div><button type="button"  class="btn btn-round btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Agregar</button></div>
+				  
+<!-- Ventana Modal -->
+				  
+<div id="addSeller" class="modal fade bs-example-modal-lg"  tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Add Seller</h4>
+                        </div>
+                        <div class="modal-body">
+
+					<form class="form-horizontal form-label-left" ng-submit="addSeller()">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Surename</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="sureName" required="required" ng-model="seller.sureName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">Middlename <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="midName" required="required" ng-model="seller.middleName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>					  
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">LastName</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="lastName" required="required" ng-model="seller.lastName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="phone" required="required" ng-model="seller.email"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Mobil Phone</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="dob" required="required" ng-model="seller.mobilPhone" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                      	<input type="file" ng-model="model.file" change="upload(model)" />
+                      </div>
+                      
+                  <div class="x_content">
+
+                   <div class="well" style="overflow: auto"></div>
+                   
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Username</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="txtUserName"  class="form-control col-md-7 col-xs-12" ng-model="user.username">
+                        </div>
+                      </div>						  
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Password </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="password" id="txtPassword" class="form-control col-md-7 col-xs-12" ng-model="user.password">
+                        </div>
+                      </div>                   
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Confirmar Password </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="txtconfPassword" id="txtconfPassword" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div> 
+					  
+	  			  </div>                      
+                      
+			                         
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                      </div>
+                        
+				</form>
+				
+                      </div>
+                    </div>
+                  </div>
+                </div>
+				
+<!-- /Ventana Modal -->				
+				
+				
+ <table id="tbSell" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Surename</th>
+                          <th>Middlename</th>
+                          <th>Lastname</th>
+                          <th>Email</th>
+						  <th>Mobil Phone</th>
+						  <th>Edición</th>
+  
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="seller in sellers track by $index" class="ng-scope">
+							<td><a ng-href="">{{seller.sureName}}</a></td>
+							        <td>{{seller.middleName}}</td>
+									<td>{{seller.lastName}}</td>
+									<td>{{seller.email}}</td>
+									<td>{{seller.mobilPhone}}</td>
+
+									<td>
+									        <a class="btn btn-primary btn-xs"><i class="fa fa-folder"></i></a>
+											<a class="btn btn-info btn-xs" ng-click="editCurrSeller($index)" data-toggle="modal" data-target="#editSeller"><i class="fa fa-pencil"></i></a>
+                           					<a class="btn btn-danger btn-xs" ng-click="borrar($index)"><i class="fa fa-trash-o"></i></a>
+									</td>
+									
+		
+							   
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+    <!-- Ventana Modal -->
+				  
+<div id="editSeller" class="modal fade bs-example-modal-lg-edit"  tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Edit Seller</h4>
+                        </div>
+                        <div class="modal-body">
+
+					<form class="form-horizontal form-label-left" ng-submit="editSeller()">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Surename</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="sureName" required="required" ng-model="seller.sureName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="midName">Middlename <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="midName" required="required" ng-model="seller.middleName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>					  
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">LastName</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="lastName" required="required" ng-model="seller.lastName"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="phone" required="required" ng-model="seller.email"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>					  
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Mobil Phone</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" id="dob" required="required" ng-model="seller.mobilPhone" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      
+                      
+                  <div class="x_content">
+
+                   <div class="well" style="overflow: auto"></div>
+                   
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Username</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="txtUserName"  class="form-control col-md-7 col-xs-12" ng-model="user.username">
+                        </div>
+                      </div>						  
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Password </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="password" id="txtPassword" class="form-control col-md-7 col-xs-12" ng-model="user.pass">
+                        </div>
+                      </div>                   
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Confirmar Password </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="txtconfPassword" id="txtconfPassword" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div> 
+					  
+	  			  </div>                      
+       
+
+					                         
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                      </div>
+                        
+				</form>
+				
+                      </div>
+                    </div>
+                  </div>
+                </div>
+				
+<!-- /Ventana Modal -->	             
+  	<script type="text/ng-template" id="borrar.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Eliminar</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="removeCustomer(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+    </script>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->	
+        

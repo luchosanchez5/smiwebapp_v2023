@@ -1,0 +1,1408 @@
+<div>
+
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Quote Lead Wizard</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button" ng-click="testButton()">Go!</button>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Quote <small>New Lead</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+
+
+       <!-- ----------------Smart Wizard -->
+       <p>Follow the Steps and complete the Information.</p>
+       
+        <div id="wizard" class="form_wizard wizard_horizontal">
+                      <ul class="wizard_steps">
+                        <li>
+                          <a href="#step-1">
+                            <span class="step_no">1</span>
+                            <span class="step_descr">
+                                              Step 1<br />
+                                              <small>Customer Information</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-2">
+                            <span class="step_no">2</span>
+                            <span class="step_descr">
+                                              Step 2<br />
+                                              <small>Quote Information</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-3">
+                            <span class="step_no">3</span>
+                            <span class="step_descr">
+                                              Step 3<br />
+                                              <small>Item Information</small>
+                                          </span>
+                          </a>
+                        </li>
+
+                      </ul>
+         <div id="step-1">
+                        <h2 class="StepTitle">Customer Information</h2>
+                         
+                        <form id="wizard1"class="form-horizontal form-label-left">
+
+                          <div class="form-group">
+                              
+                              
+                              <label>New Customer</label>
+                              
+		                      
+		                      
+		                      <div class="col-md-12 col-sm-12 col-xs-12">
+                  		  
+		                      <p>
+		                        Y:
+		                        <input i-Check type="radio" class="flat" name="cust" id="newYes" value="1" ng-model="newC" checked="" required /> N:
+		                        <input i-Check type="radio" class="flat" name="cust" id="newNo" value="0" ng-model="newC" />
+		                      </p>		
+
+		                      </div> 
+                          </div>
+                        </form>    
+                          
+                          
+		                                
+ 			<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                    <br />
+                  
+                    
+                    
+                    <div ng-if="newC == '1'" class="form-group">
+                    <form class="form-horizontal form-label-left input_mask">
+ 
+   						   <div class="col-md-9 col-sm-9 col-xs-12" layout="column" ng-cloak>
+								  <md-content ng-controller="newCustomerController as new" layout="column">
+								    <form ng-submit="$event.preventDefault()">
+								      <p>Use <code>&lt;autocomplete&gt;</code> to type the new customer.</p>
+								      <md-autocomplete
+								          ng-disabled="new.isDisabled"
+								          md-no-cache="new.noCache"
+								          md-selected-item="new.selectedItem"
+								          md-search-text-change="new.searchTextChange(new.searchText)"
+								          md-search-text="new.searchText"
+								          md-selected-item-change="new.selectedItemChange(item)"
+								          md-items="item in new.querySearch(new.searchText)"
+								          md-item-text="item.display"
+								          md-min-length="0"
+								          placeholder="Type Customer Name"
+								          md-menu-class="autocomplete-custom-template">
+								        <md-item-template>
+								          <span class="item-title">
+								            <md-icon md-svg-icon="images/person.svg"></md-icon>
+								            <span> {{item.display}} </span>
+								          </span>
+								          <span class="item-metadata">
+								            <span class="item-metastat">
+								            | Customer Id : <strong>{{item.sid}}</strong> 
+								            </span>
+								            <span class="item-metastat">
+								            | Contact : <strong>{{item.contact}}</strong> 
+								            </span>
+								          </span>
+								        </md-item-template>
+								      </md-autocomplete>
+								    </form>
+								  </md-content>
+								  
+						   </div> 
+						   
+	                       <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" ng-model="customer.contactName" placeholder="Contact Name">
+	                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess3" ng-model="customer.webSite" placeholder="Web Site">
+	                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess4" ng-model="customer.contactEmail" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+	                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+	                      </div>		
+	                      
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess5" ng-model="customer.contactPhone" placeholder="Phone" input-mask="{mask: '(999) 999-9999'}">
+	                        <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+	                      
+			              <div class="form-group">
+	                               <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback"> 
+	                               <label>Tesla Subcontrator *:</label>
+			                      <p>
+			                        Y:
+			                        <input i-Check type="radio" class="flat" name="gender" id="genderM" value="0" ng-model="customer.teslaSubContrator" checked="" required /> N:
+			                        <input i-Check type="radio" class="flat" name="gender" id="genderF" value="1" ng-model="customer.teslaSubContrator" />
+			                      </p>
+	                               </div>
+	                      </div> 	
+	                      
+	                      <div class="form-group">
+	                        <label class="col-md-12 col-sm-12 col-xs-12">How was prospect obtained <span class="required">*</span>
+	                        </label>
+	                        <div class="col-md-12 col-sm-12 col-xs-12">
+	                          <textarea class="form-control" rows="3" placeholder='' ng-model="customer.cutomerOrigin"></textarea>
+	                        </div>
+	                      </div>
+	
+	                      <div class="ln_solid"></div> 	                                            	                      				   
+                   
+                    </form>   
+                    </div>  
+                    
+                    
+
+                    
+                     <div ng-if="newC == '0'" class="form-group">
+                        <form class="form-horizontal form-label-left input_mask"> 
+                                         
+					     <div  class="col-md-9 col-sm-9 col-xs-12" layout="column" ng-cloak>
+								  <md-content ng-controller="customerExpController as ctrl" layout="column">
+								    <form ng-submit="$event.preventDefault()">
+								      <p>Use <code>&lt;autocomplete&gt;</code> to find an existing customer.</p>
+								      <md-autocomplete
+								          ng-disabled="ctrl.isDisabled"
+								          md-no-cache="ctrl.noCache"
+								          md-selected-item="ctrl.selectedItem"
+								          md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+								          md-search-text="ctrl.searchText"
+								          md-selected-item-change="ctrl.selectedItemChange(item)"
+								          md-items="item in ctrl.querySearch(ctrl.searchText)"
+								          md-item-text="item.display"
+								          md-min-length="0"
+								          placeholder="Pick an existing customer from Expandable"
+								          md-menu-class="autocomplete-custom-template">
+								        <md-item-template>
+								          <span class="item-title">
+								            <md-icon md-svg-icon="images/person.svg"></md-icon>
+								            <span> {{item.display}} </span>
+								          </span>
+								          <span class="item-metadata">
+								            <span class="item-metastat">
+								             | Customer Id : <strong>{{item.sid}}</strong>
+								            </span>
+								            <span class="item-metastat">
+								             | Contact :  <strong>{{item.contact}}</strong>
+								            </span>
+								          </span>
+								        </md-item-template>
+								      </md-autocomplete>
+								    </form>
+								  </md-content>
+								  
+						</div> 	                     
+                      
+                       
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" ng-model="customerExp.contactName" placeholder="Contact Name">
+	                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess3" ng-model="customerExp.faxNo" placeholder="Fax No" readonly>
+	                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess4" ng-model="customerExp.contactEmail" placeholder="Email" >
+	                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess5" ng-model="customerExp.contactPhone" placeholder="Phone" input-mask="{mask: '(999) 999-9999'}" >
+	                        <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+	                      
+	                      
+	                      
+	                      <div class="form-group">
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                      		  <label>Tesla Subcontrator *:</label>
+			                      <p>
+			                        Y:
+			                        <input i-Check type="radio" class="flat" name="gender" id="genderM" value="0" ng-model="customerExp.teslaSubContrator" checked="" required readonly/> N:
+			                        <input i-Check type="radio" class="flat" name="gender" id="genderF" value="1" ng-model="customerExp.teslaSubContrator" readonly/>
+			                      </p>
+	                      </div>
+	                      </div> 
+	                      <div class="form-group">
+	                        <label class="col-md-12 col-sm-12 col-xs-12">How was prospect obtained <span class="required">*</span>
+	                        </label>
+	                        <div class="col-md-12 col-sm-12 col-xs-12">
+	                          <textarea class="form-control" rows="3" placeholder='' ng-model="customerExp.cutomerOrigin"></textarea>
+	                        </div>
+	                      </div>
+	
+	                      <div class="ln_solid"></div>
+	                      </form>
+ 
+	                  </div>    
+
+         
+                   
+                  </div>
+                </div>  
+               </div>
+            </div>                        
+                        
+
+          </div>  <!---------------- END STEP 1-------------------------------- -->
+            
+
+            <!----------------------------------------------------------------------------------- -->
+            <!------------------------------- STEP 2 -------------------------------------------- -->
+            <!----------------------        Quote Information------------------------------------ -->
+            
+         <div id="step-2">
+          <h2 class="StepTitle">Quote Information</h2>
+
+ 			<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                    <br />
+
+                   <!--  START CONTENT ---------------------------------------------->
+
+                   <form id="formOwner" class="form-horizontal form-label-left">
+ 
+    
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Terms <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.terms" ng-options="terms as terms.termDesc for terms in terms">
+                              </select>
+                            </div>
+                            <p ng-if="newC == '0'">Expandable Terms <code>&lt;{{customerExp.termsDesc}}&gt;</code></p>
+                          </div>  
+                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Sales Rep<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.seller" ng-options="sellers as sellers.sureName + '  ' + sellers.lastName for sellers in sellers">
+                              </select>
+                            </div>
+                            <p ng-if="newC == '0'">Expandable Sales Code <code>&lt;{{customerExp.descSales}}&gt;</code></p>
+                            
+                            
+                             <div class="form-group">	
+							  <div class="col-md-6 col-sm-6 col-xs-12">
+							    
+							         <input type="checkbox" class="" ng-model="quote.sharedQuote" ng-true-value="1" ng-false-value="0" /> Shared Quote
+							    
+							  </div>	
+						  	</div>   
+                            
+                          </div>  
+                          
+                          
+                          <div class="form-group" ng-if="quote.sharedQuote == '1'">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Sales Rep Shared<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.seller2" ng-options="sellers as sellers.sureName + '  ' + sellers.lastName for sellers in sellers"">
+                              </select>
+                            </div>
+
+                            
+                          </div>          
+                          
+                          <!--  END SWITCHS -------------------------------- 	                  
+                       
+                          <div class="form-group"">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Sales Code<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.salesCode" ng-options="codes.value as codes.value + ' - ' + codes.description for codes in salesCodes"">
+                              </select>
+                            </div>
+
+                            
+                          </div>   
+                          
+                          -->
+ 
+                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Estimator <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.estimator" ng-options="estimators as estimators.sureName + '  ' + estimators.lastName for estimators in estimators">
+                              </select>
+                            </div>
+                          </div>   
+                          
+                           <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Quote Obtain by <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">                                                                                                      
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.referral" ng-options="referrals as referrals.referralfullName for referrals in referrals">
+                              </select>
+                            </div>
+                          </div>     
+                          
+                          
+                           <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Expiration Days: <span class="required">*</span>
+                            </label>
+								 <div class="col-md-6 col-sm-6 col-xs-12">
+
+								            <input type="text" id="eaU" class="form-control" name="eaU" ng-model="quote.expirationDays" value="20" required />
+								 </div>
+                     
+						  </div> 
+                           
+                          
+                           <!-----------------------------------------------------------------------------------                                                                     
+                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Notes">Notes <span class="required">*</span>
+                            </label>
+                        	<div class="col-md-6 col-sm-6 col-xs-12">
+                          		<textarea class="form-control" rows="3" placeholder='' ng-model="quote.quoteNotes"></textarea>
+                        	</div>
+                      	  </div>
+                      	  
+                      	  -->
+                          
+
+
+                          
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                           
+                        </div>
+                      </div>
+                     
+                     </form> 
+
+                          
+                     <!--  END CONTENT  STEP 2 FORM -------------------------------- -->
+
+
+                  </div>
+                </div>  
+               </div>
+            </div>  
+
+
+ 
+         </div>  <!--  End Step 2 - OJO  -->
+                      
+	
+ 
+ 
+              
+                      
+          <div id="step-3">
+                        <h2 class="StepTitle">Items Details</h2>
+                       
+                        
+ 			<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                    <br />
+
+                   <!--  START CONTENT ---------------------------------------------->
+
+          		      
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a data-target="#tab_content1" href="" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Add Item</a>
+                        </li>
+                        <li role="presentation" class=""><a data-target="#tab_content2" href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Items List</a>
+                        </li>
+                        <li role="presentation" class=""><a data-target="#tab_content3" href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Attachments</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                          <!-- --------------------------------------------------------------------- -->
+                          <!-- CONTEN TAB 1 -->
+                          <!-- --------------------------------------------------------------------- -->			 			
+                          <div class="row">
+			              <div class="col-md-12 col-sm-12 col-xs-12">
+			                <div class="x_panel">
+			
+			                  <div class="x_content">
+			                    <br />
+			
+			                      <!--  START CONTENT ---------------------------------------------->
+  			
+			                          
+                                                  <br />
+									  			  <form class="form-horizontal form-label-left input_mask">
+ 
+								                      
+								                          <div class="form-group">
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Part Type * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="item.itemType" ng-options="itemsType as itemsType.descItemType for itemsType in itemsType">
+								                              </select>
+								                            </div>
+								                            
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Industry * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" ng-model="item.industry" ng-options="industries as industries.industryDesc for industries in industries" required>
+								                              </select>
+
+								                            </div>
+								                            
+
+									                        								                            
+								                          </div> 
+								                          
+								                          <div ng-show="item.itemType.id == 4" class="form-group">
+
+
+															     <div ng-if="((newC == '0') && (idCustomer != ''))"class="col-md-9 col-sm-9 col-xs-12" layout="column" ng-cloak>
+																		  <md-content ng-controller="partExpCustController as p" layout="column">
+																		    <form ng-submit="$event.preventDefault()">
+																		      <p>Use <code>&lt;Autocomplete&gt;</code> to find an existing part.</p>
+																		      <md-autocomplete
+																		          ng-disabled="p.isDisabled"
+																		          md-no-cache="p.noCache"
+																		          md-selected-item="p.selectedItem"
+																		          md-search-text-change="p.searchTextChange(p.searchText)"
+																		          md-search-text="p.searchText"
+																		          md-selected-item-change="p.selectedItemChange(item)"
+																		          md-items="item in p.querySearch(p.searchText)"
+																		          md-item-text="item.display"
+																		          md-min-length="0"
+																		          placeholder="Pick Up a Customer Part Expandable"
+																		          md-menu-class="autocomplete-custom-template">
+																		        <md-item-template>
+																		          <span class="item-title">
+																		            <md-icon md-svg-icon="images/person.svg"></md-icon>
+																		            <span> {{item.display}} </span>
+																		          </span>
+																		          <span class="item-metadata">
+																		            <span class="item-metastat">
+																		              <strong> Part Id :</strong> {{item.sid}}
+																		            </span>
+																		            <span class="item-metastat">
+																		              <strong>Cost :</strong> {{item.cost}}
+																		            </span>
+																		          </span>
+																		        </md-item-template>
+																		      </md-autocomplete>
+																		    </form>
+																		  </md-content>
+		
+																 </div> 
+																 
+															     <div ng-if="newC == '1'"class="col-md-9 col-sm-9 col-xs-12" layout="column" ng-cloak>
+																		  <md-content ng-controller="partExpController as p" layout="column">
+																		    <form ng-submit="$event.preventDefault()">
+																		      <p>Use <code>&lt;autocomplete&gt;</code> to find an existing part.</p>
+																		      <md-autocomplete
+																		          ng-disabled="p.isDisabled"
+																		          md-no-cache="p.noCache"
+																		          md-selected-item="p.selectedItem"
+																		          md-search-text-change="p.searchTextChange(p.searchText)"
+																		          md-search-text="p.searchText"
+																		          md-selected-item-change="p.selectedItemChange(item)"
+																		          md-items="item in p.querySearch(p.searchText)"
+																		          md-item-text="item.display"
+																		          md-min-length="0"
+																		          placeholder="Pick an existing part from Expandable"
+																		          md-menu-class="autocomplete-custom-template">
+																		        <md-item-template>
+																		          <span class="item-title">
+																		            <md-icon md-svg-icon="images/person.svg"></md-icon>
+																		            <span> {{item.display}} </span>
+																		          </span>
+																		          <span class="item-metadata">
+																		            <span class="item-metastat">
+																		              <strong> Part Id :</strong> {{item.sid}}
+																		            </span>
+																		            <span class="item-metastat">
+																		              <strong>Cost :</strong> {{item.cost}}
+																		            </span>
+																		          </span>
+																		        </md-item-template>
+																		      </md-autocomplete>
+																		    </form>
+																		  </md-content>
+		
+																 </div> 																 
+																 
+										                          <div class="form-group">
+										                          <div class="col-md-3 col-sm-3 col-xs-12">    
+													              		  <label >Um <span class="required">*</span></label>
+											                                                                                     
+											                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="item.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+											                              </select>
+											                       </div> 
+											                       </div>  			 								                             
+									                       							                            
+								                          </div> 
+								                          
+								                          
+								                          <div ng-show="item.itemType.id ==1" class="form-group">
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">Part Number * :</label>
+									                           <input type="text" id="eaU" class="form-control" name="eaU" ng-model="item.newPartName" required />
+									                         </div>
+									                         
+									                          <div class="form-group">
+									                          <div class="col-md-3 col-sm-3 col-xs-12">    
+												              		  <label >Um <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="item.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+										                              </select>
+										                       </div> 
+										                       </div>	
+										                       								                         
+								                          </div>
+								                          
+								                          <div ng-show="item.itemType.id ==2" class="form-group">
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">Kit Name * :</label>
+									                           <input type="text" id="eaU" class="form-control" name="eaU" ng-model="item.newPartName" required />
+									                         </div>
+									                         
+									                          <div class="form-group">
+									                          <div class="col-md-3 col-sm-3 col-xs-12">    
+												              		  <label >Um <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="item.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+										                              </select>
+										                       </div> 
+										                       </div>	
+										                       								                         
+								                          </div>								                          
+								                          
+								                          <div ng-show="item.itemType.id ==3" class="form-group">
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">Buy Out Name * :</label>
+									                           <input type="text" id="eaU" class="form-control" name="eaU" ng-model="item.newPartName" required />
+									                         </div>
+									                         
+									                          <div class="form-group">
+									                          <div class="col-md-3 col-sm-3 col-xs-12">    
+												              		  <label >Um <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="item.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+										                              </select>
+										                       </div> 
+										                       </div>	
+										                       								                         
+								                          </div>								                          
+
+								                          <div class="form-group">
+							                                 <div class="col-md-4 col-sm-4 col-xs-4">
+								                              <label for="select2">Quote Per * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="item.qitemType" ng-options="qitemsType as qitemsType.descitemType for qitemsType in qitemsType">
+								                              </select>
+								                            </div>
+								                            <br />
+								                            <br />
+								                            <br />
+								                          </div>
+								                          
+								                          
+								                          
+								                          
+									                       <div class="col-md-12 col-sm-12 col-xs-12">   <!--  INIT SWITCHS -------------------------------- --> 
+	                    									<div class="well" style="overflow: auto">
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox"  id="ch1"  class="" ng-model="item.drawingAva" ng-true-value="1" ng-false-value="0" /> Drawing Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="" ng-model="item.newPart" ng-true-value="1" ng-false-value="0" /> New Part to Customer
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="" ng-model="item.sampleAva" ng-true-value="1" ng-false-value="0" /> Sample of Part Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="" ng-model="item.concernsCurr" ng-true-value="1" ng-false-value="0" /> Concerns with current Plan
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="" ng-model="item.cadfileAva" ng-true-value="1" ng-false-value="0" /> CAD File Available
+									                            </label>
+									                          </div>								                          
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="" ng-model="item.packageReq" ng-true-value="1" ng-false-value="0" /> Package Requirements
+									                            </label>
+									                          </div>
+									      					  <div class="col-md-12 col-sm-12 col-xs-12">
+									                            <label>
+									                              <input type="checkbox" class="" ng-model="item.partKissCut" ng-true-value="1" ng-false-value="0" /> Parts kiss Cut
+									                            </label>
+									                          </div> 
+	                    									</div>  
+	                    								 </div>		<!--  END SWITCHS -------------------------------- -->							                          								                      
+								                          
+									                    <div class="form-group">
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="eaU">Estimated Anual Usage * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="item.anualUsage" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="qtq">Quantities to Quote * :</label>
+									                        <input type="text" id="qtq" class="form-control" name="qtq" ng-model="item.quantity" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="targetp">Margin % * :</label>
+									                        <input type="text" id="targetp" class="form-control" name="targetp" ng-model="item.targetPrice" required />
+									                      </div>									                      
+									                      
+									                    </div> 
+									                    
+									                    <div class="form-group">
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Materials * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="item.suggestMat" required />
+									                      </div>								                            
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Vendors * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="item.suggestVend" required />
+									                      </div>								                            
+								                        </div>								                        
+
+
+									                    <div class="form-group">
+									                      <div class="col-md-4 col-sm-4 col-xs-4">    
+												              		  <label >Tesla Model <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="item.teslaModel" ng-options="tesla as tesla.descModel for tesla in tesla track by tesla.id">
+										                              </select>
+										                  </div>                     
+									                    
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">EXW * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="item.fob" required />
+									                      </div>
+									                      
+
+
+							                             <div class="col-md-4 col-sm-4 col-xs-4">
+								                            <label for="appdate">Rfq Due Date *:
+								                            </label>                            
+							                                <input id="appdate" ng-model="item.rfqdueDate" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+							                             </div>
+  							                      
+									                      
+									                    </div>								                      
+
+								                      <div class="form-group">
+
+								                        <div class="col-md-12 col-sm-12 col-xs-12">
+								                          <label>Notes <span class="required"></span>
+								                          </label>
+								                          <textarea class="form-control" rows="3" placeholder='' ng-model="item.note"></textarea>
+								                        </div>
+								                      </div>
+								
+								                      <br />
+								                      
+								
+								                       <div class="form-group">
+								                       <div class="ln_solid"></div>
+								                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								                            
+								                            <button type="submit" ng-click="addTempItem()" class="btn btn-success">Add</button>
+								                            <button type="submit" ng-click="cancel()" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+								                        </div>
+								                       </div>		
+								                       						
+								                    </form>  		
+														
+													
+													
+													<!-- Ventana Modal -->
+																	  
+													
+													<div id="editItem" class="modal fade bs-example-modal-sm"  tabindex="-1" role="dialog" aria-hidden="true">
+													                    <div class="modal-dialog">
+													                      <div class="modal-content">
+													
+													                        <div class="modal-header">
+													                          <button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">×</span>
+													                          </button>
+													                          <h4 class="modal-title" id="myModalLabel2">Edit Item</h4>
+													                        </div>
+													                        <div class="modal-body">
+													
+																      <div class="row">
+																              <div class="col-md-12 col-sm-12 col-xs-12">
+																                <div class="x_panel">
+																
+																                  <div class="x_content">
+																                    <br />
+																
+
+																
+																
+																                  </div>
+																                </div>  
+																               </div>
+																            </div>  
+																	
+													                        </div>
+													                      </div>
+													                    </div>
+												    </div>
+																	
+													<!-- /Ventana Modal -->														
+																		
+			                          
+			                     <!--  END CONTENT  TAB 1 -------------------------------- -->
+			
+			
+			                  </div>
+			                </div>  
+			               </div>
+			            </div> 
+                       </div>   <!-- END  TAB 1 -->
+                       
+                       
+                       
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                          
+                          <!-- CONTEN TAB 2 -->
+                          
+				 			<div class="row">
+				              <div class="col-md-12 col-sm-12 col-xs-12">
+				                <div class="x_panel">
+				
+				                  <div class="x_content">
+				                    <br />
+				
+				                   <!--  START CONTENT ---------------------------------------------->
+				
+											<table id="tbItemsTemp" class="table table-striped">
+							                      <thead>
+							                        <tr>
+
+							                          <th>Item Type</th>
+							                          <th>Industry</th>
+							                          <th>Part Name</th>
+							
+													  <th>Quote Per</th>
+													  <th>Margin %</th>
+													  <th>RFQ Due Date</th>
+							
+													  <th>Action</th>
+							  
+							                        </tr>
+							                      </thead>
+							                      <tbody>
+							                        <tr ng-repeat="itemsTemp in itemsTemp track by $index" class="ng-scope">
+
+														        <td>{{itemsTemp.itemType.descItemType}}</td>
+																<td>{{itemsTemp.industry.industryDesc}}</td>
+							                                    <td ng-if="(itemsTemp.itemType.id == '1' || itemsTemp.itemType.id == '2' || itemsTemp.itemType.id == '3')">{{itemsTemp.newPartName}}</td>
+							                                    <td ng-if="(itemsTemp.itemType.id == '4')">{{itemsTemp.part.partDesc}}</td>
+																<td>{{itemsTemp.qitemType.descitemType}}</td>
+																<td>{{itemsTemp.targetPrice}}</td>
+																<td>{{itemsTemp.rfqdueDate | date:'MM/dd/yyyy'}}</td>
+							
+																<td>
+																        
+																		<a class="btn btn-info btn-xs" ng-click="editTempItem($index)" data-toggle="modal" data-target="#testModal" title="Edit"><i class="fa fa-pencil"></i></a>
+																		<a class="btn btn-info btn-xs" ng-click="editTempItem($index)" data-toggle="modal" data-target="#copyItem" title="Copy"><i class="fa fa-copy"></i></a>
+							                           					<a class="btn btn-danger btn-xs" ng-click="borrar($index)" title="Remove"><i class="fa fa-trash-o"></i></a>
+																</td>
+																
+									
+														   
+							                        </tr>
+							
+							                      </tbody>
+							
+							                    </table>			
+				                          
+				                  
+				
+				
+				                  </div>
+				                </div>  
+				               </div>
+				            </div>  
+                          
+                          <!-- ------------  END CONTENT TAB 2 ------------------------------>
+
+                        </div>
+                        
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                          
+                          <!-- CONTEN TAB 3 -->
+                          
+				 			<div class="row">
+				              <div class="col-md-12 col-sm-12 col-xs-12">
+				                <div class="x_panel">
+				
+				                  <div class="x_content">
+				                    <br />
+				
+				                   <!--  START CONTENT ---------------------------------------------->
+				
+					                <div class="col-xs-6 col-xs-offset-3">
+			
+					                    <div class="dropzone" options="dzOptions" callbacks="dzCallbacks" methods="dzMethods" ng-dropzone></div>
+					                </div>			                          
+				                  
+				
+				
+				                  </div>
+				                </div>  
+				               </div>
+				            </div>  
+                          
+                          <!-- ------------  END CONTENT TAB 3 ------------------------------>
+
+                        </div>                        
+
+                      </div>
+                    </div>					 
+						 
+						 
+						 
+						 
+                         
+                     <!--  END CONTENT  STEP 2 FORM -------------------------------- -->
+
+
+                  </div>
+                </div>  
+               </div>
+            </div>                          
+                        
+                        
+          </div>  <!-- END STep 3 --> 
+                      
+
+
+       </div>
+       <!-- End SmartWizard Content -->
+
+                  </div>  <!-- ----------------x_content -->
+                </div> <!-- ----------------x_panel -->
+              </div>
+            </div>  <!-- ----------------row -->
+          </div>
+          
+          
+	
+													
+<!-- /Ventana Modal -->	             
+  	<script type="text/ng-template" id="borrar.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Remove</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="removeItem(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+    </script>	
+    
+												
+                   <div id="testModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Edit Item Details</h4>
+                        </div>
+                        <div class="modal-body">                                                           
+									  			  <form class="form-horizontal form-label-left input_mask">
+ 
+								                      
+								                          <div class="form-group">
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Part Type * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.itemType" ng-options="itemsType as itemsType.descItemType for itemsType in itemsType track by itemsType.id">
+								                              </select>
+								                            </div>
+								                            
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Industry * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" ng-model="itemDel.industry" ng-options="industries as industries.industryDesc for industries in industries track by industries.id" required>
+								                              </select>
+
+								                            </div>
+								                            
+
+									                        								                            
+								                          </div> 
+								                          
+								                          <div ng-show="itemDel.itemType.id ==4" class="form-group">
+
+
+															   <p>Actual Part <code>&lt;{{itemDel.part.partDesc}}&gt;</code></p>
+											                   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+											                      <input type="text" class="form-control has-feedback-left" id="inputSuccess2" ng-change="onChangePart()"  ng-model="itemDel.part.partNumber" placeholder="SMI PART NUMBER">
+											                      <span class="" aria-hidden="true"></span>
+											                      <a href="" class="btn btn-success btn-xs" ng-click="findPartExpandableEdit()" title="Page Table"><i class="fa fa-refresh"></i></a>
+											                   </div>  									 
+		 								                             
+									                       							                            
+								                          </div> 
+								                          
+								                          
+								                          <div ng-show="itemDel.itemType.id ==1" class="form-group">
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">Part Number * :</label>
+									                           <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.newPartName" required />
+									                         </div>
+									                         
+									                          <div class="form-group">
+
+										                      </div>	
+										                       								                         
+								                          </div>
+								                          
+								                          <div class="form-group">
+
+									                       </div>  									                          
+
+								                          <div class="form-group">
+							                                 <div class="col-md-4 col-sm-4 col-xs-4">
+								                              <label for="select2">Quote Per * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.qitemType" ng-options="qitemsType as qitemsType.descitemType for qitemsType in qitemsType track by qitemsType.id ">
+								                              </select>
+								                            </div>
+
+									                       
+									                       
+								                             <div class="col-md-3 col-sm-3 col-xs-3">    
+											              		  <label >Um <span class="required">*</span></label>
+									                                                                                     
+									                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+									                              </select>
+									                         </div>									                       							                            
+								                            <br />
+								                            <br />
+								                            <br />
+								                          </div>
+								                          
+								                          
+								                          
+								                          
+									                       <div class="col-md-12 col-sm-12 col-xs-12">   <!--  INIT SWITCHS -------------------------------- --> 
+	                    									<div class="well" style="overflow: auto">
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox"  id="ch1"  class="" ng-model="itemDel.drawingAva" /> Drawing Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch2" class="" ng-model="itemDel.newPart" /> New Part to Customer
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch3" class="" ng-model="itemDel.sampleAva" /> Sample of Part Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch4" class="" ng-model="itemDel.concernsCurr" /> Concerns with current Plan
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch5" class="" ng-model="itemDel.cadfileAva"/> CAD File Available
+									                            </label>
+									                          </div>								                          
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch6" class="" ng-model="itemDel.packageReq" /> Package Requirements
+									                            </label>
+									                          </div>
+									      					  <div class="col-md-12 col-sm-12 col-xs-12">
+									                            <label>
+									                              <input type="checkbox" id="ch7" class="" ng-model="itemDel.partKissCut" /> Parts kiss Cut
+									                            </label>
+									                          </div> 
+	                    									</div>  
+	                    								 </div>		<!--  END SWITCHS -------------------------------- -->							                          								                      
+								                          
+									                    <div class="form-group">
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="eaU">Estimated Anual Usage * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.anualUsage" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="qtq">Quantities to Quote * :</label>
+									                        <input type="text" id="qtq" class="form-control" name="qtq" ng-model="itemDel.quantity" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="targetp">Margin % * :</label>
+									                        <input type="text" id="targetp" class="form-control" name="targetp" ng-model="itemDel.targetPrice" required />
+									                      </div>									                      
+									                      
+									                    </div> 
+									                    
+									                    <div class="form-group">
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Materials * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestMat" required />
+									                      </div>								                            
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Vendors * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestVend" required />
+									                      </div>								                            
+								                        </div>								                        
+
+
+									                    <div class="form-group">
+									                    
+											              <div class="col-md-4 col-sm-4 col-xs-4">    
+												              		  <label >Tesla Model <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.teslaModel" ng-options="tesla as tesla.descModel for tesla in tesla track by tesla.id">
+										                              </select>
+										                  </div>  
+										                  
+										                   	                    
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">EXW * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.fob" required />
+									                      </div>
+									                      
+
+
+							                             <div class="col-md-4 col-sm-4 col-xs-4">
+								                            <label for="appdate">Rfq Due Date *:
+								                            </label>                            
+							                                <input id="appdate" ng-model="date_lead" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date" >
+							                             </div>
+  							                      
+									                      
+									                    </div>								                      
+
+								                      <div class="form-group">
+
+								                        <div class="col-md-12 col-sm-12 col-xs-12">
+								                          <label>Notes <span class="required"></span>
+								                          </label>
+								                          <textarea class="form-control" rows="3" placeholder=''  ng-model="itemDel.note"></textarea>
+								                        </div>
+								                      </div>
+								
+								                      <br />
+								                      
+								
+								                       <div class="form-group">
+
+								                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								                            
+								                            <button type="button" ng-click="updateTempItem()" class="btn btn-success">Update</button>
+								                            <button type="submit" ng-click="" class="btn btn-primary" data-dismiss="modal">Close</button>
+								                        </div>
+								                       </div>		
+								                       						
+								                    </form> 
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div> 
+                  
+                  
+                  
+                  <div id="copyItem" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Copy Item</h4>
+                        </div>
+                        <div class="modal-body">                                                           
+									  			  <form class="form-horizontal form-label-left input_mask">
+ 
+								                      
+								                          <div class="form-group">
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Part Type * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.itemType" ng-options="itemsType as itemsType.descItemType for itemsType in itemsType track by itemsType.id">
+								                              </select>
+								                            </div>
+								                            
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Industry * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" ng-model="itemDel.industry" ng-options="industries as industries.industryDesc for industries in industries track by industries.id" required>
+								                              </select>
+
+								                            </div>
+								                            
+
+									                        								                            
+								                          </div> 
+								                          
+								                          <div ng-show="itemDel.itemType.id ==4" class="form-group">
+								                          
+								                               <p>Actual Part <code>&lt;{{itemDel.part.partDesc}}&gt;</code></p>
+											                   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+											                      <input type="text" class="form-control has-feedback-left" id="inputSuccess2" ng-change="onChangePart()"  ng-model="itemDel.part.partNumber" placeholder="SMI PART NUMBER">
+											                      <span class="" aria-hidden="true"></span>
+											                      <a href="" class="btn btn-success btn-xs" ng-click="findPartExpandableEdit()" title="Page Table"><i class="fa fa-refresh"></i></a>
+											                   </div>  								                          
+
+
+ 														  </div>	
+								                          
+								                          
+								                          <div ng-show="itemDel.itemType.id ==1" class="form-group">
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">Part Number * :</label>
+									                           <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.newPartName" required />
+									                         </div>
+									                         
+										                       								                         
+								                          </div>
+								                          
+								                          <div class="form-group">
+
+									                       </div>  			 								                             
+									                       							                            
+								                          								                          
+
+								                          <div class="form-group">
+							                                 <div class="col-md-4 col-sm-4 col-xs-4">
+								                              <label for="select2">Quote Per * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.qitemType" ng-options="qitemsType as qitemsType.descitemType for qitemsType in qitemsType track by qitemsType.id ">
+								                              </select>
+								                            </div>
+								                            
+								                             <div class="col-md-3 col-sm-3 col-xs-3">    
+											              		  <label >Um <span class="required">*</span></label>
+									                                                                                     
+									                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.measureUnit" ng-options="measureunits as measureunits.descmeasureUnit for measureunits in measureunits track by measureunits.idMeasureunit">
+									                              </select>
+									                         </div> 
+								                            
+								                            <br />
+								                            <br />
+								                            <br />
+								                          </div>
+								                          
+								                          
+								                          
+								                          
+									                       <div class="col-md-12 col-sm-12 col-xs-12">   <!--  INIT SWITCHS -------------------------------- --> 
+	                    									<div class="well" style="overflow: auto">
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox"  id="ch1"  class="" ng-model="itemDel.drawingAva" /> Drawing Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch2" class="" ng-model="itemDel.newPart" /> New Part to Customer
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch3" class="" ng-model="itemDel.sampleAva" /> Sample of Part Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch4" class="" ng-model="itemDel.concernsCurr" /> Concerns with current Plan
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch5" class="" ng-model="itemDel.cadfileAva"/> CAD File Available
+									                            </label>
+									                          </div>								                          
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" id="ch6" class="" ng-model="itemDel.packageReq" /> Package Requirements
+									                            </label>
+									                          </div>
+									      					  <div class="col-md-12 col-sm-12 col-xs-12">
+									                            <label>
+									                              <input type="checkbox" id="ch7" class="" ng-model="itemDel.partKissCut" /> Parts kiss Cut
+									                            </label>
+									                          </div> 
+	                    									</div>  
+	                    								 </div>		<!--  END SWITCHS -------------------------------- -->							                          								                      
+								                          
+									                    <div class="form-group">
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="eaU">Estimated Anual Usage * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.anualUsage" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="qtq">Quantities to Quote * :</label>
+									                        <input type="text" id="qtq" class="form-control" name="qtq" ng-model="itemDel.quantity" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="targetp">Margin % * :</label>
+									                        <input type="text" id="targetp" class="form-control" name="targetp" ng-model="itemDel.targetPrice" required />
+									                      </div>									                      
+									                      
+									                    </div> 
+									                    
+									                    <div class="form-group">
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Materials * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestMat" required />
+									                      </div>								                            
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Vendors * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="itemDel.suggestVend" required />
+									                      </div>								                            
+								                        </div>								                        
+
+
+									                    <div class="form-group">
+									                    
+											              <div class="col-md-4 col-sm-4 col-xs-4">    
+												              		  <label >Tesla Model <span class="required">*</span></label>
+										                                                                                     
+										                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="itemDel.teslaModel" ng-options="tesla as tesla.descModel for tesla in tesla track by tesla.id">
+										                              </select>
+										                  </div>  
+										                  
+										                   	                    
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">EXW * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="itemDel.fob" required />
+									                      </div>
+									                      
+
+
+							                             <div class="col-md-4 col-sm-4 col-xs-4">
+								                            <label for="appdate">Rfq Due Date *:
+								                            </label>                            
+							                                <input id="appdate" ng-model="date_lead" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date" >
+							                             </div>
+  							                      
+									                      
+									                    </div>								                      
+
+								                      <div class="form-group">
+
+								                        <div class="col-md-12 col-sm-12 col-xs-12">
+								                          <label>Notes <span class="required"></span>
+								                          </label>
+								                          <textarea class="form-control" rows="3" placeholder=''  ng-model="itemDel.note"></textarea>
+								                        </div>
+								                      </div>
+								
+								                      <br />
+								                      
+								
+								                       <div class="form-group">
+
+								                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								                            
+								                            <button type="submit" ng-click="copyTempItem()" class="btn btn-success">Copy</button>
+								                            <button type="submit" ng-click="" class="btn btn-primary" data-dismiss="modal">Close</button>
+								                        </div>
+								                       </div>		
+								                       						
+								                    </form> 
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>         
+                  
+                  
+                          
+        
+        
+</div>        

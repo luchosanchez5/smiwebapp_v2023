@@ -1,0 +1,740 @@
+<div>
+
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Quote Lead Wizard</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button" ng-click="testButton()">Go!</button>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Quote <small>New Lead</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <!-- Smart Wizard -->
+                    <p>Follow the Steps and complete the Information.</p>
+                    <div id="wizard" class="form_wizard wizard_horizontal">
+                      <ul class="wizard_steps">
+                        <li>
+                          <a href="#step-1">
+                            <span class="step_no">1</span>
+                            <span class="step_descr">
+                                              Step 1<br />
+                                              <small>Customer Information</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-2">
+                            <span class="step_no">2</span>
+                            <span class="step_descr">
+                                              Step 2<br />
+                                              <small>Quote Information</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-3">
+                            <span class="step_no">3</span>
+                            <span class="step_descr">
+                                              Step 3<br />
+                                              <small>Item Information</small>
+                                          </span>
+                          </a>
+                        </li>
+
+                      </ul>
+         <div id="step-1">
+                        <h2 class="StepTitle">Customer Information</h2>
+                        <form id="wizard1"class="form-horizontal form-label-left">
+
+                          <div class="form-group">
+                              
+                              
+                              <label>New Customer</label>
+		                      
+		                      <p style="padding: 5px;">
+		                      <div class="col-md-12 col-sm-12 col-xs-12">
+
+		                  <!--        <input  i-Check type="checkbox" ng-model="newYes" ng-change="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="newYes == 1" name="hobbies[]" id="hobby1" class="flat" /> Yes
+		                        <br />
+		
+		                        <input  i-Check type="checkbox" ng-model="newNo" ng-change="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="newNo == 1" name="hobbies[]" id="hobby2"  class="flat" /> No
+		                        <br />  -->
+
+                      		  
+		                      <p>
+		                        Y:
+		                        <input i-Check type="radio" class="flat" name="gender" id="genderM" value="1" ng-model="newC" checked="" required /> N:
+		                        <input i-Check type="radio" class="flat" name="gender" id="genderF" value="0" ng-model="newC" />
+		                      </p>		
+		                        
+		                       <p>
+		                       </p>
+		                      </div> 
+                          </div>
+                        </form>    
+                          
+                          
+		                                
+ 			<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left input_mask">
+                    
+                    <div ng-if="newC == '1'" class="form-group">
+                      <div class="col-md-9 col-sm-9 col-xs-12 form-group has-feedback">
+                        <label for="fullname">Customer * :</label>
+                        <input type="text" id="fullname" class="form-control" name="fullname" ng-model="customer.customerName" required />
+                      </div>
+                      
+	                       <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" ng-model="customer.contactName" placeholder="Contact Name">
+	                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess3" ng-model="customer.webSite" placeholder="Web Site">
+	                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess4" ng-model="customer.contactEmail" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+	                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess5" ng-model="customer.contactPhone" placeholder="Phone" input-mask="{mask: '(999) 999-9999'}">
+	                        <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+	                      
+	                      <div class="form-group">
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                      		  <label>Tesla Subcontrator *:</label>
+			                      <p>
+			                        Y:
+			                        <input i-Check type="radio" class="flat" name="gender" id="genderM" value="0" ng-model="customer.teslaSubContrator" checked="" required /> N:
+			                        <input i-Check type="radio" class="flat" name="gender" id="genderF" value="1" ng-model="customer.teslaSubContrator" />
+			                      </p>
+	                      </div>
+	                      </div> 
+	                      <div class="form-group">
+	                        <label>Customer Origin <span class="required">*</span>
+	                        </label>
+	                        <div class="col-md-12 col-sm-12 col-xs-12">
+	                          <textarea class="form-control" rows="3" placeholder='' ng-model="customer.cutomerOrigin"></textarea>
+	                        </div>
+	                      </div>
+	
+	                      <div class="ln_solid"></div>                     
+                      
+                    </div>  
+                    
+
+
+                      <div ng-if="newC == '0'" class="form-group">
+                        
+                        <div class="col-md-9 col-sm-9 col-xs-12 form-group has-feedback">
+                        <label >Select Customer</label>
+                          <select class="select2_single form-control" tabindex="-1" ng-model="quote.customer" ng-options="customers as customers.customerName for customers in customers">
+                          </select>
+                        </div>
+                                          
+                      
+                      
+                          <br />
+                       
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" ng-model="quote.customer.contactName" placeholder="Contact Name" readonly>
+	                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess3" ng-model="quote.customer.webSite" placeholder="Web Site" readonly>
+	                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control has-feedback-left" id="inputSuccess4" ng-model="quote.customer.contactEmail" placeholder="Email" readonly>
+	                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+	                      </div>
+	
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                        <input type="text" class="form-control" id="inputSuccess5" ng-model="quote.customer.contactPhone" placeholder="Phone" input-mask="{mask: '(999) 999-9999'}" readonly>
+	                        <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+	                      </div>
+	                      
+	                      <div class="form-group">
+	                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+	                      		  <label>Tesla Subcontrator *:</label>
+			                      <p>
+			                        Y:
+			                        <input i-Check type="radio" class="flat" name="gender" id="genderM" value="0" ng-model="quote.customer.teslaSubContrator" checked="" required readonly/> N:
+			                        <input i-Check type="radio" class="flat" name="gender" id="genderF" value="1" ng-model="quote.customer.teslaSubContrator" readonly/>
+			                      </p>
+	                      </div>
+	                      </div> 
+	                      <div class="form-group">
+	                        <label>Customer Origin <span class="required">*</span>
+	                        </label>
+	                        <div class="col-md-12 col-sm-12 col-xs-12">
+	                          <textarea class="form-control" rows="3" placeholder='' ng-model="quote.customer.cutomerOrigin"></textarea>
+	                        </div>
+	                      </div>
+	
+	                      <div class="ln_solid"></div>
+	                      
+	                  </div>    
+
+
+                    </form>
+                  </div>
+                </div>  
+               </div>
+            </div>                        
+                        
+
+          </div>  <!---------------- END STEP 1-------------------------------- -->
+            
+
+            <!----------------------------------------------------------------------------------- -->
+            <!------------------------------- STEP 2 -------------------------------------------- -->
+            <!----------------------        Quote Information------------------------------------ -->
+            
+         <div id="step-2">
+                        <h2 class="StepTitle">Quote Information</h2>
+
+ 			<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                    <br />
+
+                   <!--  START CONTENT ---------------------------------------------->
+
+                   <form id="formOwner" class="form-horizontal form-label-left">
+                   
+                   
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Terms <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.terms" ng-options="terms as terms.termDesc for terms in terms">
+                              </select>
+                            </div>
+                          </div>  
+                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Sales Rep<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.seller" ng-options="sellers as sellers.sureName for sellers in sellers">
+                              </select>
+                            </div>
+                          </div>  
+                          
+                           <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Estimator <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.estimator" ng-options="estimators as estimator.sureName + '  ' + estimators.lastName for estimators in estimators">
+                              </select>
+                            </div>
+                          </div>   
+                          
+                           <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Quote Obtain by <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">                                                                                                      
+                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="quote.referral" ng-options="referrals as referrals.referralfullName for referrals in referrals">
+                              </select>
+                            </div>
+                          </div>                                                                          
+                          
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Notes <span class="required" ng-model="quote.referral">*</span>
+                            </label>
+                        	<div class="col-md-6 col-sm-6 col-xs-12">
+                          		<textarea class="form-control" rows="3" placeholder=''></textarea>
+                        	</div>
+                      	  </div>
+                          
+
+
+                          
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                           
+                        </div>
+                      </div>
+                     
+                     </form> 
+
+                          
+                     <!--  END CONTENT  STEP 2 FORM -------------------------------- -->
+
+
+                  </div>
+                </div>  
+               </div>
+            </div>  
+
+
+ 
+         </div>  <!--  End Step 2 - OJO  -->
+                      
+	
+ 
+ 
+              
+                      
+          <div id="step-3">
+                        <h2 class="StepTitle">Items Details</h2>
+                        
+ 			<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                  <div class="x_content">
+                    <br />
+
+                   <!--  START CONTENT ---------------------------------------------->
+
+          		      
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a data-target="#tab_content1" href="" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Add Item</a>
+                        </li>
+                        <li role="presentation" class=""><a data-target="#tab_content2" href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Items List</a>
+                        </li>
+                        <li role="presentation" class=""><a data-target="#tab_content3" href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Attachments</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                          <!-- --------------------------------------------------------------------- -->
+                          <!-- CONTEN TAB 1 -->
+                          <!-- --------------------------------------------------------------------- -->			 			
+                          <div class="row">
+			              <div class="col-md-12 col-sm-12 col-xs-12">
+			                <div class="x_panel">
+			
+			                  <div class="x_content">
+			                    <br />
+			
+			                      <!--  START CONTENT ---------------------------------------------->
+  			
+			                          
+                                                  <br />
+									  			  <form class="form-horizontal form-label-left input_mask">
+ 
+								                      
+								                          <div class="form-group">
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Item Type * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="item.itemType" ng-options="itemsType as itemsType.descItemType for itemsType in itemsType">
+								                              </select>
+								                            </div>
+								                            
+								                            <div class="col-md-3 col-sm-3 col-xs-3">
+								                              <label for="select2">Industry * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" ng-model="item.industry" ng-options="industries as industries.industryDesc for industries in industries" required>
+								                              </select>
+
+								                            </div>
+								                            
+
+									                        								                            
+								                          </div> 
+								                          
+								                          <div ng-show="item.itemType.id ==4" class="form-group">
+								                            <div class="col-md-4 col-sm-4 col-xs-4">
+								                              <label for="select2">Part * :</label>
+								                              <select class="select2_single form-control" id="select_part" data-width="100%" class="form-control" required="required" ng-model="item.part" ng-options="parts as parts.partNumber for parts in parts">
+								                              </select>
+								                            </div>
+								                             
+								                              <select class="form-control" select2="" name="country" data-ng-model="auxCo" ng-options="c as c.name for c in client.countries" ng-disabled="disabled">
+															    <option value="">Select Country</option>
+															  </select>
+															
+															  <br>
+															  <br>
+															  <br>selected: {{auxCo.name}}
+								                            
+
+									                       							                            
+								                          </div> 
+								                          
+								                          
+								                          <div ng-show="item.itemType.id ==1" class="form-group">
+								                             <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                           <label for="eaU">New Part Name * :</label>
+									                           <input type="text" id="eaU" class="form-control" name="eaU" ng-model="item.newPartName" required />
+									                         </div>
+								                          </div>
+
+								                          <div class="form-group">
+							                                 <div class="col-md-4 col-sm-4 col-xs-4">
+								                              <label for="select2">Item Type * :</label>
+								                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="item.qitemType" ng-options="qitemsType as qitemsType.descitemType for qitemsType in qitemsType">
+								                              </select>
+								                            </div>
+								                          </div>
+								                          
+								                          
+									                       <div class="col-md-12 col-sm-12 col-xs-12">   <!--  INIT SWITCHS -------------------------------- --> 
+	                    									<div class="well" style="overflow: auto">
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox"  id="ch1"  class="js-switch" ng-model="item.drawingAva" ng-true-value="1" ng-false-value="0" /> Drawing Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="js-switch" ng-model="item.newPart" ng-true-value="1" ng-false-value="0" /> New Part to Customer
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="js-switch" ng-model="item.sampleAva" ng-true-value="1" ng-false-value="0" /> Sample of Part Available
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="js-switch" ng-model="item.concernsCurr" ng-true-value="1" ng-false-value="0" /> Concerns with current Plan
+									                            </label>
+									                          </div>
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="js-switch" ng-model="item.cadfileAva" ng-true-value="1" ng-false-value="0" /> CAD File Available
+									                            </label>
+									                          </div>								                          
+									                          <div class="col-md-4 col-sm-4 col-xs-4">
+									                            <label>
+									                              <input type="checkbox" class="js-switch" ng-model="item.packageReq" ng-true-value="1" ng-false-value="0" /> Package Requirements
+									                            </label>
+									                          </div>
+									      					  <div class="col-md-12 col-sm-12 col-xs-12">
+									                            <label>
+									                              <input type="checkbox" class="js-switch" ng-model="item.partKissCut" ng-true-value="1" ng-false-value="0" /> Parts kit Cut
+									                            </label>
+									                          </div> 
+	                    									</div>  
+	                    								 </div>		<!--  END SWITCHS -------------------------------- -->							                          								                      
+								                          
+									                    <div class="form-group">
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="eaU">Estimated Anual Usage * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="item.anualUsage" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="qtq">Quantities to Quote * :</label>
+									                        <input type="text" id="qtq" class="form-control" name="qtq" ng-model="item.quantity" required />
+									                      </div>
+									                      
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="targetp">Target Price * :</label>
+									                        <input type="text" id="targetp" class="form-control" name="targetp" ng-model="item.targetPrice" required />
+									                      </div>									                      
+									                      
+									                    </div> 
+									                    
+									                    <div class="form-group">
+								                            <div class="col-md-6 col-sm-6 col-xs-6">
+								                              <label for="select2">Sugested Materials * :</label>
+								                              <select class="select2_multiple form-control" multiple="multiple" id="select_mat" data-width="100%" class="form-control" required="required" ng-model="item.sugMaterials" ng-options="materials as materials.descMaterial for materials in materials">
+								                              </select>
+								                            </div>
+								                            
+									                      <div class="col-md-6 col-sm-6 col-xs-6 form-group has-feedback">
+									                        <label for="vendors">Suggested Vendors * :</label>
+									                        <input type="text" id="vendors" class="form-control" name="vendors" ng-model="item.suggestVend" required />
+									                      </div>								                            
+								                        </div>								                        
+
+
+									                    <div class="form-group">
+									                      <div class="col-md-4 col-sm-4 col-xs-4 form-group has-feedback">
+									                        <label for="fob">FOB * :</label>
+									                        <input type="text" id="eaU" class="form-control" name="eaU" ng-model="item.fob" required />
+									                      </div>
+									                      
+
+
+							                             <div class="col-md-6 col-sm-6 col-xs-12">
+								                            <label for="appdate">Rfq Due Date *:
+								                            </label>                            
+							                                <input id="appdate" ng-model="item.rfqdueDate" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+							                             </div>
+  							                      
+									                      
+									                    </div>								                      
+
+								                      <div class="form-group">
+
+								                        <div class="col-md-12 col-sm-12 col-xs-12">
+								                          <label>Notes <span class="required"></span>
+								                          </label>
+								                          <textarea class="form-control" rows="3" placeholder=''></textarea>
+								                        </div>
+								                      </div>
+								
+								                      <div class="ln_solid"></div>
+								
+								                       <div class="form-group">
+								                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								                            
+								                            <button type="submit" ng-click="addTempItem()" class="btn btn-success">Add</button>
+								                            <button type="submit" ng-click="" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+								                        </div>
+								                       </div>		
+								                       						
+								                    </form>  		
+													<!-- Ventana Modal -->
+																	  
+													
+													<div id="addFile" class="modal fade bs-example-modal-lg"  tabindex="-1" role="dialog" aria-hidden="true">
+													                    <div class="modal-dialog">
+													                      <div class="modal-content">
+													
+													                        <div class="modal-header">
+													                          <button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">×</span>
+													                          </button>
+													                          <h4 class="modal-title" id="myModalLabel2">Add Files</h4>
+													                        </div>
+													                        <div class="modal-body">
+													
+																      <div class="row">
+																              <div class="col-md-12 col-sm-12 col-xs-12">
+																                <div class="x_panel">
+																
+																                  <div class="x_content">
+																                    <br />
+																
+																	                    <p>Click to select files.</p>
+																	                    <form action="form_upload.html" class="dropzone"></form>
+																
+																
+																                  </div>
+																                </div>  
+																               </div>
+																            </div>  
+																	
+													                        </div>
+													                      </div>
+													                    </div>
+												    </div>
+																	
+													<!-- /Ventana Modal -->							
+			                          
+			                     <!--  END CONTENT  TAB 1 -------------------------------- -->
+			
+			
+			                  </div>
+			                </div>  
+			               </div>
+			            </div> 
+                       </div>   <!-- END  TAB 1 -->
+                       
+                       
+                       
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                          
+                          <!-- CONTEN TAB 2 -->
+                          
+				 			<div class="row">
+				              <div class="col-md-12 col-sm-12 col-xs-12">
+				                <div class="x_panel">
+				
+				                  <div class="x_content">
+				                    <br />
+				
+				                   <!--  START CONTENT ---------------------------------------------->
+				
+											<table id="tbItemsTemp" class="table table-striped">
+							                      <thead>
+							                        <tr>
+
+							                          <th>Item Type</th>
+							                          <th>Industry</th>
+							
+													  <th>Quote Per</th>
+													  <th>Target Price</th>
+													  <th>RFQ Due Date</th>
+							
+													  <th>Action</th>
+							  
+							                        </tr>
+							                      </thead>
+							                      <tbody>
+							                        <tr ng-repeat="itemsTemp in itemsTemp track by $index" class="ng-scope">
+
+														        <td>{{itemsTemp.itemType.descItemType}}</td>
+																<td>{{itemsTemp.industry.industryDesc}}</td>
+							
+																<td>{{itemsTemp.qitemType.descitemType}}</td>
+																<td>{{itemsTemp.targetPrice}}</td>
+																<td>{{itemsTemp.targetPrice}}</td>
+							
+																<td>
+																        <a class="btn btn-primary btn-xs"><i class="fa fa-folder"></i></a>
+																		<a class="btn btn-info btn-xs" ng-click="editCurrCustomer($index)" data-toggle="modal" data-target="#editCustomer"><i class="fa fa-pencil"></i></a>
+							                           					<a class="btn btn-danger btn-xs" ng-click="borrar($index)"><i class="fa fa-trash-o"></i></a>
+																</td>
+																
+									
+														   
+							                        </tr>
+							
+							                      </tbody>
+							
+							                    </table>			
+				                          
+				                  
+				
+				
+				                  </div>
+				                </div>  
+				               </div>
+				            </div>  
+                          
+                          <!-- ------------  END CONTENT TAB 2 ------------------------------>
+
+                        </div>
+                        
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                          
+                          <!-- CONTEN TAB 3 -->
+                          
+				 			<div class="row">
+				              <div class="col-md-12 col-sm-12 col-xs-12">
+				                <div class="x_panel">
+				
+				                  <div class="x_content">
+				                    <br />
+				
+				                   <!--  START CONTENT ---------------------------------------------->
+				
+					                <div class="col-xs-6 col-xs-offset-3">
+			
+					                    <div class="dropzone" options="dzOptions" callbacks="dzCallbacks" methods="dzMethods" ng-dropzone></div>
+					                </div>			                          
+				                  
+				
+				
+				                  </div>
+				                </div>  
+				               </div>
+				            </div>  
+                          
+                          <!-- ------------  END CONTENT TAB 3 ------------------------------>
+
+                        </div>                        
+
+                      </div>
+                    </div>					 
+						 
+						 
+						 
+						 
+						 <!-- Will be Activated if there is at least one Item -->	
+						  <div ng-if="totItems > 1">
+						  <table class="table table-striped">
+						                      <thead>
+						                        <tr>
+						                          <th>Industry</th>
+						                          <th>Quote Per</th>
+						                          <th>Part</th>
+						                          <th>Estimated Annual</th>
+												  <th>Quantities</th>
+												  <th>Status</th>
+												  <th>Action</th>
+												  
+						  
+						                        </tr>
+						                      </thead>
+						                      <tbody>
+						                        <tr ng-repeat="customer in tempOwners track by $index" class="ng-scope">
+						                             		<td>{{customer.sureName + " " + customer.lastName}}</td>
+						                             		<td>{{customer.cellPhone}}</td>
+						                             		<td ng-bind="customer.dob | date:'dd/MMM/yyyy'"></td>
+						    								<td>{{customer.email}}</td>
+															<td>
+						                           					<a class="btn btn-danger btn-xs" ng-click="borrar($index)"><i class="fa fa-trash-o"></i></a>
+															</td>
+															
+								
+													   
+						                        </tr>
+						
+						                      </tbody>
+						
+						      </table>
+						 </div>
+						  <!-- END Table Items -->                           
+                     <!--  END CONTENT  STEP 2 FORM -------------------------------- -->
+
+
+                  </div>
+                </div>  
+               </div>
+            </div>                          
+                        
+                        
+          </div>  <!-- END STep 3 --> 
+                      
+
+
+       </div>
+       <!-- End SmartWizard Content -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        
+</div>        

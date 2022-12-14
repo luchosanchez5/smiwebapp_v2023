@@ -1,0 +1,240 @@
+ 
+ <div>
+ <div class="">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Quotes Seller <small>Listing</small></h3>
+              </div>
+              
+              
+            <div class="clearfix"></div>
+                
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+                </div>
+              </div>
+              
+           
+              
+              
+              
+              
+              
+              
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">             
+              <div class="col-md-12">
+                <div class="x_panel">
+                  
+                    <a><i class="glyphicon glyphicon-filter"></i></a>
+                    <div class="btn-group">
+                      
+                      <button type="button" class="btn btn-default btn-xs">Status </button>
+                      <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                      
+                      <!--
+                        <li ng-repeat="sel in sellers track by $index"  class="ng-scope"><a href="#"></a>
+                             <label class="checkbox-inline" >
+                              <input type="checkbox" name="restore" checked>
+                                {{sel.sureName + ' ' + sel.lastName}}
+                            </label>
+                        </li>
+                       -->
+                       <label class="checkbox-inline" >
+                       		    <input  type="checkbox" checked="checked" ng-model="proyect.typeConstruction" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeConstruction == 1" name="hobbies[]" id="hobby1" class="flat" /> In Progress
+		                        <br />
+		
+		                        <input  type="checkbox" ng-model="proyect.typeRoof" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeRoof == 1" name="hobbies[]" id="hobby2"  class="flat" /> Cancelled 
+		                        <br />
+		
+		                        <input  type="checkbox" ng-model="proyect.typeWinDoors" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeWinDoors == 1" name="hobbies[]" id="hobby3"  class="flat" /> Complete
+		                        <br />
+		
+		                        <input  type="checkbox" ng-model="proyect.typeSolarPanels" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeSolarPanels == 1" name="statSolarPanels" id="hobby4" class="flat" /> On Hold
+		                        <br />
+
+		                        <input  type="checkbox" ng-model="proyect.typeAc" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeAc == 1" name="statAc" id="hobby5" class="flat" /> Order Received
+		                        <br />		                        
+
+		                        <input  type="checkbox" ng-model="proyect.typeConcrete" ng-click="validateCheck()"  ng-true-value="1" ng-false-value="0" ng-checked="proyect.typeConcrete == 1" name="statAc" id="hobby6" class="flat" /> Feedback Pending
+		                        <br />
+
+		                        
+		                        
+                       </label> 
+                        <li class="divider"></li>
+                        <li><a href="#"></a>
+                             <div class="col-md-8">	  
+	  								<div><button type="button"  class="btn btn-success btn-xs" ng-click="">Apply</button></div>	
+						     </div>
+                        </li>
+                      </ul>
+                      
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+	
+		                        
+		                        		                        		                        
+		                       <p>
+		                       </p>
+		                     </div> 
+                      
+                    </div>	
+                    
+                    <br />
+                    <br />
+                  
+                  
+                  <div class="x_title">
+                    <h2>Quotes</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <p>Table with Quotes listing with progress and editing options</p>
+
+                    <!-- start project list -->
+                    <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 1%"></th>
+                          <th style="width: 20%">RFQ</th>
+                          <th>Estimator / Seller</th>
+                          <th>Project Progress</th>
+                          <th>Status</th>
+                          <th style="width: 20%">#Edit</th>
+                        </tr>
+                      </thead>
+                      <tbody ng-repeat="pr in quotesseller track by $index" class="ng-scope">
+                        <tr>
+                          <td><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></td>
+
+                          <td>
+                            <a>{{pr.customer.customerName}} <br /></a>
+                            
+                            <small ng-bind="pr.nroRfq + ' ' + pr.createdDate | date:'MM/dd/yyyy'"></small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li>
+                                <img ng-src="images/{{pr.estimator.imgUrl}}" class="avatar" alt="Avatar">
+                              </li>
+                              <li ng-if="pr.estimator != null">
+                                <img ng-src="images/{{pr.seller.imgUrl}}" class="avatar" alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                           <div ng-if=" pr.statQuote == 0">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:1%"></div>
+                            </div>
+                            <small>1% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 1">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:25%"></div>
+                            </div>
+                            <small>25% Complete</small>
+                           </div>                            
+                           <div ng-if="pr.statQuote == 3">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:40%"></div>
+                            </div>
+                            <small>40% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 4">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:70%"></div>
+                            </div>
+                            <small>70% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 5">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:80%"></div>
+                            </div>
+                            <small>80% Complete</small>
+                           </div>  
+                           <div ng-if="pr.statQuote == 6">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:95%"></div>
+                            </div>
+                            <small>95% Complete</small>
+                           </div>  
+                           <div ng-if="pr.statQuote == 7">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:0%"></div>
+                            </div>
+                            <small>0% Complete</small>
+                           </div> 
+                           <div ng-if="pr.statQuote == 8">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:100%"></div>
+                            </div>
+                            <small>100% Complete</small>
+                           </div>                            
+                           <div ng-if="pr.statQuote == 2">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:0%"></div>
+                            </div>
+                            <small>0% Complete</small>
+                           </div>                                                         
+                         </td>
+                          
+                            
+                            <td ng-if="pr.statQuote=='0'"><span class="label label-default">New</span></td>
+                            <td ng-if="pr.statQuote=='1'"><span class="label label-info">In Progress</span></td>
+                            <td ng-if="pr.statQuote=='2'"><span class="label label-danger">Cancelled</span></td>
+                            <td ng-if="pr.statQuote=='3'"><span class="label label-primary">Partial Estimate</span></td>
+                            <td ng-if="pr.statQuote=='4'"><span class="label label-success">Complete Estimate</span></td>
+                            <td ng-if="pr.statQuote=='5'"><span class="label label-success">FeedBack Pending</span></td>
+                            <td ng-if="pr.statQuote=='6'"><span class="label label-success">Order Received</span></td>
+                            <td ng-if="pr.statQuote=='7'"><span class="label label-danger">On Hold</span></td>
+                            <td ng-if="pr.statQuote=='8'"><span class="label label-success">Completeee</span></td>
+
+                                                      
+                            
+                          
+                          <td>
+                            <a href="#" class="btn btn-primary btn-xs" ng-click="findListQuote($index)"><i class="fa fa-folder"></i> View </a>
+                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Cancel </a>
+                          </td>
+                        </tr>
+ 
+                      </tbody>
+                    </table>
+                    <!-- end project list -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>   
+        

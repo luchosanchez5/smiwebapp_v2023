@@ -1,0 +1,221 @@
+ 
+ <div>
+ <div class="">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Projects <small>Listing design</small></h3>
+              </div>
+              
+              
+            <div class="clearfix"></div>
+                
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+                </div>
+              </div>
+              
+           
+              
+              
+              
+              
+              
+              
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">             
+              <div class="col-md-12">
+                <div class="x_panel">
+                  
+                    <a><i class="glyphicon glyphicon-filter"></i></a>
+                    <div class="btn-group">
+                      
+
+                      
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+	
+		                        
+		                        		                        		                        
+		                       <p>
+		                       </p>
+		                     </div> 
+                      
+                    </div>	
+                    
+                    <br />
+                    <br />
+                  
+                  
+                  <div class="x_title">
+                    <h2>Projects</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <p>Table with project listing with progress and editing options</p>
+
+                    <!-- start project list -->
+                    <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 1%"></th>
+                          <th style="width: 20%">Project Name</th>
+                          <th>Team Members</th>
+                          <th>Project Progress</th>
+                          <th>Status</th>
+                          <th style="width: 20%">#Edit</th>
+                        </tr>
+                      </thead>
+                      <tbody ng-repeat="pr in proyectsFinis track by $index" class="ng-scope">
+                        <tr>
+                          <td ng-if="pr.typeConstruction == 0"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></td>
+                          <td ng-if="pr.typeConstruction == 1"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></td>
+                          <td>
+                            <a ng-repeat="prCl in pr.clients">{{prCl.sureName + '  ' + prCl.lastName }} <br /></a>
+                            
+                            <small ng-bind="pr.proyectDate | date:'MM/dd/yyyy'"></small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li>
+                                <img ng-src="images/{{pr.leader.imageUrl}}" class="avatar" alt="Avatar">
+                              </li>
+                              <li ng-if="pr.leader2 != null">
+                                <img ng-src="images/{{pr.leader2.imageUrl}}" class="avatar" alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                           <div ng-if="pr.typeConstruction == 1 && pr.statProyect == 0">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:0%"></div>
+                            </div>
+                            <small>0% Complete</small>
+                           </div> 
+                           <div ng-if="pr.typeConstruction == 1 && pr.statProyect == 2">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:10%"></div>
+                            </div>
+                            <small>10% Complete</small>
+                           </div> 
+                           <div ng-if="pr.typeConstruction == 1 && pr.statProyect == 3">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:20%"></div>
+                            </div>
+                            <small>20% Complete</small>
+                           </div> 
+                           <div ng-if="pr.typeConstruction == 1 && pr.statProyect == 4">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:40%"></div>
+                            </div>
+                            <small>40% Complete</small>
+                           </div>  
+                           <div ng-if="pr.typeConstruction == 1 && pr.statProyect == 5">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:60%"></div>
+                            </div>
+                            <small>60% Complete</small>
+                           </div>   
+                           <div ng-if="pr.typeConstruction == 1 && pr.statProyect == 7">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:75%"></div>
+                            </div>
+                            <small>75% Complete</small>
+                           </div>  
+                           <div ng-if="pr.typeConstruction == 1 && pr.statProyect == 9">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:90%"></div>
+                            </div>
+                            <small>90% Complete</small>
+                           </div>  
+                           <div ng-if="pr.typeConstruction == 1 && pr.statProyect == 10">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:100%"></div>
+                            </div>
+                            <small>100% Complete</small>
+                           </div>                                                       
+                           <div ng-if="pr.typeConstruction == 0 && pr.statProyect == 0">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:0%"></div>
+                            </div>
+                            <small>0% Complete</small>
+                           </div> 
+                           <div ng-if="pr.typeConstruction == 0 && pr.statProyect == 2">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:25%"></div>
+                            </div>
+                            <small>25% Complete</small>
+                           </div>  
+                           <div ng-if="pr.typeConstruction == 0 && pr.statProyect == 7">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:50%"></div>
+                            </div>
+                            <small>50% Complete</small>
+                           </div>    
+                           <div ng-if="pr.typeConstruction == 0 && pr.statProyect == 9">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:75%"></div>
+                            </div>
+                            <small>75% Complete</small>
+                           </div>     
+                           <div ng-if="pr.typeConstruction == 0 && pr.statProyect == 10">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57" style="width:100%"></div>
+                            </div>
+                            <small>100% Complete</small>
+                           </div>                                                                                                                                                                                                                                                                       
+                          </td>
+                          
+                            
+                            <td ng-if="pr.statProyect=='0'"><span class="label label-default">Active</span></td>
+                            <td ng-if="pr.statProyect=='1'"><span class="label label-danger">Canceled</span></td>
+                            <td ng-if="pr.statProyect=='2'"><span class="label label-default">Signed</span></td>
+                            <td ng-if="pr.statProyect=='3'"><span class="label label-primary">Preeliminared</span></td>
+                            <td ng-if="pr.statProyect=='4'"><span class="label label-info">Preeliminared Signed</span></td>
+                            <td ng-if="pr.statProyect=='5'"><span class="label label-warning">City Someted</span></td>
+                            <td ng-if="pr.statProyect=='7'"><span class="label label-success">Permised Approved</span></td>  
+                            <td ng-if="pr.statProyect=='9'"><span class="label label-success">Executing</span></td>
+                            <td ng-if="pr.statProyect=='10'"><span class="label label-success">Completed</span></td>
+
+                                                      
+                            
+                          
+                          <td>
+                            <a href="#" class="btn btn-primary btn-xs" ng-click="findListProyectFinis($index)"><i class="fa fa-folder"></i> View </a>
+                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Cancel </a>
+                          </td>
+                        </tr>
+ 
+                      </tbody>
+                    </table>
+                    <!-- end project list -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>   
+        

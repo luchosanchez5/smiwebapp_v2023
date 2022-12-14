@@ -1,0 +1,990 @@
+	<div>
+<div class="">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Quote Detail <small> design</small></h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Quote : {{currQuote.nroRfq}}</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                      <ul class="stats-overview">
+                        <li>
+                          <span class="name"> Create Date </span>
+                          <span class="value text-success" ng-bind="currQuote.createdDate  | date:'MM/dd/yyyy'"></span>
+                        </li>
+                        <li class="hidden-phone">
+                          <span class="name"> Terms </span>
+                          <span class="name" ng-bind="currQuote.terms.termDesc"> Term </span>
+
+                        </li>
+                        <li>
+                          <span class="name"> Total Items  </span>
+                          <span class="value text-primary" ng-bind="currQuote.totItems"></span>
+                        </li>
+
+                      </ul>
+                      <br />
+
+
+
+
+                       
+			              
+			                <div class="x_panel">
+			                  <div class="x_title">
+			                    <h2><i class="fa fa-bars"></i> Quote <small> & details</small></h2>
+			                    <ul class="nav navbar-right panel_toolbox">
+			                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+			                      </li>
+			                      <li class="dropdown">
+			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+			                        <ul class="dropdown-menu" role="menu">
+			                          <li><a href="#">Settings 1</a>
+			                          </li>
+			                          <li><a href="#">Settings 2</a>
+			                          </li>
+			                        </ul>
+			                      </li>
+			                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+			                      </li>
+			                    </ul>
+			                    <div class="clearfix"></div>
+			                  </div>
+			                  <div class="x_content">
+			                  
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a data-target="#tab_content1" href="" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Details</a>
+                        </li>
+                        <li role="presentation" class=""><a data-target="#tab_content2" href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Items</a>
+                        </li>
+                        <li ng-if="role == 'ADMIN'" role="presentation" class=""><a data-target="#tab_content3" href="" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Funding</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                          <p>
+			                          <div class="panel-body">
+			                            <p><strong>Customer</strong>
+			                            </p>
+			                            {{currQuote.customer.customerName }} 
+			                          </div>
+			                          
+			                          <div class="panel-body">
+			                            <p><strong>Contact Name</strong>
+			                            </p> 
+			                            <div><span>{{currQuote.customer.contactName}}</span><br /></div>
+			                            <div><span>{{currQuote.customer.contactEmail}} <strong>   Phone : </strong> {{currQuote.customer.contactPhone}} </span><br /></div>
+			                            <br />
+			                            <strong>Status</strong>
+			                            <div ng-if="currQuote.statQuote=='0'"><span class="label label-default">In Progress</span></div>
+			                            <div ng-if="currQuote.statQuote=='1'"><span class="label label-danger">Canceled</span></div>
+			                            <div ng-if="currQuote.statQuote=='2'"><span class="label label-default">On Hold</span></div>
+			                            <div ng-if="currQuote.statQuote=='3'"><span class="label label-primary">Order Received</span></div>
+			                            <div ng-if="currQuote.statQuote=='4'"><span class="label label-info">FeedBack Pending</span></div>
+			                            <div ng-if="currQuote.statQuote=='5'"><span class="label label-success">FeedBack Pending</span></div>			                            
+			                            
+			                          </div>
+			                          
+			                          <div class="panel-body">
+			                          	
+			                          </div>									      
+								      
+								      
+								      <div class="clearfix"></div>
+								      <ul class="stats-overview">
+								      
+			                  <div>
+			                        
+			                  		<button  type="button" data-toggle="modal" data-target="#details" class="btn btn-success btn-xs">...More Details</button>
+			                  		<a ng-if="role == 'ADMIN'" href="#" class="btn btn-primary btn-xs" ng-click="addExpense(currProyect.idProyect)"><i class="fa fa-folder"></i> Add Expenses </a>
+			                  </div>                          
+                          </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+					                          <p>
+													      
+													                                
+														<table id="tbItemsquote" class="table table-striped">
+												                      <thead>
+												                        <tr>
+					
+												                          <th>Item Type</th>
+												                          <th>Industry</th>
+												
+																		  <th>Quote Per</th>
+																		  <th>Target Price</th>
+																		  <th>RFQ Due Date</th>
+												
+																		  <th>Action</th>
+												  
+												                        </tr>
+												                      </thead>
+												                      <tbody>
+												                        <tr ng-repeat="itemsquote in itemsquote track by $index" class="ng-scope">
+					
+																			        <td>{{itemsquote.itemType.descItemType}}</td>
+																					<td>{{itemsquote.industry.industryDesc}}</td>
+												
+																					<td>{{itemsquote.qitemType.descitemType}}</td>
+																					<td>{{itemsquote.targetPrice}}</td>
+																					<td>{{itemsquote.rfqdueDate}}</td>
+												
+																					<td>
+																					        <a class="btn btn-primary btn-xs" ng-click="clickitemDetails($index)" data-toggle="modal" data-target="#itemDetails"><i class="fa fa-folder"></i></a>
+																							<a ng-if="role == '1'" class="btn btn-info btn-xs" ng-click="" data-toggle="modal" data-target="#editCustomer"><i class="fa fa-pencil"></i></a>
+												                           					<a ng-if="role == '1'" class="btn btn-danger btn-xs" ng-click="borrar($index)"><i class="fa fa-trash-o"></i></a>
+												                           					<a class="btn btn-warning btn-xs" ng-click="clickitemActivity($index)" data-toggle="modal" data-target="#editLeadAct"><i class="fa fa-comments"></i></a>
+																					</td>
+																					
+														
+																			   
+												                        </tr>
+												
+												                      </tbody>
+												
+												                    </table>
+					      
+					
+					 
+					                      
+					                        <br />
+					                        <br />
+					                        <br />
+					                        
+					                                      <div class="clearfix"></div>
+													      <ul class="stats-overview">
+					                                                
+					                          </p>
+					                          
+			                          
+					                          
+					                          
+					                          
+                        </div>
+                        
+                        <!------------------------------------------------------------------------------------->
+                        <!--------------------------***** TAB FUNDING ***** ----------------------------------->
+                        <!------------------------------------------------------------------------------------->
+                     
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                          <p> 
+
+		                        <form id="wizard1"class="form-horizontal form-label-left">
+		                          
+		                          <br />
+		                          <br />
+		                          
+		                          
+		                          <div class="form-group">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Funding Payment Method <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="actFund.fundingType" ng-options="tipoPagoF.idtipoPagoF as tipoPagoF.desctipoPagoF for tipoPagoF in tipoPagoF">
+		                              </select>
+		                            </div>
+		                          </div>
+		
+		                          <div class="form-group" ng-if="actFund.fundingType == 0">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Financial Proyect Id <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <select id="select2" data-width="100%" class="form-control" required="required" ng-change="getamountFund()" ng-model="actFund.prf.idProyectFinancial" ng-options="prfinancial.idProyectFinancial as prfinancial.financialId for prfinancial in prfinancialAct">
+		                              </select>
+		                            </div>
+		                          </div>   
+		                          
+			                      <div class="form-group">
+			                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Funding Date <span class="required">*</span>
+			                            </label>
+			                            <div class="col-md-6 col-sm-6 col-xs-12">
+			                              <input id="appdate" ng-model="actFund.fundingDate" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+			                            </div>
+			                      </div> 		
+			                      
+		                          <div class="form-group" ng-if="actFund.fundingType == 1">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Ref Number (Check, Deposit) <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <input type="text" id="last-name" name="last-name" required="required" ng-model="actFund.refNumber" class="form-control col-md-7 col-xs-12">
+		                          </div>
+		                          </div>
+		                          
+		                          <div class="form-group" ng-if="actFund.fundingType == 1">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Bank <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <input type="text" id="last-name" name="last-name" required="required" ng-model="actFund.bank" class="form-control col-md-7 col-xs-12">
+		                          </div>	
+		                          </div>	                          
+		                          
+		                          			                                                
+		                          
+		                          <div class="form-group" ng-if="actFund.fundingType == 0">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Funding Amount $ <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                              <input type="text" id="last-name" name="last-name" required="required" ng-model="actFund.amount" class="form-control col-md-7 col-xs-12" disabled>
+		                              
+
+		                             </div>
+		                            
+		                            <br />
+						            <br />
+
+                              		<a class="btn btn-success btn-xs" ng-click="addFunding()"><i class="fa fa-plus"></i></a>
+		                          </div>
+		                          
+		                          <div class="form-group" ng-if="actFund.fundingType == 1">
+		                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Funding Amount $ <span class="required">*</span>
+		                            </label>
+		                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                             
+		                              <input  type="text" id="last-name" name="last-name" required="required" ng-model="actFund.amount" class="form-control col-md-7 col-xs-12" >
+
+		                             </div>
+		                            
+		                            <br />
+						            <br />
+
+                              		<a class="btn btn-success btn-xs" ng-click="addFunding()"><i class="fa fa-plus"></i></a>
+		                          </div>		                             
+		 
+					               
+					               		                          <div class="ln_solid"></div>
+											                      <div class="form-group">
+											                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+											                          
+											                          
+											                        </div>
+											                      </div>  
+		
+		                        </form> 
+		                        
+							  <div ng-if="totFund > 0">
+							  <table class="table table-striped">
+							                      <thead>
+							                        <tr>
+							                          <th>Funding Date</th>
+							                          <th>Funding Type</th>
+							                          <th>Description</th>
+							                          <th>Amount</t>
+													  <th></th>
+							  
+							                        </tr>
+							                      </thead>
+							                      <tbody>
+							                        <tr ng-repeat="iv in listfundings track by $index" class="ng-scope">
+							                             		<td>{{iv.fundingDate | date:'MM/dd/yyyy'}}</td>
+							                             		<td ng-if="iv.fundingType == 0">Financial</td>
+							                             		<td ng-if="iv.fundingType == 1">Cash</td>
+							                             		<td ng-if="iv.fundingType == 0" ng-bind="'Proyect ID : ' + iv.prf.financialId + '  ' + iv.prf.financial.descFinancial"></td>
+							                             		<td ng-if="iv.fundingType == 1" ng-bind="'Ref Number (Check, Deposit) :  ' + iv.refNumber + '    ' + iv.bank" ></td>
+							                             		<td>{{iv.amount}}</td>
+																<td>
+							                           					<a class="btn btn-danger btn-xs" ng-click="deleteprFunding($index)"><i class="fa fa-trash-o"></i></a>
+																</td>
+																
+									
+														   
+							                        </tr>
+							
+							                      </tbody>
+							
+							      </table>
+							 </div>
+                          
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+			
+			                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+								      
+								      </ul>
+								      
+								      <ul class="nav navbar-right panel_toolbox">
+			                    </div>
+			
+			                  </div>
+			                  
+						<div id="details" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Quote Details</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+												<form class="form-horizontal form-label-left" ng-submit="">
+												
+												
+												
+						                                <div ng-if="currProyect.typeConstruction == 1">
+						                                
+						                                          <div class="form-group">
+						                                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="beds"><span class="required"></span>
+										                              </label>
+						                                              <div class="col-md-6 col-sm-6 col-xs-12">
+								                                        <input  type="checkbox" checked="checked" ng-model="currProyect.statLivingroom" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="currProyect.statLivingroom == 1" name="hobbies[]" id="hobby1" class="flat" /> Living Room
+												                                    
+												
+												                        <input  type="checkbox" ng-model="currProyect.statKitchen" ng-click="validateCheck()" ng-true-value="1" ng-false-value="0" ng-checked="currProyect.statKitchen == 1" name="hobbies[]" id="hobby2"  class="flat" /> Kitchen 
+												                        <br />    
+												                      </div>           
+						                                          </div>
+						                                	
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="beds">Bedrooms <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="beds" name="beds" ng-model="currProyect.bedNum" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Closets">Closets <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="Closets" name="Closets" ng-model="currProyect.closetNum" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bath">BathRooms <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="bath" name="bath" ng-model="currProyect.bathNum" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>
+										                          
+										                          <div class="form-group">
+										                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Sqft">Sqft <span class="required">*</span>
+										                            </label>
+										                            <div class="col-md-6 col-sm-6 col-xs-12">
+										                              <input type="number" id="Sqft" name="Sqft" ng-model="currProyect.sqft" required="required"  class="form-control col-md-7 col-xs-12">
+										                            </div>
+										                          </div>						                                	
+						                                	
+						                                	         <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="proyect.scopeOfwork">Scope of Works <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <textarea class="form-control" rows="3" ng-model="currProyect.scopeOfwork"></textarea>	
+											                            </div>
+											                          </div>		                          
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Notes <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <textarea class="form-control" rows="2" ng-model="currProyect.notes"></textarea>	
+			                                                               <div class="radio">
+													                            <label>
+													                              <input type="radio" ng-model="currProyect.subConstruccion" value="0" class="flat" checked name="iCheck" ng-change='newValue(value)'> Garage Conversion
+													                              
+													                            </label>
+													                            <label>
+													                              <input type="radio" ng-model="currProyect.subConstruccion" value="1" class="flat" name="iCheck" ng-change='newValue(value)'> Adition
+													                            </label>
+													                            <label>
+													                              <input type="radio" ng-model="currProyect.subConstruccion" value="2" class="flat" name="iCheck" ng-change='newValue(value)'> Adition & Garage Conversion
+													                            </label>
+													                       </div>
+											                            </div>
+											                            
+											                            <br />
+											                            
+								                            
+											                          </div>
+						                                
+						                                </div>
+						                                 
+							                                
+							                      		<div ng-if="currProyect.typeRoof == 1">                         
+														 			<div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="existingRoof">Existing Roof <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <input type="text" id="eRoof" name="eRoof" ng-model="currProyect.existingRoof" required="required"  class="form-control col-md-7 col-xs-12">
+											                            </div>
+											                          </div> 
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roofType">Type Roof <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+												                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="currProyect.roof" ng-options="roofs as roofs.descRoof for roofs in roofs">
+												                              </select>
+									                                     </div>
+											                          </div> 
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sqftRoof">Sq. Ft. <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <input type="text" id="sRoof" name="sRoof" ng-model="currProyect.sqftRoof" required="required"  class="form-control col-md-7 col-xs-12">
+											                            </div>
+											                          </div>		                          		                          		                          
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="colorRoof">Color <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <input type="text" id="cRoof" name="cRoof" ng-model="currProyect.roofColor" required="required"  class="form-control col-md-7 col-xs-12">
+											                            </div>
+											                          </div>	
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="currProyect.rootscopeOfwork">Scope of Works <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <textarea class="form-control" rows="3" ng-model="currProyect.roofScopeOfWork"></textarea>	
+											                            </div>
+											                          </div>		                          
+											                          
+											                          <div class="form-group">
+											                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Notes <span class="required">*</span>
+											                            </label>
+											                            <div class="col-md-6 col-sm-6 col-xs-12">
+											                              <textarea class="form-control" rows="2" ng-model="currProyect.roofNotes"></textarea>	
+											                            </div>
+											                          </div>
+											               </div>          
+							                     
+														  <div class="ln_solid"></div>
+									                      <div class="form-group">
+									                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+									                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Return</button>
+									                          <a ng-if="currProyect.statProyect == 0"><button  ng-click="updateDetails()" type="submit" class="btn btn-success" data-dismiss="modal">Update</button></a>
+									                        </div>
+									                      </div>
+						                      
+							                        
+											    </form>
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->
+			            
+                      
+                        <h4>Recent Activitys</h4>
+
+                        <!-- end of user messages -->          
+                        <ul class="messages" ng-repeat="act in notesquote track by $index" class="ng-scope">
+                          <li>
+                            <img ng-src="images/{{act.user.imageUrl}}" class="avatar" alt="Avatar">
+                            <div class="message_date">
+                              <h3 class="date text-info">{{act.createdDate | date:'dd'}}</h3>
+                              <p class="month">{{act.createdDate | date:'MMM'}}</p>
+                            </div>
+                            <div class="message_wrapper">
+                              <h4 class="heading">{{act.user.name + " " + act.user.lastName}}</h4>
+                              <blockquote class="message" ng-bind="act.comment"> </blockquote> 
+               
+                              <br />
+                              <p class="url" ng-if="act.fileName != null">
+                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                <a href="#"><i class="fa fa-paperclip"></i> {{act.fileName}} </a>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                        <!-- end of user messages -->
+
+
+                      </div>
+
+
+                    </div>
+
+                    <!-- start project-detail sidebar -->
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+
+                      <section class="panel">
+
+                        <div class="x_title">
+                          <h2>Quote Description</h2>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body">
+                          <h3 class="green"><i class="fa fa-paint-brush"></i> Quote</h3>
+
+                          
+                          <div ng-if="currProyect.typeConstruction==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeWinDoors==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeAc==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeConcrete==1"><p class="message" ng-bind="currProyect.scopeOfwork"></p></div>
+                          <div ng-if="currProyect.typeRoof==1"><p class="message" ng-bind="currProyect.roofScopeOfWork"></p></div>
+                          
+                          
+                          
+                          
+                          <br />
+
+                          <div class="project_detail">
+
+                            <p class="title">RFQ Due Date</p>
+                            <p>{{ currQuote.createdDate | date:'dd/MMM/yyyy' }}</p>
+                            <p class="title">Quote Estimator</p>
+                            <p>{{ currQuote.estimator.sureName + " " + currQuote.estimator.lastName }}</p>
+                            
+                            <p><button  type="button" ng-click="buttMember()" data-toggle="modal" data-target="#addMember" class="btn btn-success btn-xs">Add Member</button></p>
+                          </div>
+
+                          <br />
+                          <h5>Quote files</h5>
+                          <ul class="list-unstyled project_files" ng-repeat="pr in prFiles track by $index" class="ng-scope" >
+                            <li ng-if="pr.fileType == 'image/jpeg' || pr.fileType == 'image/png' || pr.fileType == 'image/gif'"><a href=""><i class="fa fa-picture-o"></i>{{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == doc"><a href=""><i class="fa fa-file-word-o"></i>{{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == 'application/pdf'"><a href=""><i  class="fa fa-file-pdf-o"></i> {{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == mail"><a href=""><i  class="fa fa-mail-forward"></i> {{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == JPG"><a href=""><i class="fa fa-picture-o"></i> {{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == xlxs"><a href=""><i class="fa fa-file-word-o"></i> {{ pr.fileName }}</a>
+                            </li>
+                            <li ng-if="pr.fileType == xlx"><a href=""><i class="fa fa-file-word-o"></i> {{ pr.fileName }}</a>
+                            </li>                            
+                            
+                          </ul>
+                          <br />
+
+                          <div class="text-center mtop20">
+                            <button type="file" class="btn btn-sm btn-primary" ngf-select="uploadFiles($file, $invalidFiles)" >Add files</button>
+                            <a ng-if="currProyect.statProyect == 0" href="" class="btn btn-sm btn-warning" ng-click="requestSign()">Sign</a>
+                            <a ng-if="currProyect.statProyect == 2" href="" class="btn btn-sm btn-warning" ng-click="requestSignPree()">Preeliminare</a>
+                            <a ng-if="currProyect.statProyect == 3" href="" class="btn btn-sm btn-warning">Funding</a>
+                          </div>
+                                                  <div ng-if="f.progress < 100">
+													  File:
+													  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+													      <span class="progress" ng-show="f.progress >= 0">
+													          <div style="width:{{f.progress}}%"  
+													               ng-bind="f.progress + '%'"></div>
+													      </span>
+													  </div> 
+													  {{errorMsg}} 
+												  </div> 	                          
+                        </div>
+                        
+						<!-- ***** FINACIAL ID *** -->           
+						<div id="addFinancialId" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Add Financial Id</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+											<form class="form-horizontal form-label-left" ng-submit="">
+											
+										          <div class="form-group">
+						                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Contrator <span class="required">*</span>
+						                            </label>
+						                            <div class="col-md-6 col-sm-6 col-xs-12">
+						                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="financialpr.contrator" ng-options="contrators as contrators.descContrator for contrators in contrators">
+						                              </select>
+						                            </div>
+						                          </div>
+						
+						                          <div class="form-group" ng-if="currProyect.paymentMethod == 1 || currProyect.paymentMethod == 3">
+						                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financial">Financial <span class="required">*</span>
+						                            </label>
+						                            <div class="col-md-6 col-sm-6 col-xs-12">
+						                              <select id="select2" data-width="100%" class="form-control" required="required" ng-model="financialpr.financial" ng-options="financials as financials.descFinancial for financials in financials">
+						                              </select>
+						                            </div>
+						                          </div>  
+						                          
+										           <div class="form-group">
+										                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cashPay">Financial Id <span class="required">*</span>
+										                 </label>
+										                 <div class="col-md-6 col-sm-6 col-xs-12">
+										                      <input type="text" id="cashPay" name="cashPay" ng-model="financialpr.financialId" required="required"  class="form-control col-md-7 col-xs-12">
+										                 </div>
+										           </div>						                           
+						                          
+						                          <div class="form-group">
+						                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tInv">Total Amount $ <span class="required">*</span>
+						                            </label>
+						                            <div class="col-md-6 col-sm-6 col-xs-12">
+						                              <input type="text" id="last-name" name="last-name" required="required" ng-model="financialpr.amount" class="form-control col-md-7 col-xs-12">
+						                            		<br />
+						                            		<br />
+
+                              								<a class="btn btn-success btn-xs" ng-click="addprfinancial()"><i class="fa fa-plus"></i></a>
+						                            </div>
+						                          </div>   
+						                          
+						                       </form>   
+						                          
+						    <!-- Se Activa esta seccion si hay mas de un Invoice -->	
+							  <div ng-if="totfinancial > 0">
+							  <table class="table table-striped">
+							                      <thead>
+							                        <tr>
+							                          <th>Financial Id</th>
+							                          <th>Financial Name</th>
+							                          <th>Contrator</th>
+							                          <th>Amount</th>
+													  <th></th>
+							  
+							                        </tr>
+							                      </thead>
+							                      <tbody>
+							                        <tr ng-repeat="iv in prfinancial track by $index" class="ng-scope">
+							                             		<td>{{iv.financialId}}</td>
+							                             		<td>{{iv.financial.descFinancial}}</td>
+							                             		<td>{{iv.contrator.descContrator}}</td>
+							                             		<td>{{iv.amount}}</td>
+																<td>
+							                           					<a ng-if="iv.statFunding==0" class="btn btn-danger btn-xs" ng-click="deleteprFinancial($index)"><i class="fa fa-trash-o"></i></a>
+							                           					<span ng-if="iv.statFunding==1" class="label label-success">Funded</span>
+																</td>
+																
+									
+														   
+							                        </tr>
+							
+							                      </tbody>
+							
+							      </table>
+							 </div>
+							  <!-- Fin Se Activa esta seccion si hay mas de un Owner -->              
+										         						                      		                         
+						                       <div class="ln_solid"></div>
+						                       <div class="form-group">
+						                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						                          
+
+						                        </div>
+						                      </div>
+						                      
+					                      
+						                        
+										    
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->                        
+
+
+						<!-- /Ventana Modal *** Cambio de Status *** -->           
+						<div id="addMember" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+						                    <div class="modal-dialog">
+						                      <div class="modal-content">
+						
+						                        <div class="modal-header">
+						                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+						                          </button>
+						                          <h4 class="modal-title" id="myModalLabel2">Add Member</h4>
+						                        </div> 
+						                        <div class="modal-body">
+						
+											<form class="form-horizontal form-label-left" ng-submit="">
+											
+											
+							                      <div class="form-group">
+							                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Seller(s)</label>
+							                        <div class="col-md-9 col-sm-9 col-xs-12">
+							                          <select id="select2" data-max-options="2" data-width="100%" class="select2_single form-control" required="required" ng-model="newMember" ng-options="sellers.idSeller as sellers.sureName + ' ' + sellers.lastName for sellers in sellers">
+							                          </select>
+							                        </div>
+							                      </div> 
+					                    
+						
+						                      		                         
+						                       <div class="ln_solid"></div>
+						                       <div class="form-group">
+						                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						                          <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="saveMember()">Save</button>
+
+						                        </div>
+						                      </div>
+						                      
+					                      
+						                        
+										    </form>
+										
+						                      </div>
+						                    </div>
+						                  </div>
+						</div>        
+						<!-- /Ventana Modal -->
+
+
+                      </section>
+
+                    </div>
+                    <!-- end project-detail sidebar -->
+
+  	<script type="text/ng-template" id="borrarprFin.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Delete</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="deleteprFinancial(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+    </script>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+   </div>     
+      											<!-- Ventana Modal - Item Details -->
+											    
+											                  <div id="itemDetails" class="modal fade bs-example-modal-ed" tabindex="-1" role="dialog" aria-hidden="true">
+											                    <div class="modal-dialog">
+											                      <div class="modal-content">
+											
+											                        <div class="modal-header">
+											                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+											                          </button>
+											                          <h4 class="modal-title" id="myModalLabel">Item Details</h4>
+											                        </div>
+											                        <div class="modal-body">
+											
+											                        											                        
+													                        <!-- price element -->
+													                        <div class="col-md-12 col-sm-12 col-xs-12">
+													                          <div class="pricing ui-ribbon-container">
+													                            <div class="ui-ribbon-wrapper">
+
+													                            </div>
+													                            <div class="title">
+													                              <h2>Quote Per : {{itemActual.qitemType.descitemType}} </h2>
+													                              <h1>Item # : {{itemActual.itemNumber}}</h1>
+													                              <span>{{itemActual.itemStatus.itemStatusDesc}}</span>
+													                            </div>
+													                            <div class="x_content">
+													                              <div class="">
+													                                <div class="pricing_features">
+													                                  <ul class="list-unstyled text-left">
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+															                                    <li ng-if = "itemActual.drawingAva == '1'"><i class="fa fa-check text-success"></i> Drawing <strong> available</strong></li>
+															                                    <li ng-if = "itemActual.drawingAva == '0'"><i class="fa fa-times text-danger"></i> Drawing <strong> available</strong></li>
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+															                                    <li ng-if = "itemActual.newPart == '1'"><i class="fa fa-check text-success"></i> <strong>New Part to customer</strong></li>
+															                                    <li ng-if = "itemActual.newPart == '0'"><i class="fa fa-times text-danger"></i> <strong>New Part to customer</strong></li>
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+													                                    		<li ng-if = "itemActual.sampleAva == '1'"><i class="fa fa-check text-success"></i> Sample <strong> available</strong></li>
+													                                    		<li ng-if = "itemActual.sampleAva == '0'"><i class="fa fa-times text-danger"></i> Sample <strong> available</strong></li>
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+													                                    		<li ng-if = "itemActual.concernsCurr == '1'"><i class="fa fa-check text-success"></i> <strong> Concerns</strong> with current Part</li>
+													                                    		<li ng-if = "itemActual.concernsCurr == '0'"><i class="fa fa-times text-danger"></i> <strong> Concerns</strong> with current Part</li>
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+													                                    	<li ng-if = "itemActual.cadfileAva == '1'"><i class="fa fa-check text-success"></i> CAD File <strong> available</strong></li>
+													                                    	<li ng-if = "itemActual.cadfileAva == '0'"><i class="fa fa-times text-danger"></i> CAD File <strong> available</strong></li>	
+													                                    </div>
+													                                    <div class="col-md-6 col-sm-6 col-xs-6">
+													                                    	<li ng-if = "itemActual.packageReq == '1'"><i class="fa fa-check text-success"></i> <strong> Packaging Requirements</strong></li>
+													                                    	<li ng-if = "itemActual.packageReq == '0'"><i class="fa fa-times text-danger"></i>  <strong> Packaging Requirements</strong></li>
+													                                    </div>
+													                                    <div class="col-md-12 col-sm-12 col-xs-12">
+													                                    	<li ng-if = "itemActual.partKissCut == '1'"><i class="fa fa-check text-success"></i> Part <strong> kiss cut</strong></li>
+													                                    	<li ng-if = "itemActual.partKissCut == '0'"><i class="fa fa-times text-danger"></i> Part <strong> kiss cut</strong></li>													                                    													                                    												                                    													                                    													                                    													                  
+																						</div>
+																						
+																						<br />
+																						<br />
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <li> Annual Usage : <strong> {{ itemActual.anualUsage }}</strong></li>
+																						</div>
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <li> Quantities to Quote : <strong> {{ itemActual.quantity }}</strong></li>
+																						</div>
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <li> Suggested Materials : <strong> {{ itemActual.suggestMat }}</strong></li>
+																						</div>																																												
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <li> Suggested Vendors : <strong> {{ itemActual.suggestVend }}</strong></li>
+																						</div>
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <li> Target Price : <strong> {{ itemActual.targetPrice }}</strong></li>
+																						</div>
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <li> FOB : <strong> {{ itemActual.fob }}</strong></li>
+																						</div>
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <li> RFQ Due Date : <strong> {{ itemActual.rfqdueDate }}</strong></li>
+																						</div>	
+																						
+																						<div class="col-md-12 col-sm-12 col-xs-12">
+																						     <li> Comment : <strong> {{ itemActual.note }}</strong></li>
+																						</div>	
+																						
+																						
+																						</ul>																																																																																																				                                  </ul>
+													                                </div>
+													                              </div>
+													                              <div class="pricing_footer">
+													                                <a href="javascript:void(0);" class="btn btn-primary btn-block" role="button">Cost <span> Sheet</span></a>
+													                                <p>
+													                                  <a href="javascript:void(0);">Print</a>
+													                                </p>
+													                              </div>
+													                            </div>
+													                          </div>
+													                        </div>
+													                        <!-- price element -->
+											                        <!-- end of user messages -->          
+
+                                                                    </div>
+											                        <div class="modal-footer">
+											                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											                         
+											                        </div>
+											
+											                      </div>
+											                    </div>
+											                  </div>
+											    
+											    
+											    
+															  
+											<!-- Ventana Modal - Item Details --	-->	
+   
+   
+   											<!-- Ventana Modal - Activitys -->
+											    
+											                  <div id="editLeadAct" class="modal fade bs-example-modal-ed" tabindex="-1" role="dialog" aria-hidden="true">
+											                    <div class="modal-dialog">
+											                      <div class="modal-content">
+											
+											                        <div class="modal-header">
+											                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+											                          </button>
+											                          <h4 class="modal-title" id="myModalLabel">Recent Activitys</h4>
+											                        </div>
+											                        <div class="modal-body">
+											
+											                        <h4>Customer : {{nameCustomer}}</h4>
+											
+											                        <!-- end of user messages -->          
+											                        <ul class="messages" ng-repeat="act in itemActivitys track by $index" class="ng-scope">
+											                          <li>
+											                            <img ng-src="images/{{act.user.imageUrl}}" class="avatar" alt="Avatar">
+											                            <div class="message_date">
+											                              <h3 class="date text-info">{{act.createdDate | date:'dd'}}</h3>
+											                              <p class="month">{{act.createdDate | date:'MMM'}}</p>
+											                            </div>
+											                            <div class="message_wrapper">
+											                              <h4 class="heading">{{act.user.name + " " + act.user.lastName}}</h4>
+											                              <blockquote class="message" ng-bind="act.descActivity"> </blockquote> 
+											               
+											                              <br />
+											                              <a class="btn btn-danger btn-xs" ng-click="removeLeadAct($index)"><i class="fa fa-trash-o"></i></a>
+											
+											                                
+											
+											
+											                            </div>
+											                          </li>
+											                          
+											                        </ul>
+											                        <div><button type="button"  class="btn btn-round btn-success" ng-click="buttLeadAct()">+</button></div> 
+											 			                    <div class="well" style="overflow: auto" ng-if="showFields == 1">
+														                      
+																					                          <div class="form-group">
+																					                            <label class="control-label col-md-6 col-sm-6 col-xs-12" for="">Activity <span class="required">*</span>
+																					                            </label>
+																					                            <div class="col-md-10 col-sm-10 col-xs-12">
+																					                              <textarea class="form-control" rows="3" ng-model="itemActivity.descActivity" required="required"></textarea>	
+																					                            </div>
+																					                          </div>
+																					                          <button type="button" class="btn btn-primary" ng-click="saveItemAct()">Save</button>
+														                      
+											
+														                    </div> 
+											                        </div>
+											                        <div class="modal-footer">
+											                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											                         
+											                        </div>
+											
+											                      </div>
+											                    </div>
+											                  </div>
+											    
+											    
+											    
+															  
+											<!-- Ventana Modal - End Activitys --	-->	

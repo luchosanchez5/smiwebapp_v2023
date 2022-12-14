@@ -1,0 +1,253 @@
+
+
+        <!-- page content -->
+        <div >
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Proyect Appoiments</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content" ng-controller="proyectsController">
+		
+				  <div><button type="button"  class="btn btn-round btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">+</button></div>
+				  
+<!-- Ventana Modal -->
+				  
+<div id="addApp" class="modal fade bs-example-modal-lg"  tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Add Appoiments</h4>
+                        </div>
+                        <div class="modal-body">
+
+					<form class="form-horizontal form-label-left" ng-submit="addProyectAppoiment()">
+					
+					
+					<div class="form-group">
+
+                     
+                      <div class="ln_solid"></div>
+                 
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Proyect</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select id="select2_multiple_sellers" data-max-options="2" data-width="100%" class="select2_multiple form-control" required="required" ng-model="idProyect" ng-options="proyects.idProyect as proyects.companyId + proyects.userName for proyects in proyects">
+                          </select>
+                        </div>
+                      </div> 
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Appoiment Date <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                           <input id="appDate" ng-model="proyectAppoiment.appoimentDate" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+                        </div>
+                      </div>
+                     
+			          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contactName">Contact Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="contactName" ng-model="proyectAppoiment.draftsmanName" name="contactName" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                      </div>
+                      
+ 			          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contactEmail">Contact Email <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="contactEmail" ng-model="proyectAppoiment.draftsmanEmail" name="contactEmail" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                      </div>                     	  
+                                          
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Notes</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <textarea class="form-control" rows="3" ng-model="proyectAppoiment.notes"></textarea>
+                          
+                        </div>
+                      </div>     
+                      
+                      <input  type="checkbox" checked="checked" ng-model="proyectAppoiment.statRemember" ng-false-value="0" ng-click="validateCheck()" ng-checked="statusChange == 1" name="hobbies[]" id="hobby1" class="flat" /> Remenber
+		                        <br /> 
+                      
+                      <input  type="checkbox" checked="checked" ng-model="proyectAppoiment.statNotify" ng-false-value="0" ng-click="validateCheck()" ng-checked="notifySeller == 1" name="hobbies[]" id="hobby2" class="flat" /> Notify Seller
+		              
+		              <br />                                                        
+
+	  			  </div>     
+	  			  
+	  			                
+                      
+			                         
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                      </div>
+                        
+				</form>
+				
+                      </div>
+                    </div>
+                  </div>
+                </div>
+				
+<!-- /Ventana Modal -->				
+				
+				
+ <table id="tbAppoiment" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Proyect</th>
+                          <th>Date</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Status</th>
+						  <th>Edition</th>
+						  
+  
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="act in appoiments track by $index" class="ng-scope">
+                             
+                            <td ng-bind="act.proyect.companyId"></td> 
+                            <td ng-bind="act.appoimentDate | date:'dd/MMM/yyyy'"></td> 
+                            <td ng-bind="act.draftsmanName"></td>
+                            <td ng-bind="act.draftsmanEmail"></td>
+                            <td ng-if="act.statProyectAppoiment==null"></td>
+                            <td ng-if="act.statProyectAppoiment=='0'"><span class="label label-info">Active</span></td>
+                            <td ng-if="act.statProyectAppoiment=='1'"><span class="label label-info">Canceled</span></td>
+                            <td ng-if="act.statProyectAppoiment=='2'"><span class="label label-info">Signed</span></td>
+                            <td ng-if="act.statProyectAppoiment=='3'"><span class="label label-info">Preeliminared</span></td>
+                            <td ng-if="act.statProyectAppoiment=='4'"><span class="label label-info">Funded</span></td>
+                            <td ng-if="act.statProyectAppoiment=='5'"><span class="label label-info">Permised</span></td>
+                            <td ng-if="act.statProyectAppoiment=='6'"><span class="label label-info">Ejecuted</span></td>
+                            <td></td> 
+						    <td>
+								<a class="btn btn-danger btn-xs" ng-click="borrarApp($index)"><i class="fa fa-trash-o"></i></a>
+							</td>
+									
+		
+							   
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+    <!-- Ventana Modal -->
+				  
+
+
+<!-- /Ventana Modal *** Cambio de Status *** -->           
+<div id="editLeadStatus" class="modal fade bs-example-modal-lg-ed"  tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">Edit Lead</h4>
+                        </div>
+                        <div class="modal-body">
+
+					<form class="form-horizontal form-label-left" ng-submit="editLeadStatus()">
+					
+					
+					<div class="form-group">
+
+									                            
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select id="select2_ed" data-width="100%" class="form-control" required="required" ng-model="leadEdSt.statLead" ng-options="tipoStatus.idTipoStatus as tipoStatus.descTipoStatus for tipoStatus in tipoStatus">
+                          </select>
+                        </div>
+                      </div>                      
+
+                      		                         
+                       <div class="ln_solid"></div>
+                       <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                      </div>
+                        
+				</form>
+				
+                      </div>
+                    </div>
+                  </div>
+</div>        
+<!-- /Ventana Modal -->
+     
+  	<script type="text/ng-template" id="borrar.html">
+        
+
+                        <div class="modal-header">                          
+                          <h4 class="modal-title" >Delete</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<h5>&iquest;Are you sure to delete this item?</h5>
+					  					
+                      </div>
+                      <div class="modal-footer" align="center">
+                          <button type="button" class="btn btn-success" ng-click="removeAppoiment(index)">Yes</button>
+                          <button type="button" class="btn btn-danger"  ng-click="cancel()">No</button>
+                      </div>
+                    
+    </script>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->	
+        
+        
+        
+           
